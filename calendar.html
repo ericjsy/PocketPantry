@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		
+		<script>
+			function drawCalendar(date) {
+				var d = new Date(date);
+				var today = new Date();
+				var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+				var weekday = d.getDay(); //check day of week
+				
+				// add header rows
+				var cal = "<tr><td colspan = '7'><span id='month'>" + months[d.getMonth()] + " " + d.getFullYear() + "</span></td></tr>";
+				cal += "<tr><td>Sun</td>"
+				cal += "<td>Mon</td>"
+				cal += "<td>Tues</td>"
+				cal += "<td>Wed</td>"
+				cal += "<td>Thurs</td>"
+				cal += "<td>Fri</td>"
+				cal += "<td>Sat</td></tr>";
+				
+				cal += "<tr>";
+				
+				// check if first day of month is Sunday
+				if (weekday > 0 && weekday < 7) {
+					cal += "<td colspan = " + weekday + "></td>";
+				}
+				
+				// print first day of month
+				cal += "<td id='day" + d.getDate() + "'><span class='day'>" + d.getDate() + "</span><br><div class='dot'></div><div class='dot'></div><div class='dot'></div></td>";
+				d.setDate(d.getDate() + 1);
+				
+				// print the rest of the days
+				while (d.getDate() > 1) {
+					// if the day of the week is Sunday, place on next row
+					if (d.getDay() == 0) {
+						cal += "</tr><tr>";
+					}
+					
+					cal += "<td id='day" + d.getDate() + "'><span class='day'>" + d.getDate() + "</span>"
+					cal += "<br><div class='dot'></div><div class='dot'></div><div class='dot'></div></td>";
+					d.setDate(d.getDate() + 1);
+				}
+				
+				// fill rest of last row with an empty box
+				if (d.getDay() > 0 && d.getDay() <= 6) {
+					cal += "<td colspan = " + (7 - d.getDay()) + "></td>";
+				}
+				
+				cal += "</tr>";
+				
+				// print out the month
+				document.getElementById("calendar").innerHTML = cal;
+				
+				// highlight today's date
+				if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
+					document.getElementById("day" + today.getDate()).style.backgroundColor = "#006600";
+				}
+				
+				// grey out past days
+				d.setDate(d.getDate() - 1);
+				for (var i = d.getDate(); i >=1; i--) {
+					if (d.getFullYear() < today.getFullYear() || 
+					d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
+					d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && i < today.getDate()) {
+						document.getElementById("day" + i).style.backgroundColor = "#CCCCCC";
+					}
+				}
+			}
+			
+			// upon first launch, show the current month
+			function currentMonth() {
+				var d = new Date();
+				d.setDate(1);
+				drawCalendar(d);
+			}
+			
+			// show the previous month
+			function calculatePrev() {
+				var current = document.getElementById("month").innerHTML;
+				var e = new Date(current);
+				
+				e.setMonth(e.getMonth() - 1);
+				
+				drawCalendar(e);
+			}
+			
+			// show the next month
+			function calculateNext() {
+				var current = document.getElementById("month").innerHTML;
+				var e = new Date(current);
+				
+				e.setMonth(e.getMonth() + 1);
+				
+				drawCalendar(e);
+			}
+			
+		onload=currentMonth;
+		</script>
+		
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+			td { 
+				height: 45px;
+				width: 45px;
+				border: solid 1px;
+				margin: 0;
+			}
+			.dot {
+				display: inline-block;
+				width: 5px;
+				height: 5px;
+				margin: 0 5px;
+				background-color: #00FF00;
+				-webkit-border-radius: 100%;
+				-khtml-border-radius: 100%;
+				-moz-border-radius: 100%;
+				-ms-border-radius: 100%;
+				-o-border-radius: 100%;
+				border-radius: 100%;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<button onclick="calculatePrev()">Previous</button>
+		<button onclick="calculateNext()">Next</button>
+		<table id="calendar">
+		</table>
+		
+	</body>
+</html>
