@@ -1,0 +1,36 @@
+@media only screen and (max-width: 600px) {
+    body {
+        margin: 0 auto;
+    }
+    main {
+        background: url(../img/background.png) no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    /* header */
+    
+    #mobile_header {
+        width: 100%;
+        height: 100px;
+        background-color: darkseagreen;
+        display: flex;
+    }
+    #mobile_header div > a >img {
+        display: block;
+        width: 80px;
+        margin: 0 auto 0 auto;
+    }
+    #meal_planner_nav {
+        height: 100%;
+        flex: 1;
+    }
+    #home_page_nav {
+        height: 100%;
+        flex: 3;
+        margin: 0 auto 0 auto;
+    }
+    #grocery_list_nav {
+        height: 100%;
+        flex: 1;
+    }
+}
