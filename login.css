@@ -1,0 +1,80 @@
+body {
+	font-family: "Agency FB", Verdana, sans-serif;
+}
+
+/* Border for table */
+table {
+	border-spacing: 0;
+	height: 200px;
+	width: 300px;
+}
+
+thead td, tfoot td {
+	border: 1px solid black;
+	padding: 10px;
+	text-align: center;
+}
+
+thead td {
+	background-color: rgb(114, 135, 37);
+	border-radius: 20px 20px 0 0;
+	color: white;
+	font-weight: bold;
+	
+}
+
+tfoot td {
+	background-color: rgb(215, 227, 191);
+	border-radius: 0 0 20px 20px;
+}
+
+tbody td {
+	border-left: 1px solid black;
+}
+
+tbody td:first-of-type {
+	background-color: rgb(215, 227, 191);
+	text-align: center;
+}
+
+tbody td:last-of-type {
+	border-right: 1px solid black;
+}
+
+tr:not(:last-child) td {
+	border-bottom: 1px solid black;
+}
+
+/* Text Boxes */
+input {
+	height: 100%;
+	width: 100%;
+	border: 0;
+	padding-left: 5px;
+	
+}
+
+input:focus {
+	outline-color: green;
+}
+
+input, textarea {
+	font-family: "Agency FB", Verdana, sans-serif;
+}
+
+/* Submit Buttons */
+.submit {
+	background-color: rgb(237, 97, 17);
+	border: 1px solid black;
+	border-radius: 10px;
+	color: white;
+	font-weight: bold;
+	height: 30px;
+	width: 100px;
+}	
+
+.submit:hover {
+	transition: all .5s ease-in-out;
+	background-color: rgb(174, 73, 13);
+	cursor: pointer;
+}
