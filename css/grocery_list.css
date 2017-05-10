@@ -1,7 +1,7 @@
 @media only screen and (max-width: 600px) {
     /* header */
     
-    #grocery_list_nav {
+    #mobile_grocery_list_nav {
         background-color: forestgreen;
     }
 }

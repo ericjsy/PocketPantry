@@ -1,2 +1,46 @@
+.orange{
+    color: orange;
+}
+.green_bold{
+    color: forestgreen;
+    font-weight: bold;
+}
 @media only screen and (min-width: 600px) {
+    /* hide mobile */
+    #mobile_header{
+        display: none;
+    }
+    /* background */
+    main{
+        width: 96%;
+        margin: 0 auto 0 auto;
+        background: url(../img/background.png) no-repeat;
+        background-size: cover;
+    }
+    /* header */ 
+    #PC_header {
+        width: 96%;
+        overflow: auto;
+        margin: 0 auto 0 auto;
+        display: flex;
+    }
+    #PC_header div{
+        flex: 1;
+    }
+    #PC_home_page_nav a > img{
+        width: 10vw;
+    }
+    #PC_page_title{
+        text-align: center;
+        font-size: 3vw;
+        flex: 1;
+    }
+    #PC_grocery_list_nav{
+        flex: 1;
+    }
+    #PC_grocery_list_nav button{
+        float: right;
+        clear: both;
+        width: 100px;
+    }
 }

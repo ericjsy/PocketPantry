@@ -2,6 +2,7 @@
 <html>
    <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
       <title>Pocket Pantry - Meal Planner</title>
       <link rel="stylesheet" href="./css/main_style_pc.css">
       <link rel="stylesheet" href="./css/main_style_mobile.css">
@@ -10,16 +11,31 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script type="text/javascript" src="js/calender_generator.js"></script>
    <script type="text/javascript" src="js/calendar_toggle.js"></script>
+    <script type="text/javascript" src="js/meal_planner_toggle.js"></script>
    <body>
       <nav id="mobile_header">
-         <div id="meal_planner_nav">
+         <div id="mobile_meal_planner_nav">
             <a href="meal_planner.html"><img src="img/meal_planner.png"></a>
          </div>
-         <div id="home_page_nav">
+         <div id="mobile_home_page_nav">
             <a href="index.html"><img src="img/home_logo.png"></a>
          </div>
-         <div id="grocery_list_nav">
+         <div id="mobile_grocery_list_nav">
             <a href="grocery_list.html"><img src="img/grocery_list.png"></a>
+         </div>
+      </nav>
+      <nav id="PC_header">
+         <div id="PC_home_page_nav">
+            <a href="meal_planner.html"><img src="img/home_logo.png"></a>
+         </div>
+         <div id="PC_page_title">
+            <h1 class="orange">Meal<span class="green_bold">Planner</span></h1>
+         </div>
+         <div id="PC_grocery_list_nav">
+            <div>
+                <button>Sign Out</button>
+                <button>Grocery List</button>
+            </div>
          </div>
       </nav>
       <main>
@@ -31,6 +47,43 @@
             <table id="calendar"></table>
          </div>
          <div id="expand_tab">&#9650;</div>
+         <div id="meal_title">
+            <div id="default_title">Planned Meal</div>
+            <div id="meal_time_title">Breakfast</div>
+         </div>
+         <div id="meal_builder">
+             <div id="meal_time_block">
+                <div id="breakfast_block">
+                    <img id="breakfast" src="img/home_logo.png">
+                    <h1 id="breakfast_add" class="add_sign hide">+<br>Add Meal</h1>
+                    <h2 id="breakfast_remove" class="remove_sign show">&#215;</h2>
+                </div>
+                <div id="lunch_block">
+                    <img id="lunch" src="img/home_logo.png">
+                    <h1 id="lunch_add" class="add_sign hide">+<br>Add Meal</h1>
+                    <h2 id="lunch_remove" class="remove_sign show">&#215;</h2>
+                </div>
+                <div id="dinner_block">
+                    <img id="dinner" src="img/home_logo.png">
+                    <h1 id="dinner_add" class="add_sign show">+<br>Add Meal</h1>
+                    <h2 id="dinner_remove" class="remove_sign hide">&#215;</h2>
+                </div>
+            </div>
+            <div id="meal_option">
+                <div>
+                    <img id="pancake" src="img/meal_planner.png">
+                    <h1>Pancake</h1>
+                </div>
+                <div>
+                    <img id="yogurt" src="img/meal_planner.png">
+                    <h1>Yogurt</h1>
+                </div>
+                <div>
+                    <img id="waffles" src="img/meal_planner.png">
+                    <h1>Waffles</h1>
+                </div>
+            </div>
+         </div>
       </main>
    </body>
 </html>

@@ -1,52 +1,123 @@
+/* calender */
+
+table {
+    width: 99.9%;
+    color: orange;
+    border-collapse: collapse;
+}
+td {
+    height: 45px;
+    width: 45px;
+    border: solid 1px #000000;
+    margin: 0;
+    vertical-align: top;
+    text-align: right;
+}
+.dot {
+    flex: 1;
+    text-align: center;
+    -webkit-border-radius: 100%;
+    -khtml-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+}
+.dot_container {
+    width: 100%;
+    display: flex;
+}
+/* mobile */
+
 @media only screen and (max-width: 600px) {
     /* header */
-    
-    #meal_planner_nav {
+    #calander_container{
+        display: none;
+    }
+    #mobile_meal_planner_nav {
         background-color: forestgreen;
-    }
-    /* calender */
-    
-    table {
-        width: 100%;
-        color: orange;
-        border-collapse: collapse;
-    }
-    td {
-        height: 45px;
-        width: 45px;
-        border: solid 1px #000000;
-        margin: 0;
-        vertical-align: top;
-        text-align: right;
-    }
-    .dot {
-        flex: 1;
-        text-align: center;
-        -webkit-border-radius: 100%;
-        -khtml-border-radius: 100%;
-        -moz-border-radius: 100%;
-        -ms-border-radius: 100%;
-        -o-border-radius: 100%;
-        border-radius: 100%;
-    }
-    .dot_container {
-        width: 100%;
-        display: flex;
-    }
-    .planned {
-        color: forestgreen;
-    }
-    .un_planned {
-        color: gainsboro;
     }
     #expand_tab {
         width: 100%;
         text-align: center;
         font-size: 30px;
     }
+    
+    /* meal builder */
+    #meal_title{
+        font-size: 50px;
+        position: relative;
+        width: 94%;
+        height: 50px;
+        margin: 0 auto 0 auto;
+        overflow: hidden;
+    }
+    #meal_title div{
+        width: 100%;
+        position: absolute;
+    }
+    #meal_time_title{
+        left: 100%;
+    }
+    #meal_builder{
+        width: 94%;
+        margin: 0 auto 0 auto;
+    }
+    #meal_builder div > img{
+        width: 100%;
+        height: 100%;
+    }
+    #meal_time_block > div{
+        position: relative;
+        width: 100%;
+        height: 40vw;
+        margin: 0 0 5px 0;
+    }
+    #meal_option > div{
+        position: relative;
+        width: 100%;
+        height: 40vw;
+        margin: 0 0 5px 0;
+    }
+    #meal_option div > h1{
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        margin: 0 0 0 0;
+    }
+    .add_sign{
+        width: 100%;
+        height: 0;
+        position: absolute;
+        top: 10vw;
+        text-align: center;
+        margin: 0;
+    }
+    .remove_sign{
+        font-size: 50px;
+        height: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        margin: 0;
+    }
+    #meal_option{
+        height: calc(120vw + 15px);
+        display: none;
+    }
 }
+/* PC */
+
 @media only screen and (min-width: 600px) {
+    /* hide mobile */
+    
     #mobile_header {
         display: none;
     }
+    #expand_tab {
+        display: none;
+    }
+    
 }

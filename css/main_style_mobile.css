@@ -1,11 +1,15 @@
 @media only screen and (max-width: 600px) {
+    /* hide PC */
+    #PC_header{
+        display: none;
+    }
+    /* background */
     body {
         margin: 0 auto;
     }
     main {
         background: url(../img/background.png) no-repeat;
         background-size: cover;
-        background-repeat: no-repeat;
     }
     /* header */
     
@@ -20,17 +24,30 @@
         width: 80px;
         margin: 0 auto 0 auto;
     }
-    #meal_planner_nav {
+    #mobile_meal_planner_nav {
         height: 100%;
         flex: 1;
     }
-    #home_page_nav {
+    #mobile_home_page_nav {
         height: 100%;
         flex: 3;
         margin: 0 auto 0 auto;
     }
-    #grocery_list_nav {
+    #mobile_grocery_list_nav {
         height: 100%;
         flex: 1;
     }
+}
+/* js add class */
+.hide{
+    display: none;
+}
+.show{
+    display: inline;
+}
+.planned {
+    color: forestgreen;
+}
+.un_planned {
+    color: gainsboro;
 }

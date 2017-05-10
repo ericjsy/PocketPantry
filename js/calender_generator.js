@@ -22,7 +22,7 @@
 			    }
 
 			    // print first day of month
-			    cal += "<td id='day" + d.getDate() + "'><span class='day'>" + d.getDate() + "</span><br><div class='dot'></div><div class='dot'></div><div class='dot'></div></td>";
+			    cal += "<td id='" + (d.getMonth() + 1) + "_" + d.getDate() + "'><span class='day'>" + d.getDate() + "</span><br><div class='dot'></div><div class='dot'></div><div class='dot'></div></td>";
 			    d.setDate(d.getDate() + 1);
 
 			    // print the rest of the days
@@ -32,7 +32,7 @@
 			            cal += "</tr><tr>";
 			        }
 
-			        cal += "<td id='day" + d.getDate() + "'><span class='day'>" + d.getDate() + "</span>"
+			        cal += "<td id='" + (d.getMonth() + 1) + "_" + d.getDate() + "'><span class='day'>" + d.getDate() + "</span>"
 			        cal += "<div class='dot_container'><div class='dot'>&#9679;</div><div class='dot'>&#9679;</div><div class='dot'>&#9679;</div></div></td>";
 			        d.setDate(d.getDate() + 1);
 			    }
@@ -48,9 +48,12 @@
 			    document.getElementById("calendar").innerHTML = cal;
 
 			    // highlight today's date
-			    if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
-			        document.getElementById("day" + today.getDate()).style.backgroundColor = "#006600";
-			    }
+			    //			    if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
+			    //			        document.getElementById("" + today.getMonth + today.getDate()).style.backgroundColor = "#006600";
+			    //			    }
+
+			    document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#006600";
+			    //                console.log("" + (today.getMonth()+1) + "_" + today.getDate());
 
 			    // grey out past days
 			    d.setDate(d.getDate() - 1);
@@ -58,8 +61,10 @@
 			        if (d.getFullYear() < today.getFullYear() ||
 			            d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
 			            d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && i < today.getDate()) {
-			            document.getElementById("day" + i).style.backgroundColor = "#CCCCCC";
-			        }
+			            document.getElementById("" + (d.getMonth() + 1) + "_" + i).style.backgroundColor = "#CCCCCC";
+			        } else {
+                        document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {console.log(this.id);}, false);
+                    }
 			    }
 			}
 
@@ -90,4 +95,5 @@
 			    drawCalendar(e);
 			}
 
+                
 			onload = currentMonth;
