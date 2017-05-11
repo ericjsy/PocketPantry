@@ -64,9 +64,9 @@
 			            d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && i < today.getDate()) {
 			            document.getElementById("" + (d.getMonth() + 1) + "_" + i).style.backgroundColor = "#CCCCCC";
 			        } else {
-                        dotDraw("" + (d.getMonth() + 1) + "_" + i);
                         document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {mealPlan(this.id);}, false);
                     }
+                    dotDraw("" + (d.getMonth() + 1) + "_" + i);
 			    }
 			}
 
