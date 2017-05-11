@@ -1,0 +1,41 @@
+/* Header reset and padding */
+
+/* text# Header box alignment */
+.text1 {
+	width:50%;
+}
+
+.boxes {
+	padding-bottom: 20px;
+}
+
+.boxes div{
+	height: 300px;
+}
+
+.box1 {
+	background-image: url("../images/900.jpg");
+	background-repeat: no-repeat; 
+	background-position: right;
+} 
+
+.box2 {
+	background-image: url("../images/7.jpg");
+	background-repeat: no-repeat; 
+	background-position: right;
+}   
+
+.box3 {
+	background-image: url("../images/462.jpg");
+	background-repeat: no-repeat; 
+	background-position: right;
+}
+
+main {
+	width: 60%;
+	margin: auto;
+}
+
+h1 {
+	padding-bottom: 50px;
+}

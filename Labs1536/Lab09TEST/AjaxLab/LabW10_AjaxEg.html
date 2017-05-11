@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>My Ajax Application</title>
+	<script Language="JavaScript" type="text/javascript">
+	function getXMLHTTPRequest() {
+	try {
+	req = new XMLHttpRequest();
+	} catch(err1) {
+	  try {
+	  req = new ActiveXObject("Msxml2.XMLHTTP");
+	  } catch (err2) {
+		try {
+		req = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (err3) {
+		  req = false;
+		} 
+	  } 
+	}
+	return req;
+	}
+
+	var http = getXMLHTTPRequest();
+	var http2 = getXMLHTTPRequest();
+	
+	function getServerText() {
+	  var myurl = 'textserver.php';
+	  myRand = parseInt(Math.random()*999999999999999);
+	  var modurl = myurl+"?rand="+myRand;  
+	  http.open("GET", modurl, true);
+	  http.onreadystatechange = useHttpResponse;
+	  http.send(null);
+	}
+
+	function useHttpResponse() {
+	  if (http.readyState == 4) {
+		if(http.status == 200) { 
+		  var mytext = http.responseText;
+		  document.getElementById('myPageElement').innerHTML = mytext;
+		}
+	  } else {
+	  document.getElementById('myPageElement').innerHTML = "waiting..."+http.readyState;
+	  }
+	}
+	
+	function getServerText2() {
+	  var myurl = 'textserver2.php';
+	  myRand = parseInt(Math.random()*999999999999999);
+	  var modurl = myurl+"?rand="+myRand;  
+	  http2.open("GET", modurl, true);
+	  http2.onreadystatechange = useHttpResponse2;
+	  http2.send(null);
+	}
+
+	function useHttpResponse2() {
+	  if (http2.readyState == 4) {
+		if(http2.status == 200) { 
+		  var mytext = http2.responseText;
+		  document.getElementById('myPageElement2').innerHTML = mytext;
+		}
+	  } else {
+	  document.getElementById('myPageElement2').innerHTML = "waiting..."+http2.readyState;
+	  }
+	}
+
+	</script>
+</head>
+
+<body onload="getServerText()">
+	Here is the text returned by the server:<br>
+	<!-- empty div to puhlish result from php script -->
+	<div id="myPageElement"></div>
+	
+	<a href="#" onmouseover="getServerText2()"
+				onmouseout="document.getElementById('myPageElement2').innerHTML='';">Click me</a>
+	
+	<div id="myPageElement2"></div>
+</body>
+
+</html>

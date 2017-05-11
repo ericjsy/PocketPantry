@@ -1,0 +1,99 @@
+/* Page size imitation */
+
+p {
+	margin: 0;
+}
+
+.modal-dialog {
+	width: 65%;
+	height: 80%;
+}
+
+.modal-footer {
+	height: 70px;
+	padding-bottom: 10px;
+}
+
+.mcontent {
+	padding: 50px;
+}
+
+button.close {
+	padding: 15px 20px 0 0;
+}
+
+main {
+	width: 960px;
+	height: 540px;
+}
+/* Left column */
+.lcol{
+	float: left;
+	width: 25%;
+	margin: 0 25px;
+	text-align: center;
+	padding: 10px;
+}
+/* Right column */
+.rcol{
+	overflow: auto;
+	margin: 0;
+	height: 425px;
+}
+
+.facts {
+	padding: 20px;
+	width: 200px;
+}
+
+#txtQuantity {
+	margin-right: 10px;
+}
+
+/* Bottom alignment */
+
+#amount{
+	
+	float: left;
+}
+/* Send to cart */
+#tocart{
+	float: right;
+	width: 20%;
+}
+/* Finalize button standard */
+.finalize{	
+	background-color: #9B3417;
+	border-style: none;	
+	color: white;
+	height: 16px;
+	width: 80px;
+	font-family: Verdana;
+	text-decoration: none;
+	padding-top: 2px;
+	padding-bottom: 6px;
+}
+
+.finalize:hover{
+	-webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+	background-color: #7B1403;
+	cursor: pointer;
+}
+
+/* Submit button reset */
+#submit{
+	background:none;
+	border:none;
+	background-color: #9B3417;
+	color: white;
+	font-family: Verdana;
+	font-size: 12px;
+	cursor: pointer;
+	width: 100px;
+	float: right;
+}
+
+#replprod {
+	margin-top: 10px;
+}

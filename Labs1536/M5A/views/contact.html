@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Madeleine's</title>
+	<link rel="stylesheet" href="../style/base.css" media="screen">
+	<link rel="stylesheet" href="../style/contact.css" media="screen">
+	<link rel="stylesheet" href="../style/form.css" media="screen">
+	<link rel="stylesheet" href="../style/printbase.css" media="print">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="../javascript/contact.js"></script>	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Italianno">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	<!--
+		$.noConflict();
+	//-->
+	</script>
+	<script src="../javascript/backtop.js"></script>
+</head>
+
+<body>
+	<!--header-->
+	<header>
+		<nav>
+			<div id="logo">
+				<a href="index.html"><img src="../images/logo.png" alt="Madeleine's"></a>
+				<a href="index.html"><img src="../images/cake.png" alt="cake"></a>
+			</div>
+			<div id="navbar">
+				<ul>
+					<li>
+						<a href="aboutus.html">About Us</a>
+					</li>
+					<li>
+						<a href="products.html">Products</a>
+					</li>
+					<li>
+						<a href="catering.html">Catering</a>
+					</li>
+					<li>
+						<a href="testimonials.html">Reviews</a>
+					</li>
+					<li>
+						<a href="contact.html">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+			<div id="navshop">
+				<a href="cart.html" class="fa fa-shopping-cart fa-2x"></a>
+				<a href="signin.html" class="fa fa-user-circle fa-2x"></a>
+			</div>
+		</nav>
+		<!--Keep the "clear" div so all the floated divs stay in the header-->
+		<div class="clear"></div>
+	</header>	
+	<!--main content here-->
+	<main id="main">
+		<a href="#" class="backup fa fa-chevron-circle-up fa-5x"></a>
+		<img id="printlogo" src="../images/whitelogo.png" alt="print logo" width="374" height="168">
+		<div id="wrapper">
+			<div id="leftcol">
+				<h2>
+					Location
+				</h2>
+				<div id="map"><img src="../images/map.png" alt="map" width="303" height="302"></div>
+				<div id="location">
+					1234 Bakery Lane
+					<br>Vancouver, British Columbia
+					<br>Canada V8W 5K9
+				</div>
+			</div>
+			<div id="rightcol">
+				<h2>
+					Feedback
+				</h2>
+				<form name="contact" action="http://webdevfoundations.net/scripts/formdemo.asp" method="post" onsubmit="return validFeedback()">
+					<fieldset>
+						<ul>
+							<li>
+								<label for="txtName">
+									Name <span class="required">*</span><br>
+								</label>
+								<input 
+									type="text" 
+									id="txtName" 
+									name="txtName" 
+									placeholder="Name"
+									onblur="warnInvalidName('txtName')">
+							</li>
+							<li id="errName" class="errorMessage"></li>
+							<li>
+								<label for="txtEmail">
+									<br>Email <span class="required">*</span><br>
+								</label>
+								<input 
+									type="text" 
+									id="txtEmail" 
+									name="txtEmail" 
+									placeholder="name@domain.com"
+									onblur="warnInvalidEmail('txtEmail')">
+							</li>
+							<li id="errEmail" class="errorMessage"></li>
+							<li>
+								<label for="taFeedback">
+									<br>Feedback <span class="required">*</span><br>
+								</label>
+								<textarea 
+									name="taFeedback" 
+									id="taFeedback" 
+									placeholder="Enter your comments here."
+									cols="41" 
+									rows="4"></textarea>
+							</li>
+							<li>
+								<input 
+									type="submit"
+									class="submit"
+									name="submit"
+									accesskey="S"
+									value="Submit">
+							</li>
+							<li id="errFeedback"></li>
+						</ul>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</main>
+	
+	<!--footer-->
+	<footer>
+		<div class="footbox0">
+			<div id="info">
+				<div id="hours">
+					Weekdays 8 - 4 | Weekends 10 - 3  <br>
+					<a href="tel:6048888888">(604) 888 - 8888</a>
+				</div>
+				<div id="slogan">
+					- A little bliss in every bite -
+				</div>
+				<div id="address">
+					1234 Bakery Lane Vancouver <br>
+					B.C. Canada V8W 5K9
+				</div>
+			</div>
+		</div>
+		<div class="footbox1">
+			<div id="anchor">
+				<div id="links"> 
+					<a href="aboutus.html" id="aboutus">About Us</a> |
+					<a href="products.html">Products</a> |
+					<a href="catering.html">Catering</a> |
+					<a href="testimonials.html">Reviews</a> |
+					<a href="contact.html">Contact Us</a>
+				</div>
+				<div id="logo2">
+					<a href="index.html"><img id="translogo" src="../images/translogo.png" alt="logo"></a>
+				</div>
+				<div id="sm">
+					<a href="https://www.facebook.com" class="fa fa-facebook fa-2x" id="fb"></a>
+					<a href="https://www.twitter.com" class="fa fa-twitter fa-2x"></a>
+					<a href="https://www.instagram.com" class="fa fa-pinterest fa-2x"></a>
+					<a href="https://www.pinterest.com" class="fa fa-instagram fa-2x"></a>
+				</div>
+			</div>
+		</div>
+		<div class="footbox2">
+			<div id="copyr">
+				Copyright &copy; Madeleine's, All Rights Reserved
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

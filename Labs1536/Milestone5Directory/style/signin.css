@@ -1,0 +1,44 @@
+/* two column format */
+#wrapper {
+	margin: auto;
+	width: 900px;
+}
+
+#leftcol {
+	float: left;
+	margin-right: 15px;
+}	
+	
+#rightcol {
+	overflow: auto;
+}
+
+/* Log in and remember me positioning */
+#chkRemember {
+	margin: 0;
+	width: 15px;
+	vertical-align: middle;
+}
+
+#floatRight {
+	display: inline;
+	float: right;
+	margin-right: 50px;
+}
+
+.submit {
+	float: left;
+}
+
+/* submission error messages */
+#errLogin, #errSignUp {
+	clear: left;
+	color: red;
+	font-size: small;
+}
+
+#wrongsignin {
+	clear: left;
+	color: red;
+	font-size: small;
+}

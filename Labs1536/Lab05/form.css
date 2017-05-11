@@ -1,0 +1,61 @@
+form ul {
+	list-style-type: none;
+	padding-left: 10px;
+}
+
+.required {
+	color: red;
+}
+
+#position {
+	width: 300px;
+}
+
+#month {
+	width: 40px;
+}
+
+#day{
+	width: 40px;
+}
+
+#year {
+	width: 50px;
+}
+
+#areaCode {
+	width: 40px;
+}
+
+#threeDigit {
+	width: 40px;
+}
+
+#fourDigit {
+	width: 50px;
+}
+
+#portfolio, #email {
+	width: 450px;
+}
+
+.label {
+	display: inline-block;
+}
+
+.label p {
+	font-size: x-small;
+	margin: 5px 0 0 0;
+}
+
+#firstName {
+	width: 75px;
+}
+
+#lastName {
+	width: 125px;
+}
+
+.blueFont {
+	color: #006699;
+}

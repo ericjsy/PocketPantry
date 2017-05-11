@@ -1,0 +1,88 @@
+body {
+	padding-bottom: 20px;
+}
+
+main p{
+	margin: 0;
+}
+
+.uinfo{
+	margin: auto;
+}
+
+.leftcol{
+	float:left;
+	width: 50%;
+	margin: 50px 0;
+}
+/* Left column vertical spacing */
+#allergies{
+	text-align: center;
+	margin: 10px 0;
+}
+/* Picture of favourites */
+#likes{
+	margin: auto;
+	text-align: center;
+}
+
+#likes img{
+	text-align: center;
+	border: 5px solid rgba(0, 0, 0, 0);
+}
+/* User account history */
+.userinfo{	
+	text-align: center;
+	margin: 0 175px;
+}
+
+.rightcol{
+	overflow: auto;
+}
+
+.accinfo{
+	margin-top: 100px;
+	margin-left: 100px;
+	width: 70%;
+}
+
+.sline{
+	display: inline;
+}
+
+#email{
+	float: left;
+	width: 100%;
+}
+
+#password{
+	float: left;
+	width: 100%;
+}
+
+#previous{
+	padding: 20px;
+	text-align: center;
+	border: 5px solid #9B3417;
+}
+
+#previous img{
+	padding: 5px;
+}
+/* Previous orders */
+.orders{
+	margin-top: 50px;
+}
+/* User Info change */
+.change{
+	float: right;
+	background-color: #9B3417;
+	border-style: none;	
+	color: white;
+	font-family: Verdana;
+	padding: 5px;
+}
+
+caption {
+	color: black;
+}

@@ -1,0 +1,33 @@
+===
+FRESHNESS 
+
+Description: Freshness provides the food preservation methods for you to keep the food fresh as long as you can.
+
+NO LINK CURRENTLY:
+
+
+
+===
+MealIO (Mealio?)
+
+Description: our app has three main features, it lets users make a grocery list, then add the grocery list to “my fridge” and finally create meals from “my fridge” as meals are created, food from fridge is deleated and then user has to make another grocery list its a cycle that never ends
+
+NO LINK CURRENTLY:
+
+
+
+===
+E-FRIDGE  
+
+Description: Reducing food waste by starting to manage your food in the fridge
+
+NO LINK CURRENTLY:I will give you the homepage before Thurday evening.
+
+
+
+===
+Green Deals
+
+Description: Green Deals is a new platform that allows grocers to easily sell food products that are expiring soon. Green Deals endeavours to reduce food waste by ensuring that all food carried by grocery stores is sold to consumers by the best before date. This will reduce food waste at the ground level and provide great deals to consumers.
+
+URL:greendeals.me

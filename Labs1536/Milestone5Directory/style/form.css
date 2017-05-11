@@ -1,0 +1,60 @@
+/* general format for all forms */
+
+/* lists organization */
+ li {
+	list-style-type: none;
+}
+
+/* required asterisk */
+.required {
+	color: #9B3417;
+}
+
+/* form borders */
+fieldset {
+	border: 1px solid #9B3417;
+	border-radius: 15px;
+	margin-bottom: 10px;
+	width: 400px;
+}
+
+.emptyLegend {
+	display: none;
+}
+
+/* text fields */
+input, textarea {
+	border: 1px solid #eee;
+	border-radius: 2px;
+	font-family: Verdana, Arial, sans-serif;
+	padding: 5px;
+	width: 310px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+/* submit buttons */
+.submit {
+	background-color: #9B3417;
+	border-style: none;
+	color: white;
+	height: 40px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	width: 100px;
+}	
+
+.submit:hover {
+    transition: all .5s ease-in-out;
+	background-color: #7B1403;
+	cursor: pointer;
+}
+
+/* field error messages */
+.errorMessage {
+	color: #9B3417;
+	font-size: small;
+	width: 300px;
+}

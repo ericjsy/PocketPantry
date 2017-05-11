@@ -1,0 +1,48 @@
+/* information section */
+h1 {
+	border-bottom: 1px solid #F2B7A6;
+	margin-top: 0;
+	padding-top: 10px;
+	width: 400px;
+}
+
+#catinfo p {
+	width: 400px;
+}
+
+/* form to form spacing */
+form {
+	padding-top: 10px;
+	width: 550px;
+}
+
+h2 {
+	margin-top: 0px;
+	padding-top: 5px;
+}
+
+/* remove arrows for number input types */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.tel {
+	width: 54px;
+}
+
+/* Float right effect */
+#desired input {
+	width: 15px;
+}
+
+td {
+	padding: 3px;
+}
+
+#wrapper {
+	width: 30%;
+	margin: auto;
+	padding-bottom: 20px;
+}

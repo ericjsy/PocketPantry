@@ -1,0 +1,137 @@
+body, html {
+	font-family: "Lucida Grande", sans-serif;
+	height: 100%;
+}
+
+body {
+	background-color: rgb(246,240,222);
+	margin: 0;
+	overflow: auto;
+}
+
+header { 	
+	background-color: #006699;
+	border-top: 10px solid rgb(101, 153, 205);
+	color: white;
+	font-size: 30px;
+	height: 100px;
+	position: fixed;
+	width: 100%;
+}
+
+footer {
+	background-color: rgb(237, 229, 206);
+	bottom: 0;
+	height: 120px;
+	position: fixed;
+	width: 100%;
+}
+
+footer #copyrights{ /*Developer section alignment */
+	text-align: center;	
+}
+
+header div{
+	margin: auto;
+	vertical-align: top;
+	width: 760px;
+}
+	
+footer div{ /*Fixed width*/
+	margin: auto;
+	width: 760px;
+}
+
+header img{ 
+	float: left;
+}
+
+#logo p {
+	vertical-align: middle;
+}
+
+#content { /*Content containing both columns*/
+	margin: auto;
+	padding-bottom: 40px; /* Equal to footer height */
+	padding-top: 130px; /*Equal to header height + 30px */
+	width: 760px;
+}
+
+nav {
+	float: left;
+}
+
+#placeholder img{ /*Image display same as Nav width */
+	height: 100px;
+	width: 196px;
+}
+
+#main {
+	border-left: 1px solid rgba(22, 22, 22, 0.25);
+	margin: 0 0 130px 206px;
+	padding: 0 10px 10px 10px;
+	width: 525px;
+}
+
+#main p + img{ /*Separator properties*/
+	margin-left: 10%;
+	width: 80%;
+}
+
+.contentNoScroll {
+	height: 100%;
+	min-height: 500px;
+}
+
+.contentScroll {
+	height: 75%;
+	overflow: auto;
+}
+
+h2{
+	color: #006699;
+	margin: 0;
+}
+
+#container1 { 
+	background-image: url(starterImages/nav_side.jpg);
+	width: 196px;
+}
+
+#container2 {
+	background-image: url(starterImages/nav_btm.jpg);
+	height: 8px;
+	width: 196px;
+}
+
+.links div{
+	border-bottom: 1px gray solid;
+	color: #006699;
+	font-weight: bold;
+	margin: 5px;
+	padding: 3px 0 0 0;
+}
+
+.links a{
+	text-decoration: none;
+}
+
+.links a:link{ /*Same color link */
+	color: #006699;
+}
+.links a:visited{ /*Same color link */
+	color: #006699;
+}
+
+#first { /*First Nav link properties*/
+	padding: 3px 0 0 0;
+}
+
+#last { /*Last Nav link properties*/
+	border-bottom: none;
+	margin: 0 5px;
+}
+
+.blueFont {
+	color: #006699;
+}

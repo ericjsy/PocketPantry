@@ -1,0 +1,28 @@
+table {
+	background-color: white;
+	border: 1px solid black;
+	
+}
+
+table, td, th {
+	padding: 10px;
+	border-collapse: collapse;
+}
+
+tr:nth-of-type(even) {
+	background-color: rgb(237, 229, 206);
+}
+
+th {
+	font-weight: bold;
+	width: 100px;
+}
+
+#wrapper {
+	margin: auto;
+	width: 450px;
+}
+
+.blueFont {
+	color: #006699;
+}

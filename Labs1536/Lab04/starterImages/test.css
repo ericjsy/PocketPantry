@@ -1,0 +1,30 @@
+#container {
+	font-family: Arial;
+	height: 146px;
+	width: 195px;
+}
+
+.links div {
+	border-bottom: 1px gray solid;
+	color: #006699;
+	font-weight: bold;
+	margin: 0px 10px;
+	padding: 3px 5px;
+}
+
+#lastlink {
+	background-image: url(nav_btm.jpg);
+	background-position: bottom left;
+	background-repeat: no-repeat;	
+	border-bottom: none;
+	height: 23px;
+	margin: 0;
+	padding: 3px 15px;
+	width: 165px;
+}
+
+#shadowright { 
+	background-image: url(nav_side.jpg);
+	height: 123px;
+	width: 195px;
+}
