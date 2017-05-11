@@ -7,7 +7,6 @@ function mealPlan(date){
     dbUser.once("value").then(function(snapshot) {
         if(snapshot.child(date).exists()){
             dbDatePlan = dbUser.child(date);
-            console.log("true");
         } else {
             dbUser.child(date).set({
                 breakfast: "null",
@@ -31,6 +30,34 @@ function mealPlan(date){
     dbDinner.on('value', a => {
         document.getElementById("dinner").src="img/" + a.val() + ".jpg";
     });
+}
+//draw dots
+function dotDraw(day_id){
+    date = document.getElementById(day_id);
+    dbUser.on('value', a => {
+        if(a.child(day_id).exists()){
+            dotCheck = firebase.database().ref().child("days").child("ryalia").child(day_id);
+            dotCheck.child('breakfast').on('value', a => {
+                if(a.val() != null){
+                    document.getElementById("b" + day_id).classList.add('planned');
+                    document.getElementById("b" + day_id).classList.remove('un_planned');
+                }
+            });
+            dotCheck.child('lunch').on('value', a => {
+                if(a.val() != "null"){
+                    document.getElementById("l" + day_id).classList.add('planned');
+                    document.getElementById("l" + day_id).classList.remove('un_planned');
+                }
+            });
+            dotCheck.child('dinner').on('value', a => {
+                if(a.val() != "null"){
+                    document.getElementById("d" + day_id).classList.add('planned');
+                    document.getElementById("d" + day_id).classList.remove('un_planned');
+                }
+            });
+        }
+    });
+    date.innerHTML += "<div class='dot_container'><div id='" + "b" + day_id + "' class='dot un_planned'>&#9679;</div><div id='" + "l" + day_id + "' class='dot un_planned'>&#9679;</div><div id='" + "d" + day_id + "' class='dot un_planned'>&#9679;</div>";
 }
 //breakfast lunch dinner options
 function connectMeal(mealtime) {

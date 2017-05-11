@@ -33,7 +33,7 @@
 			        }
 
 			        cal += "<td id='" + (d.getMonth() + 1) + "_" + d.getDate() + "'><span class='day'>" + d.getDate() + "</span>"
-			        cal += "<div class='dot_container'><div class='dot'>&#9679;</div><div class='dot'>&#9679;</div><div class='dot'>&#9679;</div></div></td>";
+			        cal += "</td>";
 			        d.setDate(d.getDate() + 1);
 			    }
 
@@ -57,12 +57,14 @@
 
 			    // grey out past days
 			    d.setDate(d.getDate() - 1);
+                //generate dots
 			    for (var i = d.getDate(); i >= 1; i--) {
 			        if (d.getFullYear() < today.getFullYear() ||
 			            d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
 			            d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && i < today.getDate()) {
 			            document.getElementById("" + (d.getMonth() + 1) + "_" + i).style.backgroundColor = "#CCCCCC";
 			        } else {
+                        dotDraw("" + (d.getMonth() + 1) + "_" + i);
                         document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {mealPlan(this.id);}, false);
                     }
 			    }
