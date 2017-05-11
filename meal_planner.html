@@ -7,11 +7,14 @@
       <link rel="stylesheet" href="./css/main_style_pc.css">
       <link rel="stylesheet" href="./css/main_style_mobile.css">
       <link rel="stylesheet" href="./css/meal_planner.css">
-   </head>
+   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+   <script src="js/fbconnect.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script type="text/javascript" src="js/calender_generator.js"></script>
    <script type="text/javascript" src="js/calendar_toggle.js"></script>
-    <script type="text/javascript" src="js/meal_planner_toggle.js"></script>
+   <script type="text/javascript" src="js/meal_planner_toggle.js"></script>
+   <script type="text/javascript" src="js/pulling_data.js"></script>
+   </head>
    <body>
       <nav id="mobile_header">
          <div id="mobile_meal_planner_nav">
@@ -65,24 +68,11 @@
                 </div>
                 <div id="dinner_block">
                     <img id="dinner" src="img/home_logo.png">
-                    <h1 id="dinner_add" class="add_sign show">+<br>Add Meal</h1>
-                    <h2 id="dinner_remove" class="remove_sign hide">&#215;</h2>
+                    <h1 id="dinner_add" class="add_sign hide">+<br>Add Meal</h1>
+                    <h2 id="dinner_remove" class="remove_sign show">&#215;</h2>
                 </div>
             </div>
-            <div id="meal_option">
-                <div>
-                    <img id="pancake" src="img/meal_planner.png">
-                    <h1>Pancake</h1>
-                </div>
-                <div>
-                    <img id="yogurt" src="img/meal_planner.png">
-                    <h1>Yogurt</h1>
-                </div>
-                <div>
-                    <img id="waffles" src="img/meal_planner.png">
-                    <h1>Waffles</h1>
-                </div>
-            </div>
+            <div id="meal_option"></div>
          </div>
       </main>
    </body>

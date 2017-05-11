@@ -63,7 +63,7 @@
 			            d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && i < today.getDate()) {
 			            document.getElementById("" + (d.getMonth() + 1) + "_" + i).style.backgroundColor = "#CCCCCC";
 			        } else {
-                        document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {console.log(this.id);}, false);
+                        document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {mealPlan(this.id);}, false);
                     }
 			    }
 			}
@@ -71,6 +71,7 @@
 			// upon first launch, show the current month
 			function currentMonth() {
 			    var d = new Date();
+                mealPlan("" + (d.getMonth() + 1) + "_" + d.getDate());
 			    d.setDate(1);
 			    drawCalendar(d);
 			}
@@ -95,5 +96,4 @@
 			    drawCalendar(e);
 			}
 
-                
-			onload = currentMonth;
+		onload = currentMonth;
