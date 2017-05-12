@@ -6,7 +6,7 @@
 
 	/* header */
     #mobile_home_page_nav {
-        background-color: #8dc289;
+        background-color: forestgreen;
     }
     
     /* content section */
@@ -52,7 +52,7 @@
 		float: left;
     }
 	#expand_educational, #expand_behavioral, #expand_shopping{
-		background-color: #8dc289;
+		background-color: rgb(215, 227, 191);
 		color: white;
 		font-size: 40px;
 		padding: 5px;
