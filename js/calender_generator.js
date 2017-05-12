@@ -1,9 +1,11 @@
 function drawCalendar(date) {
 	var d = new Date(date);
+	d.setDate(1);
 	var today = new Date();
 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 	var weekday = d.getDay(); //check day of week //alerts 1
-    var dayofweek = new Array(7);
+
+	var dayofweek = new Array(7);
     dayofweek[0] = "Sun";
     dayofweek[1] = "Mon";
     dayofweek[2] = "Tues";
@@ -13,14 +15,13 @@ function drawCalendar(date) {
     dayofweek[6] = "Sat";
 
     var n = dayofweek[d.getDay()];
-  
-  
+	
 	// add header rows
-	var cal = "<tr><th colspan = '7'><span id='month'>" +
-        dayofweek[d.getDay()] + ", " + 
-        months[d.getMonth()] + " " + 
-        d.getFullYear() + 
-        "</span></th></tr>";
+	var cal = "<tr><th colspan = '7'><span id='month'>" + 
+		dayofweek[d.getDay()] + ", " + 
+		months[d.getMonth()] + " " + 
+		d.getFullYear() + 
+		"</span></th></tr>";
 	cal += "<tr id='calendar_days_headings'>" /* changes by alberto 2017-05-12 - 5:12 PM*/
 	cal += "<th>S</th>"
 	cal += "<th>M</th>"
@@ -65,12 +66,13 @@ function drawCalendar(date) {
 	document.getElementById("calendar").innerHTML = cal;
 
 	// highlight today's date
-	//			    if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
-	//			        document.getElementById("" + today.getMonth + today.getDate()).style.backgroundColor = "#006600";
-	//			    }
-
-	document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#a9d7ef";
-	//                console.log("" + (today.getMonth()+1) + "_" + today.getDate());
+	//			    
+	
+	//document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
+	
+	if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
+		document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
+	}
 
 	// grey out past days
 	d.setDate(d.getDate() - 1);
@@ -80,40 +82,42 @@ function drawCalendar(date) {
 		if (d.getFullYear() < today.getFullYear() ||
 			d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
 			d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && i < today.getDate()) {
-			document.getElementById("" + (d.getMonth() + 1) + "_" + i).style.backgroundColor = "#ededed";
-		} else {
-			document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {mealPlan(this.id);}, false);
+			document.getElementById("" + (d.getMonth() + 1) + "_" + i).style.backgroundColor = "#CCCCCC";
 		}
-		dotDraw("" + (d.getMonth() + 1) + "_" + i);
+        document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {mealPlan(this.id);}, false);
 	}
+	//document.getElementById("calendar_container").onload = function() {
+		for (var i = d.getDate(); i >= 1; i--) {
+			dotDraw("" + (d.getMonth() + 1) + "_" + i);
+		}
+	//};
+	
 }
 
 // upon first launch, show the current month
 function currentMonth() {
-	var d = new Date();
+	d = new Date();
 	mealPlan("" + (d.getMonth() + 1) + "_" + d.getDate());
-	d.setDate(1);
+    console.log("cM" + d);
 	drawCalendar(d);
 }
 
 // show the previous month
 function calculatePrev() {
-	var current = document.getElementById("month").innerHTML;
-	var e = new Date(current);
-
-	e.setMonth(e.getMonth() - 1);
-
-	drawCalendar(e);
+	d.setMonth(d.getMonth()-1);
+	drawCalendar(d);
+	mealPlan("" + (d.getMonth() + 1) + "_" + 1);
+	console.log("cp" + d);
+	
 }
 
 // show the next month
 function calculateNext() {
-	var current = document.getElementById("month").innerHTML;
-	var e = new Date(current);
-
-	e.setMonth(e.getMonth() + 1);
-
-	drawCalendar(e);
+	d.setMonth(d.getMonth()+1);
+	drawCalendar(d);
+	mealPlan("" + (d.getMonth() + 1) + "_" + 1);
+	console.log(d);
+	
 }
 
 onload = currentMonth;
