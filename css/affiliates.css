@@ -1,0 +1,108 @@
+/* mobile */
+
+
+
+@media only screen and (max-width: 600px) {
+
+	/* header */
+    #mobile_home_page_nav {
+        background-color: #8dc289;
+    }
+    
+    /* content section */
+	#affiliates_title, #default_message, h2 {
+		font-family: "Agency FB", Helvetica, sans-serif;
+	}
+	#affiliates_info, #expand_educational, #expand_behavioral, #expand_shopping, p {
+		font-family: Helvetica, "Trebuchet MS", sans-serif;
+	}
+	
+	/* intro content */
+    #affiliates_title{
+		color: #8DC289;
+        font-size: 50px;
+        height: 50px;
+        margin: 0 auto 0 auto;
+        overflow: hidden;
+        position: relative;
+		text-align: center;
+        width: 94%;
+    }
+    #affiliates_title div{
+        width: 100%;
+        position: absolute;
+    }
+	#affiliates_info {
+		padding: 3%;
+	}
+	#default_message {
+		text-align: center;
+		color: rgb(238, 124, 72);
+		font-size: 30px;
+	}
+	
+	/* acordian content */
+	#affiliates_list{
+        width: 100%;
+        margin: 0 auto 0 auto;
+    }
+	#educational_block div > img, #behavioral_block div > img, #shopping_block div > img {
+		width: 100px;
+        height: 100px;
+		float: left;
+    }
+	#expand_educational, #expand_behavioral, #expand_shopping{
+		background-color: #8dc289;
+		color: white;
+		font-size: 40px;
+		padding: 5px;
+	}
+	#expand_educational img, #expand_behavioral img, #expand_shopping img {
+        height: 24px;
+		width: 33px;
+		float: right;
+		padding: 10px;
+    }
+	#educational_block, #behavioral_block, #shopping_block {
+		padding: 10px;
+	}
+
+	/* affiliate content */
+	h2 {
+		text-align: center;
+		color: #8DC289;
+		font-weight: normal;
+		font-size: 30px;
+	}
+	p {
+		min-height: 120px;
+	} 
+	.affiliate_banner {
+		margin: 10px;
+	}
+	.more_info {
+		color: rgb(238, 124, 72);
+	}
+
+}
+/* PC */
+
+@media only screen and (min-width: 600px) {
+    /* hide mobile */
+    
+    #mobile_header {
+        display: none;
+    }
+    #affiliates_title{
+        display: none;
+    }
+	#expand_educational{
+		display: none;
+	}
+	#expand_behavioral{
+		display: none;
+	}
+	#expand_awareness{
+		display: none;
+	}
+}
