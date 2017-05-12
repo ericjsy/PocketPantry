@@ -1,0 +1,60 @@
+@media only screen and (max-width: 600px) {
+    /* hide PC */
+    #PC_header{
+        display: none;
+    }
+    /* background */
+    body {
+        margin: 0 auto;
+    }
+    main {
+        
+        background-size: cover;
+    }
+    /* header */
+    
+	#mobile_header {
+        width: 100%;
+        height: 85px;
+        background-color: #8dc289;
+        display: flex;
+    }
+	#mobile_home_page_nav >img {
+       display: block;
+        width: 80px;
+        margin: 0 auto 0 auto;
+	}
+    #mobile_meal_planner_nav {
+        height: 100%;
+        flex: 1;
+    }
+    #mobile_home_page_nav {
+        height: 100%;
+        flex: 3;
+        margin: 0 auto 0 auto;
+    }
+    #mobile_grocery_list_nav {
+        height: 100%;
+        flex: 1;
+    }
+	
+	.nav_side_icons {
+		display: block;
+		width: 55px;
+		height: 55px;
+		margin: calc(35px/2);
+	}
+}
+/* js add class */
+.hide{
+    display: none;
+}
+.show{
+    display: inline;
+}
+.planned {
+    color: #8dc289;
+}
+.un_planned {
+    color: #737373;
+}
