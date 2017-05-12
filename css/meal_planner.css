@@ -13,14 +13,6 @@ table {
   font-weight: 100;
   color: grey;
 }
-td {
-    height: 45px;
-    width: 45px;
-    border: solid 1px #787878;
-    margin: 0;
-    vertical-align: top;
-    text-align: right;
-}
 
 table #calendar_days_headings {
   color: grey;
@@ -236,6 +228,14 @@ table #calendar_days_headings {
     th:first-child {
         position: relative;
     }
+    td {
+        height: 45px;
+        width: 45px;
+        border: solid 1px #787878;
+        margin: 0;
+        vertical-align: top;
+        text-align: right;
+    }
 }
 /* PC */
 
@@ -382,5 +382,13 @@ table #calendar_days_headings {
         text-align: center;
         color: white;
         font-size: 50px;
+    }
+    td {
+        height: 80px;
+        width: 45px;
+        border: solid 1px #787878;
+        margin: 0;
+        vertical-align: top;
+        text-align: right;
     }
 }
