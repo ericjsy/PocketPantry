@@ -78,11 +78,29 @@
 		min-height: 120px;
 	} 
 	.affiliate_banner {
-		margin: 10px;
+		margin: 0 10px 10px 10px;
+		width: 50px;
+		height: 50px;
 	}
 	.more_info {
 		color: rgb(238, 124, 72);
 	}
+    #affiliates{
+        font-size: 43px;
+        font-family: helvetica;
+        font-weight: normal;
+        display: none;
+        position: relative;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+        background-color: #719c6e;
+    }
+    #affiliates a{
+        color: white;
+        text-decoration: none;
+    }
 
 }
 /* PC */

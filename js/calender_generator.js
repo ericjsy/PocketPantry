@@ -17,11 +17,10 @@ function drawCalendar(date) {
     var n = dayofweek[d.getDay()];
 	
 	// add header rows
-	var cal = "<tr><th colspan = '7'><span id='month'>" + 
-		dayofweek[d.getDay()] + ", " + 
+	var cal = "<tr><th colspan = '7'><button id='next' onclick='calculatePrev()' ><img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'></button><span id='month'>" + 
 		months[d.getMonth()] + " " + 
 		d.getFullYear() + 
-		"</span></th></tr>";
+		"</span><button id='previous' onclick='calculateNext()'><img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'></button></th></tr>";
 	cal += "<tr id='calendar_days_headings'>" /* changes by alberto 2017-05-12 - 5:12 PM*/
 	cal += "<th>S</th>"
 	cal += "<th>M</th>"

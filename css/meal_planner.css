@@ -207,6 +207,35 @@ table #calendar_days_headings {
         color: white;
         text-decoration: none;
     }
+    #previous, #next {
+        background-color: transparent;
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        outline:none;
+        height: 30px;
+        width: 23px;
+        padding: 0;
+    }
+    #next {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+    }
+    #previous {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+    }
+    #previous img, #next img {
+        height: 30px;
+        width: 23px;
+    }
+    th:first-child {
+        position: relative;
+    }
 }
 /* PC */
 
