@@ -17,11 +17,14 @@ function drawCalendar(date) {
     var n = dayofweek[d.getDay()];
 	
 	// add header rows
-	var cal = "<tr><th colspan = '7'><span id='month'>" + 
-		dayofweek[d.getDay()] + ", " + 
+	var cal = "<tr><th colspan = '7'>";
+	cal += "<button id='next' onclick='calculatePrev()' ><img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'></button>";
+	cal += "<span id='month'>" + 
 		months[d.getMonth()] + " " + 
 		d.getFullYear() + 
-		"</span></th></tr>";
+		"</span>";
+	cal += "<button id='previous' onclick='calculateNext()'><img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'></button>";
+	cal += "</th></tr>";
 	cal += "<tr id='calendar_days_headings'>" /* changes by alberto 2017-05-12 - 5:12 PM*/
 	cal += "<th>S</th>"
 	cal += "<th>M</th>"
@@ -65,19 +68,13 @@ function drawCalendar(date) {
 	// print out the month
 	document.getElementById("calendar").innerHTML = cal;
 
-	// highlight today's date
-	//			    
-	
-	//document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
-	
+	// highlight today's date	
 	if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
 		document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
 	}
 
 	// grey out past days
 	d.setDate(d.getDate() - 1);
-	//generate dots
-	
 	for (var i = d.getDate(); i >= 1; i--) {
 		if (d.getFullYear() < today.getFullYear() ||
 			d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
@@ -86,11 +83,11 @@ function drawCalendar(date) {
 		}
         document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {mealPlan(this.id);}, false);
 	}
-	//document.getElementById("calendar_container").onload = function() {
-		for (var i = d.getDate(); i >= 1; i--) {
-			dotDraw("" + (d.getMonth() + 1) + "_" + i);
-		}
-	//};
+	
+	// draw dots
+	for (var i = d.getDate(); i >= 1; i--) {
+		dotDraw("" + (d.getMonth() + 1) + "_" + i);
+	}
 	
 }
 
