@@ -7,7 +7,6 @@ function mealPlan(date){
     dbMeals = db.ref().child('meals');
 	
 	dbUser.once("value").then(function(snapshot) {
-		console.log(date);
 		if(snapshot.child(date).exists()){
 			dbDatePlan = dbUser.child(date);
 		} else {
@@ -69,41 +68,44 @@ function dotDraw(day_id){
 	"</div>";
 
 	dbUser.on('value', a => {
-		if(a.child(day_id).exists()){
 
-		dotCheck = firebase.database().ref().child("days").child("ryalia").child(day_id);
+            dotCheck = firebase.database().ref().child("days").child("ryalia").child(day_id);
 
-		dotCheck.child('breakfast').once('value', b => {
-			if(b.val() != null){
-				console.log("Hi" + day_id);
-				document.getElementById("b" + day_id).classList.remove('un_planned'); //
-				document.getElementById("b" + day_id).classList.add('planned');
-			} else {
-				document.getElementById("b" + day_id).classList.remove('planned'); 
-				document.getElementById("b" + day_id).classList.add('un_planned');
-			}
-		});
-		
-		dotCheck.child('lunch').once('value', b => {
-			if(b.val() != null){
-				document.getElementById("l" + day_id).classList.remove('un_planned'); //
-				document.getElementById("l" + day_id).classList.add('planned');
-			} else {
-				document.getElementById("l" + day_id).classList.remove('planned'); 
-				document.getElementById("l" + day_id).classList.add('un_planned');
-			}
-		});
-		
-		dotCheck.child('dinner').once('value', b => {
-			if(b.val() != null){
-				document.getElementById("d" + day_id).classList.remove('un_planned'); //
-				document.getElementById("d" + day_id).classList.add('planned');
-			} else {
-				document.getElementById("d" + day_id).classList.remove('planned'); 
-				document.getElementById("d" + day_id).classList.add('un_planned');
-			}
-			});	
-		}
+            dotCheck.child('breakfast').once("value", function(snapshot) {
+                if(document.getElementById("b" + day_id) != null){
+                    if(snapshot.val() != null){
+                        document.getElementById("b" + day_id).classList.remove('un_planned'); //
+                        document.getElementById("b" + day_id).classList.add('planned');
+                    } else {
+                        document.getElementById("b" + day_id).classList.remove('planned'); 
+                        document.getElementById("b" + day_id).classList.add('un_planned');
+                    }
+                }
+            });    
+
+            dotCheck.child('lunch').once('value', b => {
+                if(document.getElementById("b" + day_id) != null){
+                    if(b.val() != null){
+                        document.getElementById("l" + day_id).classList.remove('un_planned'); //
+                        document.getElementById("l" + day_id).classList.add('planned');
+                    } else {
+                        document.getElementById("l" + day_id).classList.remove('planned'); 
+                        document.getElementById("l" + day_id).classList.add('un_planned');
+                    }
+                }
+            });
+
+            dotCheck.child('dinner').once('value', b => {
+                if(document.getElementById("b" + day_id) != null){
+                    if(b.val() != null){
+                        document.getElementById("d" + day_id).classList.remove('un_planned'); //
+                        document.getElementById("d" + day_id).classList.add('planned');
+                    } else {
+                        document.getElementById("d" + day_id).classList.remove('planned'); 
+                        document.getElementById("d" + day_id).classList.add('un_planned');
+                    }
+                }
+            });	
 	});
 }
 
@@ -116,7 +118,6 @@ function connectMeal(mealtime) {
 		meal_option.innerHTML = "";
 		
 		for (var groupID in a.val()) {
-			console.log(groupID);
 			meal_option.innerHTML += "<div><img id='" + groupID + "' src='img/" + groupID + ".jpg" +"'><h1>" + groupID +"</h1></div>";
 		}
 	});
@@ -142,7 +143,6 @@ function removeMeal(remove_mealtime) {
 
 //add meal
 function addMeal(mealtime, item) {
-	console.log("Meal chosen : " + item);
 	picked = document.getElementById(item);
 	switch(mealtime){
 		case "breakfast":

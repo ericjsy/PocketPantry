@@ -2,11 +2,13 @@ $(document).ready(function() {
     var meal_time_title = true;
     var meal_option_tab = false;
     var affiliates_tab = false;
+    var selectedDate = "";
     var edit_meal = "";
     if ($(window).width() > 600) {
         $("#calendar").on("click", "td", function(event) {  
-          $("#calendar").find('*').removeClass('selected_date');
+          $(selectedDate).removeClass('selected_date');
           $(event.target).addClass('selected_date');
+          selectedDate = event.target;
         });
         $("#calendar").on("click", "td", function() {
             $("#meal_builder").css("display", "inline");
@@ -20,19 +22,16 @@ $(document).ready(function() {
                     case 'breakfast':
                         $("#meal_time_title").html("Breakfast");
                         edit_meal = "breakfast";
-                        console.log('breakfast');
                         connectMeal('breakfast');
                         break;
                     case 'lunch':
                         $("#meal_time_title").html("Lunch");
                         edit_meal = "lunch";
-                        console.log('lunch');
                         connectMeal('lunch');
                         break;
                     case 'dinner':
                         $("#meal_time_title").html("Dinner");
                         edit_meal = "dinner";
-                        console.log('dinner');
                         connectMeal('dinner');
                         break;
                 }
@@ -84,7 +83,6 @@ $(document).ready(function() {
                     break;
             }
             removeMeal(event.target.id);
-            console.log(event.target.id);
         });
     } else {
         $("#mobile_home_page_nav").on("click", "img", function() {
@@ -98,8 +96,13 @@ $(document).ready(function() {
             $("#affiliates").slideToggle("slow");
         });
         $("#calendar").on("click", "td", function(event) {  
-          $("#calendar").find('*').removeClass('selected_date');
+          $(selectedDate).removeClass('selected_date');
           $(event.target).addClass('selected_date');
+          selectedDate = event.target;
+          $("#meal_time_block").css("display", "inline");
+          $("#meal_option").css("display", "none");
+          meal_time_title = true;
+          meal_option_tab = false;
         });
         $("#meal_time_block, #meal_option").on("click", "img, h2.title_overlay", function(event) {
             if (meal_time_title) {
@@ -107,19 +110,16 @@ $(document).ready(function() {
                     case 'breakfast':
                         $("#meal_time_title").html("Breakfast");
                         edit_meal = "breakfast";
-                        console.log('breakfast');
                         connectMeal('breakfast');
                         break;
                     case 'lunch':
                         $("#meal_time_title").html("Lunch");
                         edit_meal = "lunch";
-                        console.log('lunch');
                         connectMeal('lunch');
                         break;
                     case 'dinner':
                         $("#meal_time_title").html("Dinner");
                         edit_meal = "dinner";
-                        console.log('dinner');
                         connectMeal('dinner');
                         break;
                 }
@@ -175,7 +175,6 @@ $(document).ready(function() {
                     break;
             }
             removeMeal(event.target.id);
-            console.log(event.target.id);
         });
     }
 });

@@ -70,7 +70,7 @@ function drawCalendar(date) {
 	//document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
 	
 	if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
-		document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
+		document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).classList.add("grey_date");
 	}
 
 	// grey out past days
