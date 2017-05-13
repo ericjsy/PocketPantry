@@ -146,6 +146,7 @@ table #calendar_days_headings {
         margin: 0;
 		color: white;
 		text-shadow: 2px 2px 1px #000000;
+        pointer-events: none;
 	}
     .remove_sign{
         font-size: 50px;
