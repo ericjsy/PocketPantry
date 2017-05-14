@@ -23,7 +23,7 @@
 				<img src="img/Pocket Pantry.png">
 			</div>
 			<div id="mobile_grocery_list_nav">
-				<a href="#"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
+				<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
 			</div>
 		</nav>
 	
@@ -34,7 +34,7 @@
 				<a href="meal_planner.html"><img src="img/Pocket Pantry.png"></a>
 			</div>
 			<div id="PC_page_title">
-				<h1 class="orange">Meal<span class="green_bold">Planner</span></h1>
+				<h1 class="orange">Grocery<span class="green_bold">List</span></h1>
 			</div>
 			<div id="PC_grocery_list_nav">
 				<div>
@@ -43,6 +43,51 @@
 		</nav>
 	  
     <main>
+		
+		<div id="grocery_container">
+			<table id="grocery_list">
+				<tr>
+					<td></td>
+					<td class="grocery_list_title">Items</td>
+					<td class="grocery_list_title">Qty</td>
+				</tr>
+					<td><input type="checkbox"></td>
+					<td>Cereal</td>
+					<td>1 box</td>
+				<tr>
+				</tr>
+					<td><input type="checkbox"></td>
+					<td>Cheese</td>
+					<td>200 g</td>
+				<tr>
+				</tr>
+					<td><input type="checkbox"></td>
+					<td>Eggs</td>
+					<td>12</td>
+				<tr>
+				</tr>
+					<td><input type="checkbox"></td>
+					<td>Ground Beef</td>
+					<td>1 lb</td>
+				<tr>
+				</tr>
+					<td><input type="checkbox"></td>
+					<td>Milk</td>
+					<td>2 L</td>
+				<tr>
+			</table>
+		</div>
+		
+		<div id="add_item">
+			<input type="text" id="item_name" class="more_items" placeholder="Add an item">
+			<input type="text" id="item_quantity" class="more_items" placeholder="Qty">
+			<button id="update_list" class="more_items">Add</button>
+		</div>
+		
+		<div id="food_for_thought">
+			<span class="grocery_list_title">Food For Thought</span>
+		</div>
+	
     </main>
 	
 	<script type="text/javascript" src="js/meal_planner_toggle.js"></script>

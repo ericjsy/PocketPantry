@@ -8,7 +8,7 @@ body {
         box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
     }
 	
-	#affiliates{
+	#affiliates {
         font-size: 43px;
         font-weight: normal;
         display: none;
@@ -19,10 +19,63 @@ body {
         box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
         background-color: #719c6e;
     }
-    #affiliates a{
+	
+    #affiliates a {
         color: white;
         text-decoration: none;
     }
+	
+	#default_title {
+		font-size: 45px;
+		color: #8DC289;
+	}
+	
+	.grocery_list_title {
+		font-size: 35px;
+		color: #8DC289;
+	}
+	
+	#grocery_list {
+		border-collapse: collapse;
+		margin: auto;
+		width: 90%;
+	}
+	
+	#grocery_list td {
+		padding: 5px 0;
+	}
+	
+	#grocery_list td:nth-of-type(2) {
+		width: 65%;
+	}
+	
+	#add_item {
+		margin: 20px auto;
+		padding: 0;
+		width: 90%;
+	}
+	
+	#item_name {
+		width: 50%;
+	}
+	
+	#item_quantity {
+		width: 20%;
+	}
+	
+	#update_list {
+		width: 20%;
+	}
+	
+	.more_items {
+		display: inline-block;
+		padding: 5px 0;
+		margin: 0 2px;
+	}
+	
+	#food_for_thought {
+		text-align: center;
+	}
 }
 
 @media only screen and (min-width: 600px) {
