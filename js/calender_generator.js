@@ -1,4 +1,7 @@
 function drawCalendar(date) {
+    init_dbLibrary();
+    connectUser("ryalia")
+    
 	var d = new Date(date);
 	d.setDate(1);
 	var today = new Date();
@@ -63,11 +66,6 @@ function drawCalendar(date) {
 
 	// print out the month
 	document.getElementById("calendar").innerHTML = cal;
-
-	// highlight today's date
-	//			    
-	
-	//document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
 	
 	if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
 		document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).classList.add("grey_date");
@@ -83,21 +81,32 @@ function drawCalendar(date) {
 			d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && i < today.getDate()) {
 			document.getElementById("" + (d.getMonth() + 1) + "_" + i).style.backgroundColor = "#CCCCCC";
 		}
-        document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {mealPlan(this.id);}, false);
+        
+        document.getElementById("" + (d.getMonth() + 1) + "_" + i).addEventListener("click", function(e) {retrieve_mealStatus(this.id);}, false);
+        
+        document.getElementById("" + (d.getMonth() + 1) + "_" + i).innerHTML += 
+	"<div class='dot_container'>" + 
+		"<div id='" + 
+			"breakfast_" + "" + (d.getMonth() + 1) + "_" + i + 
+				"' class='dot un_planned'>&#9679;</div>" +
+		"<div id='" + 
+			"lunch_" + "" + (d.getMonth() + 1) + "_" + i + 
+				"' class='dot un_planned'>&#9679;</div>" +
+		"<div id='" + 
+			"dinner_" + "" + (d.getMonth() + 1) + "_" + i + 
+				"' class='dot un_planned'>&#9679;</div>" +
+	"</div>";
+        
+        init_mealStatus("" + (d.getMonth() + 1) + "_" + i);
 	}
-	//document.getElementById("calendar_container").onload = function() {
-		for (var i = d.getDate(); i >= 1; i--) {
-			dotDraw("" + (d.getMonth() + 1) + "_" + i);
-		}
-	//};
+    
+    retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
 	
 }
 
 // upon first launch, show the current month
 function currentMonth() {
 	d = new Date();
-	mealPlan("" + (d.getMonth() + 1) + "_" + d.getDate());
-    console.log("cM" + d);
 	drawCalendar(d);
 }
 
@@ -105,18 +114,12 @@ function currentMonth() {
 function calculatePrev() {
 	d.setMonth(d.getMonth()-1);
 	drawCalendar(d);
-	mealPlan("" + (d.getMonth() + 1) + "_" + 1);
-	console.log("cp" + d);
-	
 }
 
 // show the next month
 function calculateNext() {
 	d.setMonth(d.getMonth()+1);
 	drawCalendar(d);
-	mealPlan("" + (d.getMonth() + 1) + "_" + 1);
-	console.log(d);
-	
 }
 
 onload = currentMonth;

@@ -4,7 +4,6 @@ $(document).ready(function() {
     var affiliates_tab = false;
     var selectedDate = "";
     var edit_meal = "";
-    //    if ($(window).width() > 600) {
     
     // Affiliates page navigation toggle
     $("#mobile_home_page_nav").on("click", "img", function() {
@@ -47,17 +46,17 @@ $(document).ready(function() {
                 case 'breakfast':
                     $("#meal_time_title").html("Breakfast");
                     edit_meal = "breakfast";
-                    connectMeal('breakfast');
+                    retrieve_mealOption(edit_meal);
                     break;
                 case 'lunch':
                     $("#meal_time_title").html("Lunch");
                     edit_meal = "lunch";
-                    connectMeal('lunch');
+                    retrieve_mealOption(edit_meal);
                     break;
                 case 'dinner':
                     $("#meal_time_title").html("Dinner");
                     edit_meal = "dinner";
-                    connectMeal('dinner');
+                    retrieve_mealOption(edit_meal);
                     break;
             }
             // Show meal time 
@@ -117,16 +116,17 @@ $(document).ready(function() {
             switch (event.target.id) {
                 case 'breakfast_remove':
                     $("#breakfast_remove").removeClass("show").addClass("hide");
+                    removeMeal("breakfast");
                     break;
-                case 'lunch_remove':
+                case 'lunch_remove': 
                     $("#lunch_remove").removeClass("show").addClass("hide");
+                    removeMeal("lunch");
                     break;
                 case 'dinner_remove':
                     $("#dinner_remove").removeClass("show").addClass("hide");
                     removeMeal("dinner");
                     break;
             }
-            removeMeal(event.target.id);
         }
     });
 });
