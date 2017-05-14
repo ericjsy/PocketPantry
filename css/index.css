@@ -1,51 +1,52 @@
+/* OUTDATED PAGE */
 @media only screen and (max-width: 600px) {
-    #mobile_logo {
-        width: 100%;
-        overflow: auto;
-    }
-    #mobile_logo img {
-        display: block;
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #mobile_nav_container {
-        overflow: auto;
-        padding-bottom: 30px;
-    }
-    #mobile_nav_container div {
-        text-align: center;
-        font-size: 30px;
-        width: 70%;
-        clear: both;
-    }
-    #meal_planner_nav {
-        float: left;
-    }
-    #grocery_list_nav {
-        float: right;
-    }
-    #mobile_nav_container div > div,
-    #mobile_nav_container div > img {
-        display: block;
-        margin: 0 auto 0 auto;
-    }
-    #meal_planner_nav img {
-        width: 150px;
-        transform: rotate(-15deg);
-    }
-    #grocery_list_nav img {
-        width: 150px;
-        transform: rotate(15deg);
-    }
+	#mobile_logo {
+		width: 100%;
+		overflow: auto;
+	}
+	#mobile_logo img {
+		display: block;
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#mobile_nav_container {
+		overflow: auto;
+		padding-bottom: 30px;
+	}
+	#mobile_nav_container div {
+		text-align: center;
+		font-size: 30px;
+		width: 70%;
+		clear: both;
+	}
+	#meal_planner_nav {
+		float: left;
+	}
+	#grocery_list_nav {
+		float: right;
+	}
+	#mobile_nav_container div > div,
+	#mobile_nav_container div > img {
+		display: block;
+		margin: 0 auto 0 auto;
+	}
+	#meal_planner_nav img {
+		width: 150px;
+		transform: rotate(-15deg);
+	}
+	#grocery_list_nav img {
+		width: 150px;
+		transform: rotate(15deg);
+	}
 }
 @media only screen and (min-width: 600px) {
-    /* hide mobile */
-    
-    #mobile_logo {
-        display: none;
-    }
-    #mobile_nav_container {
-        display: none;
-    }
+	
+	/* hide mobile */
+	#mobile_logo {
+		display: none;
+	}
+	#mobile_nav_container {
+		display: none;
+	}
 }
