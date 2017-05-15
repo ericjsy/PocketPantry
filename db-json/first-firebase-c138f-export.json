@@ -1,0 +1,61 @@
+{
+  "days" : {
+    "ryalia" : {
+      "5_1" : {
+        "breakfast" : "pancake"
+      }
+    }
+  },
+  "groceryLists" : {
+    "Ryalia" : {
+      "banana" : "1 pc(s)",
+      "mushroom" : "3 pc(s)",
+      "noodles" : "100 g",
+      "spinach" : "125 g",
+      "toast" : "3 pc(s)",
+      "tofu" : "5 pc(s)",
+      "water" : "350 mL"
+    }
+  },
+  "meals" : {
+    "breakfast" : {
+      "pancake" : {
+        "Water" : "100 cc"
+      },
+      "waffles" : {
+        "Water" : "100 cc"
+      },
+      "yogurt" : {
+        "Water" : "100 cc"
+      }
+    },
+    "dinner" : {
+      "pasta" : {
+        "water " : "100 cc"
+      },
+      "salmon" : {
+        "water" : "100 cc"
+      },
+      "steak" : {
+        "water " : "100 cc"
+      }
+    },
+    "lunch" : {
+      "potato" : {
+        "water" : "100 cc"
+      },
+      "salad" : {
+        "water" : "100 cc"
+      },
+      "sandwich" : {
+        "water" : "100 cc"
+      }
+    }
+  },
+  "users" : {
+    "ryalia" : {
+      "email" : "ryalia888@gmail.com",
+      "password" : "ericryan1!"
+    }
+  }
+}
