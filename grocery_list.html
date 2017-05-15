@@ -20,7 +20,7 @@
 				<a href="meal_planner.html"><img src="img/meal_planner.png" alt="meal planner link" height="135" width="135" class="nav_side_icons"></a>
 			</div>
 			<div id="mobile_home_page_nav">
-				<img src="img/Pocket Pantry.png">
+				<img src="img/Pocket Pantry.png" alt="Pocket Pantry">
 			</div>
 			<div id="mobile_grocery_list_nav">
 				<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
@@ -31,7 +31,7 @@
 	
 		<nav id="PC_header">
 			<div id="PC_home_page_nav">
-				<a href="meal_planner.html"><img src="img/Pocket Pantry.png"></a>
+				<a href="meal_planner.html"><img src="img/Pocket Pantry.png" alt="meal planner link"></a>
 			</div>
 			<div id="PC_page_title">
 				<h1 class="orange">Grocery<span class="green_bold">List</span></h1>
@@ -45,43 +45,59 @@
     <main>
 		
 		<div id="grocery_container">
+		
+			<div id="grocery_sections">
+				<img src="img/coloredListAll.png" alt="all items" class="categories" width="45" height="45">
+				<img src="img/bwDairy.png" alt="all dairy items" class="categories" width="45" height="45">
+				<img src="img/bwMeat.png" alt="all meat items" class="categories" width="45" height="45">
+				<img src="img/bwVeggies.png" alt="all fruit & veggie items" class="categories" width="45" height="45">
+				<img src="img/bwOther.png" alt="all added items" class="categories" width="45" height="45">
+			</div>
+		
 			<table id="grocery_list">
 				<tr>
 					<td></td>
 					<td class="grocery_list_title">Items</td>
 					<td class="grocery_list_title">Qty</td>
+					<td></td>
 				</tr>
+				<tr>
 					<td><input type="checkbox"></td>
 					<td>Cereal</td>
-					<td>1 box</td>
-				<tr>
+					<td>1</td>
+					<td>box</td>
 				</tr>
+				<tr>
 					<td><input type="checkbox"></td>
 					<td>Cheese</td>
-					<td>200 g</td>
-				<tr>
+					<td>200</td>
+					<td>g</td>
 				</tr>
+				<tr>
 					<td><input type="checkbox"></td>
 					<td>Eggs</td>
 					<td>12</td>
-				<tr>
+					<td>eggs</td>
 				</tr>
+				<tr>
 					<td><input type="checkbox"></td>
 					<td>Ground Beef</td>
-					<td>1 lb</td>
-				<tr>
+					<td>1</td>
+					<td>lb</td>
 				</tr>
+				<tr>
 					<td><input type="checkbox"></td>
 					<td>Milk</td>
-					<td>2 L</td>
-				<tr>
+					<td>2</td>
+					<td>L</td>
+				</tr>
 			</table>
 		</div>
 		
 		<div id="add_item">
-			<input type="text" id="item_name" class="more_items" placeholder="Add an item">
-			<input type="text" id="item_quantity" class="more_items" placeholder="Qty">
-			<button id="update_list" class="more_items">Add</button>
+				<input type="text" id="item_name" class="more_items" placeholder="Add item...">
+				<input type="text" id="item_quantity" class="more_items" placeholder="Qty.">
+				<span id="update_list">&#43;</span>
 		</div>
 		
 		<div id="food_for_thought">
