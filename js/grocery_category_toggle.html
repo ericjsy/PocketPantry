@@ -4,12 +4,71 @@
 		<meta charset="utf-8">
 		
 		<script>
-			function list_generator(items) {
+			function list_generator() {
+				var dairy_list = [
+					{name: "Cheese", amount: 200, unit: "g"},
+					{name: "Milk", amount: 2, unit: "L"}
+					];
+				
+				var meat_list = [
+					{name: "Chicken drumsticks", amount: 6, unit: "pc"},
+					{name: "Ground beef", amount: 1, unit: "lb"}
+					];
+					
+				var fruit_veg_list = [
+					{name: "Apples", amount: 2, unit: "lb"},
+					{name: "Bok choy", amount: 2, unit: "lb"},
+					{name: "Celery", amount: 0.5, unit: "lb"},
+					{name: "Pears", amount: 2, unit: "lb"}
+					];
+					
+				var other_list = [
+					{name: "Cereal", amount: 1, unit: "box"},
+					{name: "Eggs", amount: 12, unit: "eggs"},
+					{name: "Peanut butter", amount: 500, unit: "g"}
+					];
+					
+				var all_list = [
+					{name: "Apples", amount: 2, unit: "lb"},
+					{name: "Bok choy", amount: 2, unit: "lb"},
+					{name: "Celery", amount: 0.5, unit: "lb"},
+					{name: "Cereal", amount: 1, unit: "box"},
+					{name: "Cheese", amount: 200, unit: "g"},
+					{name: "Chicken drumsticks", amount: 6, unit: "pc"},
+					{name: "Eggs", amount: 12, unit: "eggs"},
+					{name: "Ground beef", amount: 1, unit: "lb"},
+					{name: "Milk", amount: 2, unit: "L"},
+					{name: "Peanut butter", amount: 500, unit: "g"},
+					{name: "Pears", amount: 2, unit: "lb"}
+					];
+					
+				var items = [];
+				
 				// clear the table
 				var node = document.getElementById("grocery_list");
 				
 				while (node.firstChild) {
 					node.removeChild(node.firstChild);
+				}
+				
+				if (all) {
+					items = items.concat(all_list);
+				} else {
+					if (dairy) {
+						items = items.concat(dairy_list);
+					}
+					
+					if (meat) {
+						items = items.concat(meat_list);
+					}
+					
+					if (fruitVeg) {
+						items = items.concat(fruit_veg_list);
+					}
+					
+					if (other) {
+						items = items.concat(other_list);
+					}
 				}
 				
 				// write the table
@@ -37,47 +96,65 @@
 			}
 			
 			function showDairy() {
-				var items = [
-					{name: "Cheese", amount: 200, unit: "g"},
-					{name: "Milk", amount: 2, unit: "L"}
-					];				
+				if (dairy) {
+					dairy = false;
+				} else {
+					dairy = true;
+					all = false;
+				}
 				
-				list_generator(items);
+				list_generator();
 			}
 			
 			function showMeat() {
-				var items = [
-					{name: "Chicken drumsticks", amount: 6, unit: "pc"},
-					{name: "Ground beef", amount: 1, unit: "lb"}
-					];
+				if (meat) {
+					meat = false;
+				} else {
+					meat = true;
+					all = false;
+				}
 					
-				list_generator(items);
+				list_generator();
 			}
 			
 			function showFruitVeg() {
-				var items = [
-					{name: "Apples", amount: 2, unit: "lb"},
-					{name: "Bok choy", amount: 2, unit: "lb"},
-					{name: "Celery", amount: 0.5, unit: "lb"},
-					{name: "Pears", amount: 2, unit: "lb"}
-					];
+				if (fruitVeg) {
+					fruitVeg = false;
+				} else {
+					fruitVeg = true;
+					all = false;
+				}
 					
-				list_generator(items);
+				list_generator();
 			}
 			
 			function showOther() {
-				var items = [
-					{name: "Cereal", amount: 1, unit: "box"},
-					{name: "Eggs", amount: 12, unit: "eggs"},
-					{name: "Peanut butter", amount: 500, unit: "g"}
-					];
+				if (other) {
+					other = false;
+				} else {
+					other = true;
+					all = false;
+				}
 					
-				list_generator(items);
+				list_generator();
 			}
 			
 			function showAdded() {
-				//same as above
+				//show the list of items the user added themselves
 			}
+			
+			function showAll() {
+				all = true;
+				dairy = false;
+				meat = false;
+				fruitVeg = false;
+				other = false;
+				added = false;
+				
+				list_generator();
+			}
+			
+			onload=showAll;
 		</script>
 		
 		<style>
@@ -136,9 +213,7 @@
 		<table id="grocery_list">
 			
 		</table>
-		
-		<div id="testing"></div>
 	
-		<button>Show all</button>
+		<button onclick="showAll()">Show all</button>
 	</body>
 </html>
