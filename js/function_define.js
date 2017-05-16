@@ -51,7 +51,9 @@ function db_mealPlanned_imageUpdate(){
         dbDate.child(mealtime[i]).once("value").then(function(snapshot) {
             if(snapshot.val() != null){
                 document.getElementById(snapshot.key + "_remove").classList.add('show'); 
+                document.getElementById(snapshot.key + "_remove").classList.remove('hide'); 
             } else {
+                document.getElementById(snapshot.key + "_remove").classList.add('hide'); 
                 document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
             }
             document.getElementById(snapshot.key).src = "img/" + snapshot.val() + ".jpg";
