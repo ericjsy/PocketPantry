@@ -50,7 +50,9 @@ body {
 	}
 	
 	.categories {
+		font-size: 0.9em;
 		margin: 10px;
+		text-align: center;
 	}
 	
 	/* grocery list table */
@@ -60,7 +62,7 @@ body {
 		width: 90%;
 	}
 	
-	#grocery_list tr:nth-of-type(2n+2) {
+	#grocery_list tr:nth-of-type(odd) {
 		background-color: #8DC289;
 	}
 	
@@ -70,7 +72,7 @@ body {
 	
 	#grocery_list td:nth-child(2) {
 		padding-left: 15px;
-		width: 70%;
+		width: 50%;
 	}
 	
 	/* adding an item */
@@ -86,13 +88,13 @@ body {
 	}
 	
 	#item_name {
-		border-radius: 10%;
+		border-radius: 5px;
 		color: #FFFFFF;
 		width: 65%;
 	}
 	
 	#item_quantity {
-		border-radius: 10%;
+		border-radius: 5px;
 		color: #FFFFFF;
 		margin: 0 5px;
 		width: 25%;
@@ -102,7 +104,6 @@ body {
 		color: #8DC289;
 		font-size: 40px;
 		font-weight: bold;
-		margin-right: 10px;
 		padding: 0;
 		width: 10%;
 	}
