@@ -48,13 +48,13 @@ function db_mealPlanned_imageUpdate(){
 //    console.log("db_mealPlanned_imageUpdate called");
     var mealtime = ["breakfast", "lunch", "dinner"];
     for(i = 0 ; i < 3; i++){
-        dbDate.child(mealtime[i]).once('value', snapshopt => {
-            if(snapshopt.val() != null){
-                document.getElementById(snapshopt.key + "_remove").classList.add('show'); 
+        dbDate.child(mealtime[i]).once("value").then(function(snapshot) {
+            if(snapshot.val() != null){
+                document.getElementById(snapshot.key + "_remove").classList.add('show'); 
             } else {
-                document.getElementById(snapshopt.key + "_remove").classList.remove('show'); 
+                document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
             }
-            document.getElementById(snapshopt.key).src = "img/" + snapshopt.val() + ".jpg";
+            document.getElementById(snapshot.key).src = "img/" + snapshot.val() + ".jpg";
         });
     }
 }
