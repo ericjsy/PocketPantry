@@ -50,6 +50,9 @@ table #calendar_days_headings {
 .today_date{
     background-color: #BFD8CA;
 }
+.not_clickable{
+    pointer-events: none;
+}
 /* mobile */
 
 @media only screen and (max-width: 600px) {

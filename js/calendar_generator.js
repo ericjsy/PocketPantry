@@ -38,7 +38,7 @@ function drawCalendar(date) {
 	//Correct placement of first week
 	var weekday = d.getDay();
 	if (weekday > 0 && weekday < 7) {
-		calendar += "<td class='greyout_date' colspan = " + weekday + "></td>";
+		calendar += "<td class='not_clickable' colspan = " + weekday + "></td>";
 	}
 	
 	//Print days until end of month
@@ -58,7 +58,7 @@ function drawCalendar(date) {
 
 	// Fill last row with empty box
 	if (d.getDay() > 0 && d.getDay() <= 6) {
-		calendar += "<td class='greyout_date' colspan = " + (7 - d.getDay()) + "></td>";
+		calendar += "<td class='not_clickable' colspan = " + (7 - d.getDay()) + "></td>";
 	}
 	// Calendar end
 	calendar += "</tr>";
@@ -75,13 +75,10 @@ function drawCalendar(date) {
 	// Color previous days, addEventListener to every say & draw in dots
 	do {	
 		d.setDate(d.getDate() - 1);
-		if(d.getFullYear() <= today.getFullYear()) {
-			if(d.getMonth() <= today.getMonth()) {
-                console.log(d.getMonth() + " <= " + today.getMonth());
-				if (d.getDate() < today.getDate()){
+		if (d.getFullYear() < today.getFullYear() ||
+            d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
+            d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && d.getDate() < today.getDate()){
 					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
-				}
-			}
 		}
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {retrieve_mealStatus(this.id);}, false);
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 

@@ -83,6 +83,7 @@ function db_mealPlanned_optionUpdate(mealtime){
     dbMealOption.child(mealtime).once("value").then(function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
             meal_option.innerHTML += "<div><img id='" + childSnapshot.key + "' src='img/" + childSnapshot.key + ".jpg" +"'><h1>" + childSnapshot.key +"</h1></div>";
+            $('#meal_option').css('text-transform', 'capitalize');
         });
     }); 
 }
