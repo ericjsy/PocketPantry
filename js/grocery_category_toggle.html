@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		
+		<script>
+			function list_generator(items) {
+				// clear the table
+				var node = document.getElementById("grocery_list");
+				
+				while (node.firstChild) {
+					node.removeChild(node.firstChild);
+				}
+				
+				// write the table
+				for (var i = 0; i < items.length; i++) {
+					var row = document.createElement("tr");
+					var cell = document.createElement("td");
+					var text;
+					var check = document.createElement("input");
+					check.type = "checkbox";
+					cell.appendChild(check);
+					row.appendChild(cell);
+					
+					cell = document.createElement("td");
+					text = items[i].name;
+					cell.appendChild(document.createTextNode(text));
+					row.appendChild(cell);
+					
+					cell = document.createElement("td");
+					text = items[i].amount + " " + items[i].unit;
+					cell.appendChild(document.createTextNode(text));
+					row.appendChild(cell);
+					
+					document.getElementById("grocery_list").appendChild(row);
+				}
+			}
+			
+			function showDairy() {
+				var items = [
+					{name: "Cheese", amount: 200, unit: "g"},
+					{name: "Milk", amount: 2, unit: "L"}
+					];				
+				
+				list_generator(items);
+			}
+			
+			function showMeat() {
+				var items = [
+					{name: "Chicken drumsticks", amount: 6, unit: "pc"},
+					{name: "Ground beef", amount: 1, unit: "lb"}
+					];
+					
+				list_generator(items);
+			}
+			
+			function showFruitVeg() {
+				var items = [
+					{name: "Apples", amount: 2, unit: "lb"},
+					{name: "Bok choy", amount: 2, unit: "lb"},
+					{name: "Celery", amount: 0.5, unit: "lb"},
+					{name: "Pears", amount: 2, unit: "lb"}
+					];
+					
+				list_generator(items);
+			}
+			
+			function showOther() {
+				var items = [
+					{name: "Cereal", amount: 1, unit: "box"},
+					{name: "Eggs", amount: 12, unit: "eggs"},
+					{name: "Peanut butter", amount: 500, unit: "g"}
+					];
+					
+				list_generator(items);
+			}
+			
+			function showAdded() {
+				//same as above
+			}
+		</script>
+		
+		<style>
+			#grocery_sections {
+				display: flex;
+				justify-content: space-around;
+				width: 90%;
+			}
+			
+			#grocery_list {
+				width: 90%;
+			}
+			
+			#grocery_list tr:nth-of-type(odd) {
+				background-color: #00FF00;
+			}
+			
+			.categories {
+				font-size: 0.9em;
+				text-align: center;
+				width: 45px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<div id="grocery_sections">
+			<div class="categories" onclick="showDairy()">
+				<img src="../img/home_logo.png" alt="all dairy items" width="45" height="45">
+				<br>
+				<span>Dairy</span>
+			</div>
+			<div class="categories" onclick="showMeat()">
+				<img src="../img/home_logo.png" alt="all meat items" width="45" height="45">
+				<br>
+				<span>Meat</span>
+			</div>
+			<div class="categories" onclick="showFruitVeg()">
+				<img src="../img/home_logo.png" alt="all fruit & veggie items" width="45" height="45">
+				<br>
+				<span>Fruits & Veggies</span>
+			</div>
+			<div class="categories" onclick="showOther()">
+				<img src="../img/home_logo.png" alt="other items" width="45" height="45">
+				<br>
+				<span>Other Items</span>
+			</div>
+			<div class="categories" onclick="showAdded()">
+				<img src="../img/home_logo.png" alt="added items" width="45" height="45">
+				<br>
+				<span>Added Items</span>
+			</div>
+		</div>
+			
+		<table id="grocery_list">
+			
+		</table>
+		
+		<div id="testing"></div>
+	
+		<button>Show all</button>
+	</body>
+</html>
