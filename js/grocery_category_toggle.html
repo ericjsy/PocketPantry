@@ -5,16 +5,19 @@
 		
 		<script>
 			function list_generator() {
+				// placeholder dairy data
 				var dairy_list = [
 					{name: "Cheese", amount: 200, unit: "g"},
 					{name: "Milk", amount: 2, unit: "L"}
 					];
 				
+				// placeholder meat data
 				var meat_list = [
 					{name: "Chicken drumsticks", amount: 6, unit: "pc"},
 					{name: "Ground beef", amount: 1, unit: "lb"}
 					];
-					
+				
+				// placeholder fruits and veggies data
 				var fruit_veg_list = [
 					{name: "Apples", amount: 2, unit: "lb"},
 					{name: "Bok choy", amount: 2, unit: "lb"},
@@ -22,12 +25,14 @@
 					{name: "Pears", amount: 2, unit: "lb"}
 					];
 					
+				// placeholder other items data
 				var other_list = [
 					{name: "Cereal", amount: 1, unit: "box"},
 					{name: "Eggs", amount: 12, unit: "eggs"},
 					{name: "Peanut butter", amount: 500, unit: "g"}
 					];
 					
+				// placeholder list of mixed items
 				var all_list = [
 					{name: "Apples", amount: 2, unit: "lb"},
 					{name: "Bok choy", amount: 2, unit: "lb"},
@@ -41,7 +46,8 @@
 					{name: "Peanut butter", amount: 500, unit: "g"},
 					{name: "Pears", amount: 2, unit: "lb"}
 					];
-					
+				
+				// new array
 				var items = [];
 				
 				// clear the table
@@ -51,6 +57,7 @@
 					node.removeChild(node.firstChild);
 				}
 				
+				// add together all the lists that should be shown
 				if (all) {
 					items = items.concat(all_list);
 				} else {
@@ -95,6 +102,7 @@
 				}
 			}
 			
+			// toggle dairy items
 			function showDairy() {
 				if (dairy) {
 					dairy = false;
@@ -106,6 +114,7 @@
 				list_generator();
 			}
 			
+			// toggle meat items
 			function showMeat() {
 				if (meat) {
 					meat = false;
@@ -117,6 +126,7 @@
 				list_generator();
 			}
 			
+			// toggle fruit and veggie items
 			function showFruitVeg() {
 				if (fruitVeg) {
 					fruitVeg = false;
@@ -128,6 +138,7 @@
 				list_generator();
 			}
 			
+			// toggle other items
 			function showOther() {
 				if (other) {
 					other = false;
@@ -139,10 +150,11 @@
 				list_generator();
 			}
 			
+			// currently does nothing; toggle the items the user added
 			function showAdded() {
-				//show the list of items the user added themselves
 			}
 			
+			// show the entire list
 			function showAll() {
 				all = true;
 				dairy = false;
@@ -154,6 +166,7 @@
 				list_generator();
 			}
 			
+			// when the page loads, show all items
 			onload=showAll;
 		</script>
 		
