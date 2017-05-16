@@ -32,6 +32,7 @@ table #calendar_days_headings {
     pointer-events: none;
 }
 .day{
+    margin-right: 5px;
     pointer-events: none;
 }
 .dot_container {
@@ -40,7 +41,14 @@ table #calendar_days_headings {
     pointer-events: none;
 }
 .selected_date{
-    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+    background-color: skyblue !important;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5);
+}
+.greyout_date{
+    background-color: #CCCCCC;
+}
+.today_date{
+    background-color: #BFD8CA;
 }
 /* mobile */
 
@@ -88,8 +96,8 @@ table #calendar_days_headings {
         left: 100%;
     }
     #meal_builder{
-        width: 94%;
-        margin: 0 auto 0 auto;
+        width: 95%;
+        margin: 0 2% 0 3%;
     }
     #meal_builder div > img{
         width: 100%;
@@ -97,13 +105,16 @@ table #calendar_days_headings {
     }
     #meal_time_block > div{
         position: relative;
-        width: 100%;
+        width: 98%;
         height: 40vw;
         margin: 0 0 5px 0;
     }
+    #meal_option{
+        margin: 0;
+    }
     #meal_option > div{
         position: relative;
-        width: 100%;
+        width: 98%;
         height: 40vw;
         margin: 0 0 5px 0;
     }
@@ -164,20 +175,13 @@ table #calendar_days_headings {
 		border-radius: 3px;
 		box-shadow: 2px 1px 3px #000000;
 	}
-	#breakfast_block, #lunch_block, #dinner_block {
-		padding-bottom: 10px;
-	}
     #meal_option{
         height: calc(120vw + 15px);
         display: none;
     }
-	
 	#meal_option img{
 		border-radius: 3px;
 		box-shadow: 2px 1px 3px #000000;
-	}
-	#meal_option div {
-		padding-top: 10px;
 	}
     #PC_exit{
         display: none;

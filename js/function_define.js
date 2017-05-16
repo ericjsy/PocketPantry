@@ -28,10 +28,18 @@ function db_connectMealOption(){
 function db_calender_statusUpdate(){
 //    console.log("db_calender_statusUpdate called");
     dbDate.once("value").then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
-            document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');
-        });
+        var mealtime = ["breakfast", "lunch", "dinner"];
+        for(i = 0 ; i < 3; i++){
+            snapshot.ref.child(mealtime[i]).once("value").then(function(childSnapshot) {
+                if(childSnapshot.val() != null){
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');   
+                } else {
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('un_planned');
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('planned');   
+                }
+            });
+        }
     });
 }
 
@@ -43,6 +51,8 @@ function db_mealPlanned_imageUpdate(){
         dbDate.child(mealtime[i]).once('value', snapshopt => {
             if(snapshopt.val() != null){
                 document.getElementById(snapshopt.key + "_remove").classList.add('show'); 
+            } else {
+                document.getElementById(snapshopt.key + "_remove").classList.remove('show'); 
             }
             document.getElementById(snapshopt.key).src = "img/" + snapshopt.val() + ".jpg";
         });
