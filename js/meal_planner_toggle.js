@@ -68,7 +68,7 @@ $(document).ready(function() {
             }, "slow");
             //Mobile hide Breakfast Lunch Dinner 
             if ($(window).width() < 600) {
-                $("#meal_time_block").delay(100).slideToggle("slow");
+                $("#meal_time_block").slideToggle("slow");
             }
             // show meal option 
             // PC meal_option toggle
