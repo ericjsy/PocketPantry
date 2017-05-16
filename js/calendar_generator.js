@@ -77,8 +77,9 @@ function drawCalendar(date) {
 		d.setDate(d.getDate() - 1);
 		if(d.getFullYear() <= today.getFullYear()) {
 			if(d.getMonth() <= today.getMonth()) {
+                console.log(d.getMonth() + " <= " + today.getMonth());
 				if (d.getDate() < today.getDate()){
-					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).style.backgroundColor = "#CCCCCC";
+					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
 				}
 			}
 		}
