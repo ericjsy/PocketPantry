@@ -7,5 +7,5 @@ var config = {
 	storageBucket: "first-firebase-c138f.appspot.com",
 	messagingSenderId: "861006904812"
 };
-//Start Firebase connection
+
 firebase.initializeApp(config);

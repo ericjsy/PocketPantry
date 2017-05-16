@@ -28,10 +28,18 @@ function db_connectMealOption(){
 function db_calender_statusUpdate(){
 //    console.log("db_calender_statusUpdate called");
     dbDate.once("value").then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
-            document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');
-        });
+        var mealtime = ["breakfast", "lunch", "dinner"];
+        for(i = 0 ; i < 3; i++){
+            snapshot.ref.child(mealtime[i]).once("value").then(function(childSnapshot) {
+                if(childSnapshot.val() != null){
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');   
+                } else {
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('un_planned');
+                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('planned');   
+                }
+            });
+        }
     });
 }
 
@@ -40,15 +48,15 @@ function db_mealPlanned_imageUpdate(){
 //    console.log("db_mealPlanned_imageUpdate called");
     var mealtime = ["breakfast", "lunch", "dinner"];
     for(i = 0 ; i < 3; i++){
-        dbDate.child(mealtime[i]).once('value', snapshopt => {
-            if(snapshopt.val() != null){
-				document.getElementById(snapshopt.key + "_remove").classList.remove('hide'); 
-                document.getElementById(snapshopt.key + "_remove").classList.add('show'); 
+        dbDate.child(mealtime[i]).once("value").then(function(snapshot) {
+            if(snapshot.val() != null){
+                document.getElementById(snapshot.key + "_remove").classList.add('show'); 
+                document.getElementById(snapshot.key + "_remove").classList.remove('hide'); 
             } else {
-				document.getElementById(snapshopt.key + "_remove").classList.remove('show'); 
-				document.getElementById(snapshopt.key + "_remove").classList.add('hide'); 
-			}
-            document.getElementById(snapshopt.key).src = "img/" + snapshopt.val() + ".jpg";
+                document.getElementById(snapshot.key + "_remove").classList.add('hide'); 
+                document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
+            }
+            document.getElementById(snapshot.key).src = "img/" + snapshot.val() + ".jpg";
         });
     }
 }
@@ -75,14 +83,9 @@ function db_mealPlanned_optionUpdate(mealtime){
     meal_option = document.getElementById("meal_option");
     meal_option.innerHTML = "";
     dbMealOption.child(mealtime).once("value").then(function(snapshot) {
-		//Array returned, forEach iterates over arrays
         snapshot.forEach(function(childSnapshot) {
-            meal_option.innerHTML += 
-			"<div>" +
-				"<img id='" + childSnapshot.key + "' src='img/" + childSnapshot.key + ".jpg" +"'>" +
-				"<h1>" + childSnapshot.key +"</h1>" + 
-			"</div>";
-			$('#meal_option').css('text-transform', 'capitalize');
+            meal_option.innerHTML += "<div><img id='" + childSnapshot.key + "' src='img/" + childSnapshot.key + ".jpg" +"'><h1>" + childSnapshot.key +"</h1></div>";
+            $('#meal_option').css('text-transform', 'capitalize');
         });
     }); 
 }

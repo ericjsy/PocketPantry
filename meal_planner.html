@@ -9,41 +9,30 @@
 	<link rel="stylesheet" href="./css/main_style_mobile.css">
 	<link rel="stylesheet" href="./css/meal_planner.css">
 
-	<!-- Firebase Library -->
-	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script> <!-- May require reordering -->
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
-	<!-- Connection to Firebase -->
 	<script src="js/fbconnect.js"></script>
 
-	<!-- JQuery Library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
-	<!-- Mobile section -->
-	<nav id="mobile_header">
+	<nav id="mobile_header">	
 		<div id="mobile_meal_planner_nav">
-			<a href="meal_planner.html">
-				<img src="img/mealPlanner.png" alt="meal planner link" height="135" width="135" class="nav_side_icons">
-			</a>
+			<a href="meal_planner.html"><img src="img/meal_planner.png" alt="meal planner link" height="135" width="135" class="nav_side_icons"></a>
 		</div>
-		<!-- Logo -->
 		<div id="mobile_home_page_nav">
 			<img src="img/pocketPantry.png">
 		</div>
 		<div id="mobile_grocery_list_nav">
-			<a href="#">
-				<img src="img/groceryListIcon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons">
-			</a>
+			<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
 		</div>
 	</nav>
-	<!-- Dropdown -->
     <h1 id="affiliates"><a href="affiliates.html">Affiliates</a></h1>
 	
-	<!-- PC section -->
 	<nav id="PC_header">
 		<div id="PC_home_page_nav">
-			<a href="meal_planner.html"><img src="img/pocketPantry.png"></a>
+			<a href="meal_planner.html"><img src="img/Pocket Pantry.png"></a>
 		</div>
 		<div id="PC_page_title">
 			<h1 class="orange">Meal<span class="green_bold">Planner</span></h1>
@@ -55,50 +44,42 @@
 	</nav>
 	
 	<main>
-		<!-- Calendar -->
+		
 		<div id="calendar_container">
 			<table id="calendar"></table>
 		</div>
-		<!-- Expand calendar -->
-		<div id="expand_tab">
-			<img src="img/arrowUp.png" alt="collapse_arrow" height="52" width="72">
+		<div id="expand_tab"><img src="img/Arrowup.png" alt="collapse_arrow" height="52" width="72"></div>
+		<div id="meal_title">
+			<div id="default_title">Planned Meals</div>
+			<div id="meal_time_title">Breakfast</div>
 		</div>
-		<!-- Meal section at bottom -->
-		<div id="meal_section">
-			<div id="meal_title">
-				<div id="default_title">Planned Meals</div>
-				<div id="meal_time_title">Breakfast</div>
-			</div>
-			<div id="meal_builder">
-				<!-- close "modal" -->
-				<div id="PC_exit">&#215;</div>
-				<div id="meal_time_block">
-					<div id="breakfast_block">
-						<img id="breakfast" src="img/null.jpg">
-						<h2 id="breakfast_title" class="title_overlay">Breakfast</h2>
-						<h2 id="breakfast_remove" class="remove_sign hide">&#215;</h2>
-					</div>
-					<div id="lunch_block">
-						<img id="lunch" src="img/null.jpg">
-						<h2 id="lunch_title" class="title_overlay">Lunch</h2>
-						<h2 id="lunch_remove" class="remove_sign hide">&#215;</h2>
-					</div>
-					<div id="dinner_block">
-						<img id="dinner" src="img/null.jpg">
-						<h2 id="dinner_title" class="title_overlay">Dinner</h2>
-						<h2 id="dinner_remove" class="remove_sign hide">&#215;</h2>
-					</div>
+		<div id="meal_builder">
+            <div id="PC_exit">&#215;</div>
+			<div id="meal_time_block">
+				<div id="breakfast_block">
+					<img id="breakfast" src="img/null.jpg">
+					<h2 id="breakfast_title" class="title_overlay">Breakfast</h2>
+					<h2 id="breakfast_remove" class="remove_sign hide">&#215;</h2>
 				</div>
-				<div id="meal_option"></div>
+				<div id="lunch_block">
+					<img id="lunch" src="img/null.jpg">
+					<h2 id="lunch_title" class="title_overlay">Lunch</h2>
+					<h2 id="lunch_remove" class="remove_sign hide">&#215;</h2>
+				</div>
+				<div id="dinner_block">
+					<img id="dinner" src="img/null.jpg">
+					<h2 id="dinner_title" class="title_overlay">Dinner</h2>
+					<h2 id="dinner_remove" class="remove_sign hide">&#215;</h2>
+				</div>
 			</div>
+			<div id="meal_option"></div>
 		</div>
 	</main>
-	<script type="text/javascript" src="js/function_define.js"></script>
-    <script type="text/javascript" src="js/function_object.js"></script>
-    <script type="text/javascript" src="js/function_chaining.js"></script>
-	<script type="text/javascript" src="js/calendar_generator.js"></script>
+    <script src="js/function_define.js"></script>
+    <script src="js/function_object.js"></script>
+    <script src="js/function_chaining.js"></script>
+    <script type="text/javascript" src="js/calendar_generator.js"></script>
 	<script type="text/javascript" src="js/calendar_toggle.js"></script>
 	<script type="text/javascript" src="js/meal_planner_toggle.js"></script>
-	<script type="text/javascript" src="js/logodropdown.js"></script>
 </body>
 </html>

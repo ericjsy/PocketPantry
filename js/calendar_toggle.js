@@ -1,18 +1,16 @@
-// Setting calendar open on start	
-var calender_tab_on = true;
+var calander_tab_on = true;
 
 $(document).ready(function() {
-	// Arrow change, open / close calendar
 	$("#expand_tab").click(function() {
 		$("#calendar_container").slideToggle("slow");
-		if (calender_tab_on) {
-			$("#expand_tab").html('<img src="img/arrowDown.png" alt="collapse_arrow" height="52" width="72">');
-			calender_tab_on = false;
+		if (calander_tab_on) {
+			calander_tab_on = false;
+			$("#expand_tab").html('<img src="img/Arrowdown.png" alt="collapse_arrow" height="52" width="72">');
 		} else {
-			$("#expand_tab").html('<img src="img/arrowUp.png" alt="collapse_arrow" height="52" width="72">');
-			calender_tab_on = true;
+			$("#expand_tab").html('<img src="img/Arrowup.png" alt="collapse_arrow" height="52" width="72">');
+			calander_tab_on = true;
 		}
 	});
 });
 
-//Background shifts during close.
+//Background shifts during close. Unintended?

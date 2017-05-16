@@ -1,16 +1,28 @@
 $(document).ready(function() {
     var meal_time_title = true;
     var meal_option_tab = false;
+    var affiliates_tab = false;
     var selectedDate = "";
     var edit_meal = "";
     
+    // Affiliates page navigation toggle
+    $("#mobile_home_page_nav").on("click", "img", function() {
+        if(!affiliates_tab){
+            $("#mobile_home_page_nav").find('img').css({'background-color' : '#719c6e','box-shadow' : 'inset 0px 0px 10px rgba(0,0,0,0.5)'});
+            affiliates_tab = true;
+        } else {
+            $("#mobile_home_page_nav").find('img').css({'background-color' : '#8DC289','box-shadow' : 'none'});
+            affiliates_tab = false;
+        }
+        $("#affiliates").stop(true, false).slideToggle("slow");
+    });
     // PC Meal Planner edit mode exit
     $("#PC_exit").on("click", function() {
         $("#meal_builder").css("display", "none");
     });
     // Calendar td onclick show indication of date selected
     $("#calendar").on("click", "td", function(event) {
-        $(selectedDate).removeClass('selected_date');
+        $("#calendar td.selected_date").removeClass('selected_date');
         $(event.target).addClass('selected_date');
         selectedDate = event.target;
         //Mobile - while in pre-set meal adding mode, if select other date (td), reset meal_time_block and meal_option to original //toggle state when meal selection mode is present
@@ -34,19 +46,16 @@ $(document).ready(function() {
                 case 'breakfast':
                     $("#meal_time_title").html("Breakfast");
                     edit_meal = "breakfast";
-					// connectMeal('breakfast');
                     retrieve_mealOption(edit_meal);
                     break;
                 case 'lunch':
                     $("#meal_time_title").html("Lunch");
                     edit_meal = "lunch";
-					// connectMeal('lunch');
                     retrieve_mealOption(edit_meal);
                     break;
                 case 'dinner':
                     $("#meal_time_title").html("Dinner");
                     edit_meal = "dinner";
-					// connectMeal('dinner');
                     retrieve_mealOption(edit_meal);
                     break;
             }
@@ -118,7 +127,6 @@ $(document).ready(function() {
                     removeMeal("dinner");
                     break;
             }
-			// removeMeal(event.target.id);
         }
     });
 });

@@ -37,12 +37,12 @@ function retrieve_mealOption(mealtime){
 //Add meal from firebase & update date calendar status
 function addMeal(mealtime, mealoption){
 //    console.log("addMeal called: " + mealtime + ", " + mealoption);
-    Database.db_mealPlanned_mealUpdate(mealtime, mealoption).db_calender_statusUpdate().db_mealPlanned_imageUpdate();
+    Database.db_mealPlanned_imageUpdate().db_mealPlanned_mealUpdate(mealtime, mealoption).db_calender_statusUpdate();
 }
 
 //Add meal from firebase & update date calendar status
 function removeMeal(mealtime){
-    Database.db_mealPlanned_mealRemove(mealtime).db_calender_statusUpdate().db_mealPlanned_imageUpdate();
+    Database.db_mealPlanned_imageUpdate().db_mealPlanned_mealRemove(mealtime).db_calender_statusUpdate();
 }
 
 

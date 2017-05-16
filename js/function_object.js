@@ -1,3 +1,5 @@
+var Database;
+
 function init_dbLibrary(){
     console.log("Init: DB Library");
     Database = new Database_obj();
