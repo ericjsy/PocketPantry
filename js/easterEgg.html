@@ -38,8 +38,11 @@
 				}
 				document.getElementById("thought").innerHTML = message;
 				if (easter) {
+					document.getElementById("easter").style.display = "inline-block";
 					document.getElementById("item_name").value = "";
 					document.getElementById("item_quantity").value = "";
+				} else {
+					document.getElementById("easter").style.display = "none";
 				}
 			}
 		</script>
@@ -48,6 +51,11 @@
 			#update_list {
 				font-weight: bold;
 				font-size: 35px;
+			}
+			
+			#easter {
+				display: none;
+				margin-right: 5px;
 			}
 		</style>
 		
@@ -65,7 +73,7 @@
 			
 			<div id="food_for_thought">
 				<span class="grocery_list_title">Food For Thought</span>
-				<div id="thought"></div>
+				<div id="message"><img src="../img/yellowEgg.png" alt="Easter Egg" id="easter" width="15" height="20"><span  id="thought"></span></div>
 			</div>
 		
 		</main>
