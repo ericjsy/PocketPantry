@@ -13,15 +13,15 @@ body {
 	
 	/* dropdown menu */
 	#affiliates {
+        background-color: #719c6e;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+        display: none;
         font-size: 43px;
         font-weight: normal;
-        display: none;
-        position: relative;
         margin: 0;
+        position: relative;
         text-align: center;
         width: 100%;
-        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
-        background-color: #719c6e;
     }
 	
     #affiliates a {
@@ -29,57 +29,96 @@ body {
         text-decoration: none;
     }
 	
-	/* page heading */
-	#default_title {
-		font-size: 45px;
-		color: #8DC289;
+	/* date range selectors */
+	#grocery_dates {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	#grocery_dates button {
+		background-color: #98D197;
+		border: 0;
+		border-radius: 3px;
+		box-shadow: 1px 1px 1px gray;
+		font-size: 1.2em;
+		height: 35px;
+		margin: 10px 0 10px 0;
+		padding: 0;
+		width: 150px;
 	}
 	
-	/* section heading */
-	.grocery_list_title {
-		font-size: 30px;
-		color: #8DC289;
-	}
-	
-	/* categories */
+	/* categories filters */
 	#grocery_sections {
 		display: flex;
 		justify-content: space-around;
-		width: 90%;
-		margin: auto;
+		width: 100%;
 	}
 	
-	.categories {
+	#categories {
 		font-size: 0.9em;
 		margin: 10px;
 		text-align: center;
+		position: relative;
+	}
+	
+	#categories td {
+		width: 20%;
+		position: relative;
+	}
+	
+	.grocery_icon img {
+		height: 45px;
+		width: 45px;
+	}
+	
+	.grocery_status {
+		bottom: 0;
+		position: absolute;
+		right: 0;
+	}
+	
+	.grocery_status img {
+		height: 20px;
+		width: 20px;
+		-webkit-filter: drop-shadow(1px 1px 1px #000000);
+		filter: drop-shadow(1px 1px 1px #000000);
 	}
 	
 	/* grocery list table */
 	#grocery_list {
 		border-collapse: collapse;
 		margin: auto;
-		width: 90%;
+		width: 100%;
 	}
 	
 	#grocery_list tr:nth-of-type(odd) {
-		background-color: #8DC289;
+		background-color: #D5E8D4;	
 	}
 	
 	#grocery_list td {
 		padding: 5px 0;
 	}
 	
+	#grocery_list td:first-child {
+		text-align: center;
+	}
+	
 	#grocery_list td:nth-child(2) {
-		padding-left: 15px;
 		width: 50%;
+	}
+
+	/* added item list */
+	#add_list {
+		margin: auto;
+		width: 90%;
 	}
 	
 	/* adding an item */
 	#add_item {
 		display: flex;
 		margin: 20px auto;
-		width: 90%;
+		width: 95%;
 	}
 	
 	#item_name::placeholder, #item_quantity::placeholder {
@@ -101,23 +140,35 @@ body {
 	}
 	
 	#update_list {
-		color: #8DC289;
+		color: #8EC18B;
 		font-size: 40px;
 		font-weight: bold;
 		padding: 0;
 		width: 10%;
+text-align: center;
 	}
 	
 	.more_items {
-		background-color: orange;
+		background-color: #ECA074;
 		border: 0;
+		box-shadow: 1px 1px 1px gray inset;
 		font-size: 20px;
 		padding: 10px;
+		
+	}
+	
+	.more_items::-webkit-input-placeholder {  
+	   text-align: center; 
+	}
+	
+	.more_items:-ms-input-placeholder {  
+		text-align: center; 
 	}
 	
 	/* Food For Thought section */
 	#food_for_thought {
 		text-align: center;
+		font-size: 30px;
 	}
 }
 

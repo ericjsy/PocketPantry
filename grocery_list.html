@@ -45,67 +45,106 @@
     <main>
 		
 		<div id="grocery_container">
-		
+			<div id="grocery_dates">
+				<button>Start</button>
+				<button>End</button>
+			</div>
+			
 			<div id="grocery_sections">
-				<div class="categories">
-					<img src="img/coloredListAll.png" alt="all items" width="45" height="45">
-					<br>
-					<span>All Items</span>
-				</div>
-				<div class="categories">
-					<img src="img/bwDairy.png" alt="all dairy items" width="45" height="45">
-					<br>
-					<span>Dairy</span>
-				</div>
-				<div class="categories">
-					<img src="img/bwMeat.png" alt="all meat items" width="45" height="45">
-					<br>
-					<span>Meat</span>
-				</div>
-				<div class="categories">
-					<img src="img/bwVeggies.png" alt="all fruit & veggie items" width="45" height="45">
-					<br>
-					<span>Fruits & Veggies</span>
-				</div>
-				<div class="categories">
-					<img src="img/bwOther.png" alt="all added items" width="45" height="45">
-					<br>
-					<span>Added Items</span>
-				</div>
+				<table id="categories">
+					<tr>
+						<th>Dairy</th>
+						<th>Meat</th>
+						<th>Fruits & Veggies</th>
+						<th>Assorted Items</th>
+						<th>Added Items</th>
+					</tr>
+					<tr>
+						<td id="dairy_toggle">
+							<div class="grocery_icon">
+								<img src="img/coloredDairy.png" alt="all dairy items" width="86" height="97">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td>
+						<td id="meat_toggle">
+							<div class="grocery_icon">
+								<img src="img/coloredMeat.png" alt="all meat items" width="116" height="116">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td>
+						<td id="fruits_vege_toggle">
+							<div class="grocery_icon">
+								<img src="img/coloredVeggies.png" alt="all fruit & veggie items" width="131" height="126">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td id="assorted_items_toggle">
+						<td>
+							<div class="grocery_icon">
+								<img src="img/coloredOther.png" alt="all added items" width="131" height="122">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td>
+						<td id="added_items_toggle">
+							<div class="grocery_icon">
+								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCircle.png" alt="Checkmark" width="71" height="74">
+							</div>		
+						</td>
+					</tr>
+				</table>
 			</div>
 		
 			<table id="grocery_list">
 				<tr>
 					<td><input type="checkbox"></td>
 					<td>Cereal</td>
-					<td>1 box</td>
+					<td>1</td>
+					<td>box</td>
 				</tr>
 				<tr>
 					<td><input type="checkbox"></td>
 					<td>Cheese</td>
-					<td>200 g</td>
+					<td>200</td>
+					<td>g</td>
 				</tr>
 				<tr>
 					<td><input type="checkbox"></td>
 					<td>Eggs</td>
-					<td>12 eggs</td>
+					<td>12</td>
+					<td>eggs</td>
 				</tr>
 				<tr>
 					<td><input type="checkbox"></td>
 					<td>Ground Beef</td>
-					<td>1 lb</td>
+					<td>1</td>
+					<td>lb</td>
 				</tr>
 				<tr>
 					<td><input type="checkbox"></td>
 					<td>Milk</td>
-					<td>2 L</td>
+					<td>2</td>
+					<td>L</td>
 				</tr>
 			</table>
 		</div>
 		
+		<div id="add_list">
+			<p>Your items:</p>
+		</div>
+		
 		<div id="add_item">
 				<input type="text" id="item_name" class="more_items" placeholder="Add item...">
-				<input type="text" id="item_quantity" class="more_items" placeholder="Qty.">
+				<input type="text" id="item_quantity" class="more_items" placeholder="#">
 				<span id="update_list">&#43;</span>
 		</div>
 		
