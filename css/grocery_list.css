@@ -1,11 +1,181 @@
-@media only screen and (max-width: 600px) {
-    /* header */
-    
-    #mobile_grocery_list_nav {
-        background-color: forestgreen;
-    }
+body { 
+	font-family: Helvetica, "Trebuchet MS" ,sans-serif;
 }
+	
+/* mobile */
+@media only screen and (max-width: 600px) {
+	
+	/* highlight current page (grocery list) */
+	#mobile_grocery_list_nav {
+        background-color: #719c6e;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+    }
+	
+	/* dropdown menu */
+	#affiliates {
+        background-color: #719c6e;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+        display: none;
+        font-size: 43px;
+        font-weight: normal;
+        margin: 0;
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+	
+    #affiliates a {
+        color: white;
+        text-decoration: none;
+    }
+	
+	/* date range selectors */
+	#grocery_dates {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	#grocery_dates button {
+		background-color: #98D197;
+		border: 0;
+		border-radius: 3px;
+		box-shadow: 1px 1px 1px gray;
+		font-size: 1.2em;
+		height: 35px;
+		margin: 10px 0 10px 0;
+		padding: 0;
+		width: 150px;
+	}
+	
+	/* categories filters */
+	#grocery_sections {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+	
+	#categories {
+		font-size: 0.9em;
+		margin: 10px;
+		text-align: center;
+		position: relative;
+	}
+	
+	#categories td {
+		width: 20%;
+		position: relative;
+	}
+	
+	.grocery_icon img {
+		height: 45px;
+		width: 45px;
+	}
+	
+	.grocery_status {
+		bottom: 0;
+		position: absolute;
+		right: 0;
+	}
+	
+	.grocery_status img {
+		height: 20px;
+		width: 20px;
+		-webkit-filter: drop-shadow(1px 1px 1px #000000);
+		filter: drop-shadow(1px 1px 1px #000000);
+	}
+	
+	/* grocery list table */
+	#grocery_list {
+		border-collapse: collapse;
+		margin: auto;
+		width: 100%;
+	}
+	
+	#grocery_list tr:nth-of-type(odd) {
+		background-color: #D5E8D4;	
+	}
+	
+	#grocery_list td {
+		padding: 5px 0;
+	}
+	
+	#grocery_list td:first-child {
+		text-align: center;
+	}
+	
+	#grocery_list td:nth-child(2) {
+		width: 50%;
+	}
+
+	/* added item list */
+	#add_list {
+		margin: auto;
+		width: 90%;
+	}
+	
+	/* adding an item */
+	#add_item {
+		display: flex;
+		margin: 20px auto;
+		width: 95%;
+	}
+	
+	#item_name::placeholder, #item_quantity::placeholder {
+		color: #FFFFFF;
+		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+	}
+	
+	#item_name {
+		border-radius: 5px;
+		color: #FFFFFF;
+		width: 65%;
+	}
+	
+	#item_quantity {
+		border-radius: 5px;
+		color: #FFFFFF;
+		margin: 0 5px;
+		width: 25%;
+	}
+	
+	#update_list {
+		color: #8EC18B;
+		font-size: 40px;
+		font-weight: bold;
+		padding: 0;
+		width: 10%;
+text-align: center;
+	}
+	
+	.more_items {
+		background-color: #ECA074;
+		border: 0;
+		box-shadow: 1px 1px 1px gray inset;
+		font-size: 20px;
+		padding: 10px;
+		
+	}
+	
+	.more_items::-webkit-input-placeholder {  
+	   text-align: center; 
+	}
+	
+	.more_items:-ms-input-placeholder {  
+		text-align: center; 
+	}
+	
+	/* Food For Thought section */
+	#food_for_thought {
+		text-align: center;
+		font-size: 30px;
+	}
+}
+
+/* desktop */
 @media only screen and (min-width: 600px) {
+    /* hide mobile */
+    
     #mobile_header {
         display: none;
     }
