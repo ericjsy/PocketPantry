@@ -9,12 +9,15 @@
 	<link rel="stylesheet" href="./css/main_style_mobile.css">
 	<link rel="stylesheet" href="./css/meal_planner.css">
 
-	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+
 	<script src="js/fbconnect.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+	
+	<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="691436780664-cqrn0krnafdum5jf74kckgcitmrk9iru.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 	<nav id="mobile_header">	
@@ -29,6 +32,8 @@
 		</div>
 	</nav>
     <h1 id="affiliates"><a href="affiliates.html">Affiliates</a></h1>
+	
+	<button type="button" onclick="signOut()"> Sign-Out</button>
 	
 	<nav id="PC_header">
 		<div id="PC_home_page_nav">
@@ -81,5 +86,7 @@
     <script type="text/javascript" src="js/calendar_generator.js"></script>
 	<script type="text/javascript" src="js/calendar_toggle.js"></script>
 	<script type="text/javascript" src="js/meal_planner_toggle.js"></script>
+	<script type="text/javascript" src="js/detectUserData.js"></script>
+	<script type="text/javascript" src="js/sign_out.js"></script>	
 </body>
 </html>
