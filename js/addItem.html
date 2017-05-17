@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		
+		<script>
+			function foodForThought() {
+				var name = document.getElementById("item_name").value;
+				lower = name.toLowerCase();
+				var qty = document.getElementById("item_quantity").value;
+				var message = "";
+				var item;
+				var easter;
+				
+				if (qty == 2910) {
+					message = "Have you completed this week's sprint?";
+					easter = true;
+				} else if (lower == "carly") {
+					message = "MILLION DOLLAR TIP: Save our planet with Zero Food Waste!";
+					easter = true;
+				} else if (lower == "darcy") {
+					message = "You shouldn't be coding on weekends. -Darcy Smith, May 2017";
+					easter = true;
+				} else if (lower == "qussay") {
+					message = "Full marks for this Easter egg!";
+					easter = true;
+				} else if (lower == "chris") {
+					message = "Java is the best coding language!";
+					easter = true;
+				} else if (lower == "pocket pantry" || lower == "pocketpantry") {
+					message = "Helping you plan meals and reduce waste.";
+					easter = true;
+				} else if (lower == "food waste") {
+					message = "What have you thrown away today?";
+					easter = true;
+				} else {
+					item = validate();
+				}
+				
+				document.getElementById("thought").innerHTML = message;
+				
+				if (easter) {
+					document.getElementById("easter").style.display = "inline-block";
+					document.getElementById("item_name").value = "";
+					document.getElementById("item_quantity").value = "";
+				} else {
+					document.getElementById("easter").style.display = "none";
+					
+					if (item) {
+						// add item to table
+						var row = document.createElement("tr");
+						var cell = document.createElement("td");
+						var check = document.createElement("input");
+						check.type = "checkbox";
+						cell.appendChild(check);
+						
+						cell = document.createElement("td");
+						text = document.createTextNode(name);
+						cell.appendChild(text);
+						row.appendChild(cell);
+						
+						cell = document.createElement("td");
+						text = document.createTextNode(qty);
+						cell.appendChild(text);
+						row.appendChild(cell);
+						
+						document.getElementById("user_added_items").appendChild(row);
+						document.getElementById("item_name").value = "";
+						document.getElementById("item_quantity").value = "";
+					}
+				}
+			}
+			
+			function validate() {
+				var name = document.getElementById("item_name").value;
+				var qty = document.getElementById("item_quantity").value;
+				var message = "";
+				
+				var patt1 = /[^a-zA-Z ]+/;
+				var patt2 = /[^0-9a-zA-Z ]+/;
+				
+				document.getElementById("errorMessage").innerHTML = "";
+				
+				if (name == "" || patt1.test(name)) {
+					message = "Please enter an item name with only letters and spaces.<br>";
+				}
+				
+				if (patt2.test(qty)) {
+					message += "Please enter an item quantity with only numbers, letters, and spaces.";
+				}
+				
+				if (message == "") {
+					return true;
+				} else {
+					document.getElementById("errorMessage").innerHTML = message;
+					return false;
+				}
+			}
+		</script>
+		
+		<style>
+			#update_list {
+				font-weight: bold;
+				font-size: 35px;
+			}
+			
+			#easter {
+				display: none;
+				margin-right: 5px;
+			}
+			
+			table { width: 90%;}
+			
+			tr:nth-of-type(odd) {
+				background-color: #00FF00;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<main>
+		
+			<table id="grocery_list"></table>
+			
+			<table id="user_added_items"></table>
+		
+			<div id="add_item">
+				<input type="text" id="item_name" class="more_items" placeholder="Add item...">
+				<input type="text" id="item_quantity" class="more_items" placeholder="Qty.">
+				<span id="update_list" onclick="foodForThought()">&#43;</span>
+			</div>
+			<div id="errorMessage"></div>
+			
+			<div id="food_for_thought">
+				<span class="grocery_list_title">Food For Thought</span>
+				<div id="message"><img src="../img/yellowEgg.png" alt="Easter Egg" id="easter" width="15" height="20"><span  id="thought"></span></div>
+			</div>
+		
+		</main>
+	
+	</body>
+</html>
