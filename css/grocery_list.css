@@ -175,6 +175,10 @@ text-align: center;
         background-color: darkseagreen;
         border-radius: 10px;
     }
+    #easter {
+        display: none;
+        margin-right: 5px;
+    }
 }
 
 /* desktop */

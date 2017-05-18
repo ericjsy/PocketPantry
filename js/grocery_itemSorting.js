@@ -134,14 +134,48 @@ function category_select(id){
 function addedItem(){
     var item = document.getElementById("item_name").value;
     var quantity = document.getElementById("item_quantity").value;
-    if(item != "" && quantity != ""){
-        var foo = {name: null, amount: null, unit: null}; 
-        foo.name = item;
-        foo.amount = quantity;
-        foo.unit = "custome";
-        added_list.push(foo);
-        GroceryList.gl_clearTable();
-        init_listToPrint();
+    name = item.toLowerCase();
+    var message = "";
+    var easter;
+    if (quantity == 2910) {
+        message = "Have you completed this week's sprint?";
+        easter = true;
+    } else if (name == "carly") {
+        message = "MILLION DOLLAR TIP: Save our planet with Zero Food Waste!";
+        easter = true;
+    } else if (name == "darcy") {
+        message = "You shouldn't be coding on weekends. -Darcy Smith, May 2017";
+        easter = true;
+    } else if (name == "qussay") {
+        message = "Full marks for this Easter egg!";
+        easter = true;
+    } else if (name == "chris") {
+        message = "Java is the best coding language!";
+        easter = true;
+    } else if (name == "pocket pantry" || name == "pocketpantry") {
+        message = "Helping you plan meals and reduce waste.";
+        easter = true;
+    } else if (name == "food waste") {
+        message = "What have you thrown away today?";
+        easter = true;
+    } else {
+        if(item != "" && quantity != ""){
+            var foo = {name: null, amount: null, unit: null}; 
+            foo.name = item;
+            foo.amount = quantity;
+            foo.unit = "custome";
+            added_list.push(foo);
+            GroceryList.gl_clearTable();
+            init_listToPrint();
+        }
+    }
+    document.getElementById("thought").innerHTML = message;
+    if (easter) {
+        document.getElementById("easter").style.display = "inline-block";
+        document.getElementById("item_name").value = "";
+        document.getElementById("item_quantity").value = "";
+    } else {
+        document.getElementById("easter").style.display = "none";
     }
 }
 
