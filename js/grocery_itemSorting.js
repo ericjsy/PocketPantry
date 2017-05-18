@@ -3,7 +3,7 @@ var GroceryList;
 //all added category to be printed
 var showList = new Array;
 //promises
-var catetory_promise = [
+var category_promise = [
     true, true, true, true, true
 ];
 //all category in one array
@@ -54,8 +54,8 @@ function gl_categoryList_group(){
 
 function gl_addToShowList(){
     showList = new Array;
-    for(var i = 0; i < catetory_promise.length; i++){
-        if(catetory_promise[i]){
+    for(var i = 0; i < category_promise.length; i++){
+        if(category_promise[i]){
             showList.push(categories[i]);
         }
     }
@@ -102,24 +102,24 @@ function category_select(id){
     var promise;
     switch(id){
         case "dairy_toggle":
-            catetory_promise[0] = !catetory_promise[0];
-            promise = catetory_promise[0];
+            category_promise[0] = !category_promise[0];
+            promise = category_promise[0];
             break;
         case "meat_toggle":
-            catetory_promise[1] = !catetory_promise[1];
-            promise = catetory_promise[1];
+            category_promise[1] = !category_promise[1];
+            promise = category_promise[1];
             break;
         case "fruits_vege_toggle":
-            catetory_promise[2] = !catetory_promise[2];
-            promise = catetory_promise[2];
+            category_promise[2] = !category_promise[2];
+            promise = category_promise[2];
             break;
         case "assorted_items_toggle":
-            catetory_promise[3] = !catetory_promise[3];
-            promise = catetory_promise[3];
+            category_promise[3] = !category_promise[3];
+            promise = category_promise[3];
             break;
         case "added_items_toggle":
-            catetory_promise[4] = !catetory_promise[4];
-            promise = catetory_promise[4];
+            category_promise[4] = !category_promise[4];
+            promise = category_promise[4];
             break;
     }
     if(promise){
