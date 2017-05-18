@@ -223,7 +223,9 @@ function validate_input() {
 		message = "Please enter an item name with only letters and spaces.<br>";
 	}
 	
-	if (patt2.test(qty)) {
+	if (parseInt(qty) <= 0) {
+		message += "Please use a positive, non-zero quantity.";
+	} else if (patt2.test(qty)) {
 		message += "Please enter an item quantity with only numbers, letters, and spaces.";
 	}
 	
