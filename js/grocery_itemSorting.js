@@ -194,6 +194,7 @@ function addedItem(){
         document.getElementById("easter").style.display = "inline-block";
         document.getElementById("item_name").value = "";
         document.getElementById("item_quantity").value = "";
+		document.getElementById("errorMessage").innerHTML = "";
     } else {
         document.getElementById("easter").style.display = "none";
 		
