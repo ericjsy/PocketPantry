@@ -42,11 +42,11 @@ function db_calender_statusUpdate(){
         }
     });
 }
-mealtime = ["breakfast", "lunch", "dinner"];
+
 //Update meal selection mode image 
 function db_mealPlanned_imageUpdate(){
 //    console.log("db_mealPlanned_imageUpdate called");
-    // var mealtime = ["breakfast", "lunch", "dinner"];
+    var mealtime = ["breakfast", "lunch", "dinner"];
     for(i = 0 ; i < 3; i++){
         dbDate.child(mealtime[i]).once("value").then(function(snapshot) {
             if(snapshot.val() != null){

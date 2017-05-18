@@ -28,7 +28,10 @@
 			</div>
 		</nav>
 	
-		<h1 id="affiliates"><a href="affiliates.html">Affiliates</a></h1>
+		<div id="affiliates">
+            <button><a href="affiliates.html">Affiliates</a></button>
+            <button onclick="signOut()">Sign-Out</button>
+        </div>
 	
 		<nav id="PC_header">
 			<div id="PC_home_page_nav">
@@ -56,12 +59,12 @@
 					<tr>
 						<th>Dairy</th>
 						<th>Meat</th>
-						<th>Fruits & Veggies</th>
+						<th>Fruits &#38; Veggies</th>
 						<th>Assorted Items</th>
 						<th>Added Items</th>
 					</tr>
 					<tr>
-						<td id="dairy_toggle">
+						<td id="dairy_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredDairy.png" alt="all dairy items" width="86" height="97">
 							</div>
@@ -69,7 +72,7 @@
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
 						</td>
-						<td id="meat_toggle">
+						<td id="meat_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredMeat.png" alt="all meat items" width="116" height="116">
 							</div>
@@ -77,7 +80,7 @@
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
 						</td>
-						<td id="fruits_vege_toggle">
+						<td id="fruits_vege_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredVeggies.png" alt="all fruit & veggie items" width="131" height="126">
 							</div>
@@ -85,7 +88,7 @@
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
 						</td>
-						<td id="assorted_items_toggle">
+						<td id="assorted_items_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredOther.png" alt="all added items" width="131" height="122">
 							</div>
@@ -93,7 +96,7 @@
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
 						</td>
-						<td id="added_items_toggle">
+						<td id="added_items_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
 							</div>
@@ -105,38 +108,7 @@
 				</table>
 			</div>
 		
-			<table id="grocery_list">
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Cereal</td>
-					<td>1</td>
-					<td>box</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Cheese</td>
-					<td>200</td>
-					<td>g</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Eggs</td>
-					<td>12</td>
-					<td>eggs</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Ground Beef</td>
-					<td>1</td>
-					<td>lb</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Milk</td>
-					<td>2</td>
-					<td>L</td>
-				</tr>
-			</table>
+			<table id="grocery_list"></table>
 		</div>
 		
 		<div id="add_list">
@@ -144,17 +116,20 @@
 		</div>
 		
 		<div id="add_item">
-				<input type="text" id="item_name" class="more_items" placeholder="Add item...">
-				<input type="text" id="item_quantity" class="more_items" placeholder="#">
-				<span id="update_list">&#43;</span>
+            <input type="text" id="item_name" class="more_items" placeholder="Add item...">
+            <input type="text" id="item_quantity" class="more_items" placeholder="#">
+            <span id="update_list" onClick="addedItem()">&#43;</span>
 		</div>
 		
 		<div id="food_for_thought">
 			<span class="grocery_list_title">Food For Thought</span>
+            <div id="message"><img src="./img/yellowEgg.png" alt="Easter Egg" id="easter" width="15" height="20"><span  id="thought"></span></div>
 		</div>
 	
     </main>
-	
+	    <script src="js/dummy_data.js"></script>
+        <script src="js/meal_planner_toggle.js"></script>
+        <script src="js/grocery_itemSorting.js"></script>
 	</body>
 
 </html>
