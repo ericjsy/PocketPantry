@@ -123,4 +123,4 @@ function nextMonth() {
 }
 
 //On Window load, call currentMonth
-onload = currentMonth, 	init_dbLibrary();;
+onload = currentMonth, 	init_dbLibrary();

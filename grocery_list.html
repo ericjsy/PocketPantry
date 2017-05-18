@@ -1,26 +1,130 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <title>Pocket Pantry - Grocery List</title>
-      <link rel="stylesheet" href="./css/main_style_pc.css">
-      <link rel="stylesheet" href="./css/main_style_mobile.css">
-      <link rel="stylesheet" href="./css/grocery_list.css">
-   </head>
-   <body>
-      <nav id="mobile_header">
-         <div id="mobile_meal_planner_nav">
-            <a href="meal_planner.html"><img src="img/meal_planner.png"></a>
-         </div>
-         <div id="mobile_home_page_nav">
-            <a href="index.html"><img src="img/home_logo.png"></a>
-         </div>
-         <div id="mobile_grocery_list_nav">
-            <a href="grocery_list.html"><img src="img/grocery_list.png"></a>
-         </div>
-      </nav>
-      <main>
-      </main>
-   </body>
+
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Pocket Pantry - Grocery List</title>
+	  
+		<link rel="stylesheet" href="./css/main_style_pc.css">
+		<link rel="stylesheet" href="./css/main_style_mobile.css">
+		<link rel="stylesheet" href="./css/grocery_list.css">
+	
+		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+		<script src="js/fbconnect.js"></script>
+	  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+	<body>
+		<nav id="mobile_header">
+			<div id="mobile_meal_planner_nav">
+				<a href="meal_planner.html"><img src="img/meal_planner.png" alt="meal planner link" height="135" width="135" class="nav_side_icons"></a>
+			</div>
+			<div id="mobile_home_page_nav">
+				<img src="img/Pocket Pantry.png" alt="Pocket Pantry">
+			</div>
+			<div id="mobile_grocery_list_nav">
+				<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
+			</div>
+		</nav>
+	
+		<h1 id="affiliates"><a href="affiliates.html">Affiliates</a></h1>
+	
+		<nav id="PC_header">
+			<div id="PC_home_page_nav">
+				<a href="meal_planner.html"><img src="img/Pocket Pantry.png" alt="meal planner link"></a>
+			</div>
+			<div id="PC_page_title">
+				<h1 class="orange">Grocery<span class="green_bold">List</span></h1>
+			</div>
+			<div id="PC_grocery_list_nav">
+				<div>
+				</div>
+			</div>
+		</nav>
+	  
+    <main>
+		
+		<div id="grocery_container">
+			<div id="grocery_dates">
+				<button>Start</button>
+				<button>End</button>
+			</div>
+			
+			<div id="grocery_sections">
+				<table id="categories">
+					<tr>
+						<th>Dairy</th>
+						<th>Meat</th>
+						<th>Fruits &#38; Veggies</th>
+						<th>Assorted Items</th>
+						<th>Added Items</th>
+					</tr>
+					<tr>
+						<td id="dairy_toggle" class="selected_tab" onClick="category_select(this.id)">
+							<div class="grocery_icon">
+								<img src="img/coloredDairy.png" alt="all dairy items" width="86" height="97">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td>
+						<td id="meat_toggle" class="selected_tab" onClick="category_select(this.id)">
+							<div class="grocery_icon">
+								<img src="img/coloredMeat.png" alt="all meat items" width="116" height="116">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td>
+						<td id="fruits_vege_toggle" class="selected_tab" onClick="category_select(this.id)">
+							<div class="grocery_icon">
+								<img src="img/coloredVeggies.png" alt="all fruit & veggie items" width="131" height="126">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td>
+						<td id="assorted_items_toggle" class="selected_tab" onClick="category_select(this.id)">
+							<div class="grocery_icon">
+								<img src="img/coloredOther.png" alt="all added items" width="131" height="122">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
+							</div>
+						</td>
+						<td id="added_items_toggle" class="selected_tab" onClick="category_select(this.id)">
+							<div class="grocery_icon">
+								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
+							</div>
+							<div class="grocery_status">
+								<img src="img/groceryListCategoryCircle.png" alt="Checkmark" width="71" height="74">
+							</div>		
+						</td>
+					</tr>
+				</table>
+			</div>
+		
+			<table id="grocery_list"></table>
+		</div>
+		
+		<div id="add_list">
+			<p>Your items:</p>
+		</div>
+		
+		<div id="add_item">
+            <input type="text" id="item_name" class="more_items" placeholder="Add item...">
+            <input type="text" id="item_quantity" class="more_items" placeholder="#">
+            <span id="update_list" onClick="addedItem()">&#43;</span>
+		</div>
+		
+		<div id="food_for_thought">
+			<span class="grocery_list_title">Food For Thought</span>
+		</div>
+	
+    </main>
+	    <script src="js/dummy_data.js"></script>
+        <script src="js/grocery_itemSorting.js"></script>
+	</body>
+
 </html>
