@@ -17,6 +17,8 @@
 	
 	<script type="text/javascript" src="js/detectUserData.js"></script>
 	<script type="text/javascript" src="js/sign_out.js"></script>
+	<script type="text/javascript" src="js/logodropdown.js"></script>
+	
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
@@ -31,9 +33,10 @@
 			<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
 		</div>
 	</nav>
-    <h1 id="affiliates"><a href="affiliates.html">Affiliates</a></h1>
-	
-	<button type="button" onclick="signOut()"> Sign-Out</button>
+    <div id="affiliates">
+		<button><a href="affiliates.html">Affiliates</a></button>
+		<button onclick="signOut()">Sign-Out</button>
+	</div>
 	
 	<nav id="PC_header">
 		<div id="PC_home_page_nav">
