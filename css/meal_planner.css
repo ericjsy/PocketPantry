@@ -203,7 +203,7 @@ table #calendar_days_headings {
         box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
         background-color: #719c6e;
     }
-    #affiliates a{
+    #affiliates button{
         color: white;
         text-decoration: none;
     }
