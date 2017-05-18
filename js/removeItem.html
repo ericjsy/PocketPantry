@@ -66,7 +66,6 @@
 						cell.appendChild(text);
 						row.appendChild(cell);
 						
-						// NEW! add remove button with remove function
 						cell = document.createElement("td");
 						var att = document.createAttribute("onclick");
 						att.value = "this.parentNode.parentNode.removeChild(this.parentNode)";
@@ -137,33 +136,7 @@
 			<table id="grocery_list"></table>
 			
 			<table id="user_added_items">
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>apples</td>
-					<td>6</td>
-					<td onclick="this.parentNode.parentNode.removeChild(this.parentNode)">&#215;</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>bananas</td>
-					<td>6</td>
-					<td onclick="this.parentNode.parentNode.removeChild(this.parentNode)">&#215;</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>taco shells</td>
-					<td>2 boxes</td>
-					<td onclick="this.parentNode.parentNode.removeChild(this.parentNode)">&#215;</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>peanut butter</td>
-					<td>1 jar</td>
-					<td onclick="this.parentNode.parentNode.removeChild(this.parentNode)">&#215;</td>
-				</tr>
 			</table>
-			
-			<div id="testing"></div>
 		
 			<div id="add_item">
 				<input type="text" id="item_name" class="more_items" placeholder="Add item...">
