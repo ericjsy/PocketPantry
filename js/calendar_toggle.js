@@ -5,9 +5,9 @@ $(document).ready(function() {
 		$("#calendar_container").slideToggle("slow");
 		if (calander_tab_on) {
 			calander_tab_on = false;
-			$("#expand_tab").html('<img src="img/Arrowdown.png" alt="collapse_arrow" height="52" width="72">');
+			$("#expand_tab").html('<img src="img/arrowDown.png" alt="collapse_arrow" height="52" width="72">');
 		} else {
-			$("#expand_tab").html('<img src="img/Arrowup.png" alt="collapse_arrow" height="52" width="72">');
+			$("#expand_tab").html('<img src="img/arrowUp.png" alt="collapse_arrow" height="52" width="72">');
 			calander_tab_on = true;
 		}
 	});
