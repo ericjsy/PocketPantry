@@ -92,6 +92,34 @@ function gl_listItems(){
     }
 }
 
+// add the item the user typed
+function gl_userItems() {
+	var inputObj = document.createElement("input");
+	inputObj.setAttribute("type", "checkbox");
+
+	var row = document.createElement("tr");
+
+	var checkBox = document.createElement("td");
+	checkBox.appendChild(inputObj);
+
+	var name = document.createElement("td");
+	name.appendChild(document.createTextNode("" + document.getElementById("item_name").value));
+
+	var qty = document.createElement("td");
+	qty.appendChild(document.createTextNode("" + document.getElementById("item_quantity").value));
+
+	var remove = document.createElement("td");
+	remove.setAttribute("onclick", "this.parentNode.parentNode.removeChild(this.parentNode)");
+	remove.appendChild(document.createTextNode("\u00D7"));
+	
+	row.appendChild(checkBox);
+	row.appendChild(name);
+	row.appendChild(qty);
+	row.appendChild(remove);
+
+	document.getElementById("user_added_items").appendChild(row);
+}
+
 //Chainning
 
 function init_listToPrint(){
@@ -159,15 +187,7 @@ function addedItem(){
         message = "What have you thrown away today?";
         easter = true;
     } else {
-        if(item != "" && quantity != ""){
-            var foo = {name: null, amount: null, unit: null}; 
-            foo.name = item;
-            foo.amount = quantity;
-            foo.unit = "custome";
-            added_list.push(foo);
-            GroceryList.gl_clearTable();
-            init_listToPrint();
-        }
+        var item_valid = validate_input();
     }
     document.getElementById("thought").innerHTML = message;
     if (easter) {
@@ -176,7 +196,42 @@ function addedItem(){
         document.getElementById("item_quantity").value = "";
     } else {
         document.getElementById("easter").style.display = "none";
+		
+		if (item_valid) {
+			gl_userItems();
+			
+			document.getElementById("item_name").value = "";
+			document.getElementById("item_quantity").value = "";
+		}
     }
+}
+
+function validate_input() {
+	var name = document.getElementById("item_name").value;
+	var qty = document.getElementById("item_quantity").value;
+	var message = "";
+	
+	// item names allow only letters and spaces
+	var patt1 = /[^a-zA-Z ]+/;
+	// item quantities allow only numbers, letters, and spaces
+	var patt2 = /[^0-9a-zA-Z ]+/;
+	
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	if (name == "" || patt1.test(name)) {
+		message = "Please enter an item name with only letters and spaces.<br>";
+	}
+	
+	if (patt2.test(qty)) {
+		message += "Please enter an item quantity with only numbers, letters, and spaces.";
+	}
+	
+	if (message == "") {
+		return true;
+	} else {
+		document.getElementById("errorMessage").innerHTML = message;
+		return false;
+	}
 }
 
 onload = init_groceryListLibrary(), init_listToPrint();
