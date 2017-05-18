@@ -165,7 +165,7 @@ function addedItem(){
     name = item.toLowerCase();
     var message = "";
     var easter;
-    if (quantity == 2910) {
+    if (/^2910$/.test(quantity)) {
         message = "Have you completed this week's sprint?";
         easter = true;
     } else if (name == "carly") {
