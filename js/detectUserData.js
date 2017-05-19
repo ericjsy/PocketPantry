@@ -1,3 +1,5 @@
+uid = "";
+
 window.onload = firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		if (user != null) {
@@ -13,3 +15,4 @@ window.onload = firebase.auth().onAuthStateChanged(function(user) {
 		window.location.replace("sign_in.html");
 	}
 });
+
