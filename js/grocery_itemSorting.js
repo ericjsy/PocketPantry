@@ -135,6 +135,10 @@ function remove_items(td) {
 	// clear any error messages, if shown
 	document.getElementById("errorMessage").innerHTML = "";
 	
+	// clear easter egg, if shown
+	document.getElementById("easter").style.display = "none";
+	document.getElementById("thought").innerHTML = "";
+	
 	// hide "Your items" text if no added items left
 	if (!document.getElementById("user_added_items").firstChild) {
 		category_promise[4] = false;
