@@ -118,7 +118,6 @@ body {
 
 /* single day visuals */
 .dot {
-	text-shadow: 1px 1px 1px white;
     flex: 1;
     text-align: center;
     -webkit-border-radius: 100%;
@@ -129,6 +128,12 @@ body {
     border-radius: 100%;
 	font-size: 1em;
     pointer-events: none;
+	text-shadow:
+	-1px -1px 0 #FFFFFF,  
+	1px -1px 0 #FFFFFF,
+	-1px 1px 0 #FFFFFF,
+	1px 1px 0 #FFFFFF,
+	2px 3px 1px #000000;
 }
 .day{
     margin-right: 5px;
@@ -243,8 +248,8 @@ body {
 		filter: drop-shadow(1px 1px 1px #000000);
 	}
 	
-	/* grocery list and user-added items tables */
-	#grocery_list, #user_added_items {
+	/* grocery list table */
+	#grocery_list {
 		border-collapse: collapse;
 		margin: auto;
 		width: 100%;
@@ -254,50 +259,22 @@ body {
 		background-color: #D5E8D4;	
 	}
 	
-	#user_added_items tr:nth-of-type(odd) {
-		background-color: #F5C6A9;
-	}
-	
 	#grocery_list td {
 		padding: 5px 0;
 	}
 	
-	#grocery_list td:first-child, #user_added_items td:first-child {
+	#grocery_list td:first-child {
 		text-align: center;
 	}
 	
 	#grocery_list td:nth-child(2) {
 		width: 50%;
 	}
-	
-	#user_added_items td:first-child {
-		width: 13%;
-	}
-	
-	#user_added_items td:nth-child(2) {
-		width: 52%;
-	}
-	
-	#user_added_items td:nth-child(3) {
-		width: 25%;
-	}
-	
-	#user_added_items td:last-child {
-		color: #EC7B7B;
-		font-weight: bold;
-		font-size: 30px;
-		padding: 0;
-		width: 10%;
-	}
-	
-	#errorMessage {
-		color: #EC7B7B;
-		text-align: center;
-	}
-	
-	/* Text header for user-added items */
-	#add_list p {
-		text-align: center;
+
+	/* added item list */
+	#add_list {
+		margin: auto;
+		width: 90%;
 	}
 	
 	/* adding an item */
@@ -361,15 +338,10 @@ body {
         background-color: darkseagreen;
         border-radius: 10px;
     }
-	
     #easter {
         display: none;
         margin-right: 5px;
     }
-	
-	#thought {
-		font-size: 16px;
-	}
 }
 
 /* desktop */
