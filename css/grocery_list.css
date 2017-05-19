@@ -92,8 +92,8 @@ body {
 		filter: drop-shadow(1px 1px 1px #000000);
 	}
 	
-	/* grocery list table */
-	#grocery_list {
+	/* grocery list and user-added items tables */
+	#grocery_list, #user_added_items {
 		border-collapse: collapse;
 		margin: auto;
 		width: 100%;
@@ -103,22 +103,40 @@ body {
 		background-color: #D5E8D4;	
 	}
 	
-	#grocery_list td {
+	#user_added_items tr:nth-of-type(odd) {
+		background-color: #F5C6A9;
+	}
+	
+	#grocery_list td, #user_added_items td {
 		padding: 5px 0;
 	}
 	
-	#grocery_list td:first-child {
+	#grocery_list td:first-child, #user_added_items td:first-child {
 		text-align: center;
 	}
 	
 	#grocery_list td:nth-child(2) {
 		width: 50%;
 	}
-
-	/* added item list */
-	#add_list {
-		margin: auto;
-		width: 90%;
+	
+	#user_added_items td:nth-child(1) {
+		width: 13%;
+	}
+	
+	#user_added_items td:nth-child(2) {
+		width: 52%;
+	}
+	
+	#user_added_items td:nth-child(3) {
+		width: 25%;
+	}
+	
+	#user_added_items td:nth-child(4) {
+		color: white;
+		font-weight: bold;
+		font-size: 30px;
+		padding: 0;
+		width: 10%;
 	}
 	
 	/* adding an item */
@@ -152,7 +170,7 @@ body {
 		font-weight: bold;
 		padding: 0;
 		width: 10%;
-text-align: center;
+		text-align: center;
 	}
 	
 	.more_items {
@@ -182,10 +200,15 @@ text-align: center;
         background-color: darkseagreen;
         border-radius: 10px;
     }
+	
     #easter {
         display: none;
         margin-right: 5px;
     }
+	
+	#thought {
+		font-size: 16px;
+	}
 }
 
 /* desktop */
