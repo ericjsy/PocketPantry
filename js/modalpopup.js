@@ -14,6 +14,7 @@ function initApp() {
 	document.getElementsByClassName("popUpBtn")[1].addEventListener("click", function() {
     showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><p id="calendar_instructions">Tap the first and last dates to shop for!</p>');
   }, false);
+
 }
 //show the modal overlay and popup window
 function showPopUpMessage(msg) {
@@ -40,4 +41,20 @@ function hidePopUpMessage() {
     document.body.removeChild(overlayElement);
     document.body.removeChild(modalWindowElement);
   }, 400);
+  
+  if(endDate.date == "") {
+	  endDate.date = startDate.date;
+  }
+  if(startDate.date == "") {
+	  startDate.date = endDate.date;
+  }
+  
+  console.log("startDate.date: " + startDate.date);
+  console.log("endDate.date: " + endDate.date);
+  
+  	var str1 = startDate.date.split("_");
+	var str2 = endDate.date.split("_");
+  
+  document.getElementsByClassName("popUpBtn")[0].innerHTML = "" + months[str1[0] - 1] + " " + str1[1];
+  document.getElementsByClassName("popUpBtn")[1].innerHTML = "" + months[str2[0] - 1] + " " + str2[1];
 }

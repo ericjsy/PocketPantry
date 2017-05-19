@@ -3,8 +3,8 @@ function drawCalendar(date) {
     connectUser("ryalia");
     
 	//Enumeration sets
-	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-	var dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+	months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+	dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 	//Create dates
 	var d = new Date(date);
@@ -18,11 +18,11 @@ function drawCalendar(date) {
 			"<button id='next' onclick='previousMonth()' >" +
 				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
 			"</button>" +
-			"<button id='start_selector' onclick=\"slcfrom()\">Start</button>" +
+			"<button id='start_selector' onclick='slcFrom()'>From</button>" +
 			"<span id='month'>" + 
 				months[d.getMonth()] + 
 			"</span>" +
-			"<button id='end_selector' onclick=\"slcto()\">End</button>" +
+			"<button id='end_selector' onclick='slcTo()'>To</button>" +
 			"<button id='previous' onclick='nextMonth()'>" +
 				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
 			"</button>" + 
@@ -100,6 +100,7 @@ function drawCalendar(date) {
 	} while(d.getDate() > 1);
     
 	retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
+
 }
 
 // Show current month
