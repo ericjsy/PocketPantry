@@ -12,23 +12,9 @@ function drawCalendar(date) {
 	var today = new Date();
 	
     //Table start, Month navigation,
-	var calendar = 
-	"<tr>" +
-		"<th colspan = '7'>" +
-			"<button id='next' onclick='previousMonth()' >" +
-				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
-			"</button>" + 
-			"<span id='month'>" + 
-				months[d.getMonth()] + " " + d.getFullYear() + 
-			"</span>" +
-			"<button id='previous' onclick='nextMonth()'>" +
-				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
-			"</button>" + 
-		"</th>" +
-	"</tr>";
+	var calendar =
 	
-	//Table header
-	calendar += 
+	//Table header 
 	"<tr id='calendar_days_headings'>" +
 		"<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>" +
 	"</tr>";
@@ -62,6 +48,19 @@ function drawCalendar(date) {
 	}
 	// Calendar end
 	calendar += "</tr>";
+      calendar += "<tr>" +
+		"<th colspan = '7'>" +
+			"<button id='next' onclick='previousMonth()' >" +
+				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
+			"</button>" + 
+			"<span id='month'>" + 
+				months[d.getMonth()] + 
+			"</span>" +
+			"<button id='previous' onclick='nextMonth()'>" +
+				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
+			"</button>" + 
+		"</th>" +
+	"</tr>";
 
 	//Print Calendar
 	document.getElementById("calendar").innerHTML = calendar;
@@ -70,6 +69,7 @@ function drawCalendar(date) {
 	if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
         document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
         document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).classList.add('selected_date'); 
+//      document.getElementById("header_selected_date").innerHTML+="" + (today.getMonth() + 1) + "_" + today.getDate(); 
 	}
 
 	// Color previous days, addEventListener to every say & draw in dots
