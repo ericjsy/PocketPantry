@@ -4,7 +4,7 @@ var GroceryList;
 var showList = new Array;
 //promises
 var catetory_promise = [
-    true, true, true, true, true
+    true, true, true, true, false
 ];
 //all category in one array
 var categories;
@@ -61,14 +61,33 @@ function gl_addToShowList(){
     }
 }
 
+function removeItem(id){
+    var check = document.getElementById(id).checked;
+    var item = id.split("_")[0];
+    if(check){
+        for(i = 0; i < showList.length; i++){
+            if(showList[i].name == item){
+                
+            }
+        }
+    } else {
+        
+    }
+
+}
+
 function gl_listItems(){
 //    console.log("listItem called");
     for (var i = 0; i < showList.length; i++) {
         for (var j = 0; j < showList[i].length; j++) {
+            var id;
             var inputObj = document.createElement("input");
             inputObj.setAttribute("type", "checkbox");
+            inputObj.setAttribute("id", "" + showList[i][j].name + "_check");
+            inputObj.addEventListener("click", function(e) {removeItem(this.id);}, false);
 
             var row = document.createElement("tr");
+            row.setAttribute("id", showList[i][j].name);
 
             var checkBox = document.createElement("td");
             checkBox.appendChild(inputObj);
