@@ -1,19 +1,11 @@
 /* calender */
 
-@font-face {
-	font-family: 'Conv_agency-fb';
-	src: url('../assets/agency-fb.eot');
-	src: local('☺'), url('../assets/agency-fb.woff') format('woff'), url('../assets/agency-fb.ttf') format('truetype'), url('../assets/agency-fb.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
 table {
     width: 99.9%;
     color: orange;
     border-collapse: collapse;
 	background-color: white;
-	font-family: "Conv_agency-fb", helvetica, sans-serif;
+	font-family: "Agency FB", Helvetica, sans-serif;
     padding-top: 100px;
 }
 #month {
@@ -36,14 +28,12 @@ table #calendar_days_headings {
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
     border-radius: 100%;
-	font-size: 1em;
+	font-size: 25px;
     pointer-events: none;
 }
 .day{
     margin-right: 5px;
     pointer-events: none;
-    font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
-    font-size: .8em;
 }
 .dot_container {
     width: 100%;
@@ -62,7 +52,6 @@ table #calendar_days_headings {
 }
 .not_clickable{
     pointer-events: none;
-    background-color: #a4a4a4;
 }
 /* mobile */
 
@@ -70,17 +59,9 @@ table #calendar_days_headings {
     /* header */
 	
 	body { /* Changed */
-      
+		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
 	}
-  * {
-
-  }
-  /* font */
-    @font-face {
-      font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
-      font-weight: 400;
-      src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-    }
+	
     #calander_container{
         display: none;
     }
@@ -151,12 +132,10 @@ table #calendar_days_headings {
 		color: white;
         pointer-events: none;
 		text-shadow: 3px 3px 15px #000000;
-        font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
     }
 	#default_title, #meal_time_title {
 		font-size: 45px;
 		color: #8DC289;
-        font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
 	}
 	#meal_title {
 		padding-bottom: 10px;
@@ -182,7 +161,6 @@ table #calendar_days_headings {
 		color: white;
 		text-shadow: 2px 2px 1px #000000;
         pointer-events: none;
-        font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
 	}
     .remove_sign{
         font-size: 50px;
@@ -280,6 +258,7 @@ table #calendar_days_headings {
 
 @media only screen and (min-width: 600px) {
     body { /* Changed */
+		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
 	}
     /* hide mobile */
     
