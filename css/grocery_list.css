@@ -1,11 +1,353 @@
+body { 
+	font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+}
+
+/* calendar */
+#calendar {
+    color: orange;
+    border-collapse: collapse;
+	background-color: #E1E1E1;
+	background: linear-gradient(to bottom, black 70px, #E1E1E1 2%);
+	font-family: "Agency FB", Helvetica, sans-serif;
+    padding-top: 100px;
+    width: 99.9%;
+}
+#calendar th:only-child {
+	background-color: black;
+}
+#calendar th:first-child {
+	position: relative;
+}
+#calendar td {
+	height: 45px;
+	width: 45px;
+	border: solid 1px #8E8E8E;
+	margin: 0;
+	vertical-align: top;
+	text-align: right;
+}
+
+/* calendar month heading */
+#month {
+	color: #E1E1E1;
+	font-size: 30px;
+	font-weight: 100;
+	vertical-align: middle;
+}
+
+/* start and end buttons */
+#start_selector, #end_selector {
+	background-color: #719c6e;
+	border-radius: 3px;
+	border: 0;
+	box-shadow: 1px 1px 1px gray;
+	color: black;
+	display: inline;
+	font-size: 1.2em;
+	height: 30px;
+	margin: 15px 0;
+	width: 25%;
+	padding: 0;
+}
+#start_selector {
+	margin-right: 17px;
+}
+#end_selector {
+	margin-left: 17px;
+}
+
+/* left and right arrows */
+#previous, #next {
+	background-color: transparent;
+	background-repeat:no-repeat;
+	border: none;
+	cursor:pointer;
+	overflow: hidden;
+	outline:none;
+	height: 30px;
+	width: 23px;
+	padding: 0;
+}
+#next {
+	position: absolute;
+	left: 10px;
+	top: 17px;
+}
+#previous {
+	position: absolute;
+	right: 10px;
+	top: 17px;
+}
+#previous img, #next img {
+	height: 25px;
+	width: 18px;
+}
+
+/* calendar day of the week heading */
+#calendar_days_headings {
+	background-color: #8E8E8E;
+	font-size: 25px;
+	font-weight: normal;
+}
+#calendar_days_headings th {
+	color: #E1E1E1;
+	font-size: 1em;
+	height: 50px;
+}
+#calendar_days_headings th:first-child {
+	border-radius: 10px 0 0 0;
+	border-right: 2px solid #8E8E8E;
+}
+#calendar_days_headings th:last-child {
+	border-radius: 0 10px 0 0; 
+	border-left: 2px solid #8E8E8E;
+}
+#calendar_days_headings th:not(:first-child) {
+	border-left: 2px solid #8E8E8E;
+}
+
+/* instructions caption */
+#calendar_instructions {
+	background-color: #8E8E8E;
+	border-radius: 0 0 7px 7px;
+	color: #E1E1E1;
+	margin: 0;
+	padding: 5px;
+	text-align: center;
+}
+
+/* single day visuals */
+.dot {
+    flex: 1;
+    text-align: center;
+    -webkit-border-radius: 100%;
+    -khtml-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+	font-size: 1em;
+    pointer-events: none;
+	text-shadow:
+	-1px -1px 0 #FFFFFF,  
+	1px -1px 0 #FFFFFF,
+	-1px 1px 0 #FFFFFF,
+	1px 1px 0 #FFFFFF,
+	2px 3px 1px #000000;
+}
+.day{
+    margin-right: 5px;
+    pointer-events: none;
+}
+.dot_container {
+    width: 100%;
+    display: flex;
+    pointer-events: none;
+}
+.selected_date{
+    background-color: skyblue !important;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5);
+}
+.greyout_date{
+    background-color: #CCCCCC;
+}
+.today_date{
+    background-color: #BFD8CA;
+}
+.not_clickable{
+    pointer-events: none;
+}
+	
+/* mobile */
 @media only screen and (max-width: 600px) {
-    /* header */
+	
+	/* highlight current page (grocery list) */
+	#mobile_grocery_list_nav {
+        background-color: #719c6e;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+    }
+	
+	/* dropdown menu */
+	#affiliates {
+        background-color: #719c6e ;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+        display: none;
+        margin: 0;
+        width: 100%;
+    }
+    #affiliates button {
+        background-color: transparent;
+        border: 0;
+        color: white;
+        font-size: 2.5em;
+        width: 100%;
+    }
+    #affiliates button:not(:last-child) {
+        border-bottom: 1px solid rgba(0,0,0,0.3);
+    }
+    #affiliates a {
+        color: white;
+        display: block;
+        height: 100%;
+        text-decoration: none;
+        width: 100%;
+    }
+	/* date range selectors */
+	#grocery_dates {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	#grocery_dates button {
+		background-color: #98D197;
+		border: 0;
+		border-radius: 3px;
+		box-shadow: 1px 1px 1px gray;
+		font-size: 1.2em;
+		height: 35px;
+		margin: 10px 0 10px 0;
+		padding: 0;
+		width: 150px;
+	}
+	
+	/* categories filters */
+	#grocery_sections {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+	}
+	
+	#categories {
+		font-size: 0.9em;
+		margin: 10px;
+		text-align: center;
+		position: relative;
+	}
+	
+	#categories td {
+		width: 20%;
+		position: relative;
+	}
+	
+	.grocery_icon img {
+		height: 45px;
+		width: 45px;
+	}
+	
+	.grocery_status {
+		bottom: 0;
+		position: absolute;
+		right: 0;
+	}
+	
+	.grocery_status img {
+		height: 20px;
+		width: 20px;
+		-webkit-filter: drop-shadow(1px 1px 1px #000000);
+		filter: drop-shadow(1px 1px 1px #000000);
+	}
+	
+	/* grocery list table */
+	#grocery_list {
+		border-collapse: collapse;
+		margin: auto;
+		width: 100%;
+	}
+	
+	#grocery_list tr:nth-of-type(odd) {
+		background-color: #D5E8D4;	
+	}
+	
+	#grocery_list td {
+		padding: 5px 0;
+	}
+	
+	#grocery_list td:first-child {
+		text-align: center;
+	}
+	
+	#grocery_list td:nth-child(2) {
+		width: 50%;
+	}
+
+	/* added item list */
+	#add_list {
+		margin: auto;
+		width: 90%;
+	}
+	
+	/* adding an item */
+	#add_item {
+		display: flex;
+		margin: 20px auto;
+		width: 95%;
+	}
+	
+	#item_name::placeholder, #item_quantity::placeholder {
+		color: #FFFFFF;
+		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+	}
+	
+	#item_name {
+		border-radius: 5px;
+		color: #FFFFFF;
+		width: 65%;
+	}
+	
+	#item_quantity {
+		border-radius: 5px;
+		color: #FFFFFF;
+		margin: 0 5px;
+		width: 25%;
+	}
+	
+	#update_list {
+		color: #8EC18B;
+		font-size: 40px;
+		font-weight: bold;
+		padding: 0;
+		width: 10%;
+		text-align: center;
+	}
+	
+	.more_items {
+		background-color: #ECA074;
+		border: 0;
+		box-shadow: 1px 1px 1px gray inset;
+		font-size: 20px;
+		padding: 10px;
+		
+	}
+	
+	.more_items::-webkit-input-placeholder {  
+	   text-align: center; 
+	}
+	
+	.more_items:-ms-input-placeholder {  
+		text-align: center; 
+	}
+	
+	/* Food For Thought section */
+	#food_for_thought {
+		text-align: center;
+		font-size: 30px;
+	}
     
-    #mobile_grocery_list_nav {
-        background-color: forestgreen;
+    .selected_tab{
+        background-color: darkseagreen;
+        border-radius: 10px;
+    }
+    #easter {
+        display: none;
+        margin-right: 5px;
     }
 }
+
+/* desktop */
 @media only screen and (min-width: 600px) {
+    /* hide mobile */
+    
     #mobile_header {
         display: none;
     }
