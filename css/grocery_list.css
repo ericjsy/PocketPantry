@@ -118,6 +118,7 @@ body {
 
 /* single day visuals */
 .dot {
+	text-shadow: 1px 1px 1px white;
     flex: 1;
     text-align: center;
     -webkit-border-radius: 100%;
@@ -128,12 +129,6 @@ body {
     border-radius: 100%;
 	font-size: 1em;
     pointer-events: none;
-	text-shadow:
-	-1px -1px 0 #FFFFFF,  
-	1px -1px 0 #FFFFFF,
-	-1px 1px 0 #FFFFFF,
-	1px 1px 0 #FFFFFF,
-	2px 3px 1px #000000;
 }
 .day{
     margin-right: 5px;

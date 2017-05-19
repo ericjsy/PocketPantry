@@ -15,12 +15,6 @@
   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
-		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
-		<script src="js/fbconnect.js"></script>
-	  
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<!--<script type="text/javascript" src="js/detectUserData.js"></script> -->
 </head>
@@ -41,14 +35,13 @@
 		<button><a href="affiliates.html">Affiliates</a></button>
 		<button onclick="signOut()">Sign-Out</button>
 	</div>
-
 	
 	
 	<main>		
 		<div id="grocery_container">
 			<div id="grocery_dates">
-				<button class="popUpBtn">From</button>
-				<button class="popUpBtn">To</button>
+				<button id="popUpBtn">Start</button>
+				<button>End</button>
 			</div>
 
 			<div id="grocery_sections">
@@ -93,10 +86,8 @@
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
 						</td>
-
-						<td id="added_items_toggle" onClick="category_select(this.id)">
+						<td id="added_items_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div onclick="toggleAdded()" class="grocery_icon">
-
 								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
 							</div>
 							<div class="grocery_status">
@@ -128,25 +119,20 @@
 			<span class="grocery_list_title">Food For Thought</span>
 			<div id="message"><img src="./img/yellowEgg.png" alt="Easter Egg" id="easter" width="15" height="20"><span  id="thought"></span></div>
 		</div>
-
-    </main>
-	    <script src="js/retrieve_groceryList_data.js"></script>
+	</main>
 	
     <script src="js/function_object.js"></script>
 	<script src="js/function_define.js"></script>
     <script src="js/function_chaining.js"></script>
 	
-	
+	<script type="text/javascript" src="js/dummy_data.js"></script>
 	<script type="text/javascript" src="js/grocery_itemSorting.js"></script>
 	<script type="text/javascript" src="js/grocery_calendar_generator.js"></script>
 	<script type="text/javascript" src="js/meal_planner_toggle.js"></script>
 
 	<script type="text/javascript" src="js/logodropdown.js"></script>
 	<script type="text/javascript" src="js/sign_out.js"></script>
-	
-	<script type="text/javascript" src="js/drselect.js"></script>
 	<script type="text/javascript" src="js/modalpopup.js"></script>
-	
 	
 </body>
 </html>

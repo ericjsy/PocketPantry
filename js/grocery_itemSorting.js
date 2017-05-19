@@ -3,9 +3,8 @@ var GroceryList;
 //all added category to be printed
 var showList = new Array;
 //promises
-
 var category_promise = [
-    true, true, true, true, false
+    true, true, true, true, true
 ];
 //user-added items
 var user_added_promise = true;
@@ -64,33 +63,14 @@ function gl_addToShowList(){
     }
 }
 
-function removeItem(id){
-    var check = document.getElementById(id).checked;
-    var item = id.split("_")[0];
-    if(check){
-        for(i = 0; i < showList.length; i++){
-            if(showList[i].name == item){
-                
-            }
-        }
-    } else {
-        
-    }
-
-}
-
 function gl_listItems(){
 //    console.log("listItem called");
     for (var i = 0; i < showList.length; i++) {
         for (var j = 0; j < showList[i].length; j++) {
-            var id;
             var inputObj = document.createElement("input");
             inputObj.setAttribute("type", "checkbox");
-            inputObj.setAttribute("id", "" + showList[i][j].name + "_check");
-            inputObj.addEventListener("click", function(e) {removeItem(this.id);}, false);
 
             var row = document.createElement("tr");
-            row.setAttribute("id", showList[i][j].name);
 
             var checkBox = document.createElement("td");
             checkBox.appendChild(inputObj);
@@ -271,15 +251,4 @@ function toggleAdded() {
 	
 }
 
-function firstLoad(){
-    console.log("firstLoad called");
-    init_groceryListLibrary();
-    setTimeout(
-        function() {
-            init_listToPrint();
-        },
-        3000
-    );
-}
-
-onload = init_groceryListLibrary(), init_listToPrint(), retrieve_grocerylist("5_14", "6_14"), firstLoad();
+onload = init_groceryListLibrary(), init_listToPrint();
