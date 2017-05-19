@@ -1,9 +1,4 @@
 /* calender */
-    @font-face {
-      font-family: "Agency FB", "Times", serif;
-      font-weight: 400;
-      src: url(../assets/agency-fb.ttf);
-    }
 
 @font-face {
 	font-family: 'Conv_agency-fb';
@@ -18,7 +13,7 @@ table {
     color: orange;
     border-collapse: collapse;
 	background-color: white;
-	font-family: "Conv_agency-fb", "Times", serif;
+	font-family: "Conv_agency-fb", helvetica, sans-serif;
     padding-top: 100px;
 }
 #month {
