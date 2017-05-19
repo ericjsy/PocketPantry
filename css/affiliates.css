@@ -3,16 +3,7 @@
 
 
 @media only screen and (max-width: 600px) {
-/* font */
-  @font-face {
-        font-family: agency;
-        src: url(./assets/agency-fb.tff);
-    }
-@font-face {
-  font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
-  font-weight: 400;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-}
+
 	/* header */
     #mobile_home_page_nav {
         background-color: #8dc289;
@@ -23,7 +14,7 @@
 		font-family: "Agency FB", Helvetica, sans-serif;
 	}
 	#affiliates_info, #expand_educational, #expand_behavioral, #expand_shopping, p {
-		font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
+		font-family: Helvetica, "Trebuchet MS", sans-serif;
 	}
 	
 	/* intro content */
