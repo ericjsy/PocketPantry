@@ -5,6 +5,8 @@ var selector = "";
 
 function decider(click) {
 	
+	console.log(selector);
+	
 	
 	
 	
@@ -14,6 +16,14 @@ function decider(click) {
 	// storeClick(startDate, click);
 	// storeClick(endDate, click);
 	
+}
+
+function slcfrom() {
+	selector = "from";
+}
+
+function slcto() {
+	selector = "to";
 }
 
 function storeClick(startEnd, click) {

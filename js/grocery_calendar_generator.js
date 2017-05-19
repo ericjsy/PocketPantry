@@ -18,11 +18,11 @@ function drawCalendar(date) {
 			"<button id='next' onclick='previousMonth()' >" +
 				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
 			"</button>" +
-			"<button id='start_selector'>Start</button>" +
+			"<button id='start_selector' onclick=\"slcfrom()\">Start</button>" +
 			"<span id='month'>" + 
 				months[d.getMonth()] + 
 			"</span>" +
-			"<button id='end_selector'>End</button>" +
+			"<button id='end_selector' onclick=\"slcto()\">End</button>" +
 			"<button id='previous' onclick='nextMonth()'>" +
 				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
 			"</button>" + 
