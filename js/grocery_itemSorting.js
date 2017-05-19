@@ -4,10 +4,9 @@ var GroceryList;
 var showList = new Array;
 //promises
 var category_promise = [
-    true, true, true, true, true
+    true, true, true, true, false
 ];
-//user-added items
-var user_added_promise = true;
+
 //all category in one array
 var categories;
 
@@ -120,17 +119,35 @@ function gl_userItems() {
 	row.appendChild(remove);
 
 	document.getElementById("user_added_items").appendChild(row);
+	
+	// if the user-added items section is hidden, show it
+	if (!category_promise[4]) {
+		category_promise[4] = !category_promise[4];
+		print_user_added_table();
+	}
 }
 
 // remove items
 function remove_items(td) {
+	// remove the clicked item
 	td.parentNode.parentNode.removeChild(td.parentNode);
+	
+	// clear any error messages, if shown
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	// hide "Your items" text if no added items left
+	if (!document.getElementById("user_added_items").firstChild) {
+		category_promise[4] = false;
+		print_user_added_table();
+	}
 }
 
 //Chainning
 
 function init_listToPrint(){
     GroceryList.gl_categoryList_group().gl_addToShowList().gl_listItems();
+	
+	print_user_added_table();
 }
 
 function category_select(id){
@@ -244,16 +261,13 @@ function validate_input() {
 	}
 }
 
-// toggle table containing user-added items
-function toggleAdded() {
-	if (user_added_promise) {
-		document.getElementById("add_list").style.display = "none";
-		user_added_promise = false;
-	} else {
+// toggle visibility of added items section
+function print_user_added_table() {
+	if (category_promise[4]) {
 		document.getElementById("add_list").style.display = "";
-		user_added_promise = true;
+	} else {
+		document.getElementById("add_list").style.display = "none";
 	}
-	
 }
 
 onload = init_groceryListLibrary(), init_listToPrint();
