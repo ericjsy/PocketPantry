@@ -1,9 +1,10 @@
 //Draw calendar
 function drawCalendar(date) {
+    connectUser("ryalia");
     
 	//Enumeration sets
-	months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-	dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+	var dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 	//Create dates
 	var d = new Date(date);
@@ -17,11 +18,11 @@ function drawCalendar(date) {
 			"<button id='next' onclick='previousMonth()' >" +
 				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
 			"</button>" +
-			"<button id='start_selector' onclick='slcFrom()'>From</button>" +
+			"<button id='start_selector'>Start</button>" +
 			"<span id='month'>" + 
 				months[d.getMonth()] + 
 			"</span>" +
-			"<button id='end_selector' onclick='slcTo()'>To</button>" +
+			"<button id='end_selector'>End</button>" +
 			"<button id='previous' onclick='nextMonth()'>" +
 				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
 			"</button>" + 
@@ -81,7 +82,7 @@ function drawCalendar(date) {
             d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && d.getDate() < today.getDate()){
 					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
 		}
-		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {retrieve_mealStatus(this.id); decider(this.id);}, false);
+		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {retrieve_mealStatus(this.id);}, false);
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
 		"<div class='dot_container'>" + 
 			"<div id='" + 
@@ -99,7 +100,6 @@ function drawCalendar(date) {
 	} while(d.getDate() > 1);
     
 	retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
-
 }
 
 // Show current month

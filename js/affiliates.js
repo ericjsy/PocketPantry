@@ -7,9 +7,9 @@ $(document).ready(function() {
         $("#educational_block").slideToggle("slow");
         if (educational_tab_on) {
             educational_tab_on = false;
-            $("#expand_educational").html('Educational <img src="img/Arrowdown.png" alt="collapse_arrow" height="52" width="72">');
+            $("#expand_educational").html('Educational <img src="img/arrowDown.png" alt="collapse_arrow" height="52" width="72">');
         } else {
-            $("#expand_educational").html('Educational <img src="img/Arrowup.png" alt="collapse_arrow" height="52" width="72">');
+            $("#expand_educational").html('Educational <img src="img/arrowUp.png" alt="collapse_arrow" height="52" width="72">');
             educational_tab_on = true;
         }
     });
@@ -17,9 +17,9 @@ $(document).ready(function() {
         $("#behavioral_block").slideToggle("slow");
         if (behavioral_tab_on) {
             behavioral_tab_on = false;
-            $("#expand_behavioral").html('Behavioral <img src="img/Arrowdown.png" alt="collapse_arrow" height="52" width="72">');
+            $("#expand_behavioral").html('Behavioral <img src="img/arrowDown.png" alt="collapse_arrow" height="52" width="72">');
         } else {
-            $("#expand_behavioral").html('Behavioral <img src="img/Arrowup.png" alt="collapse_arrow" height="52" width="72">');
+            $("#expand_behavioral").html('Behavioral <img src="img/arrowUp.png" alt="collapse_arrow" height="52" width="72">');
             behavioral_tab_on = true;
         }
     });
@@ -27,9 +27,9 @@ $(document).ready(function() {
         $("#shopping_block").slideToggle("slow");
         if (shopping_tab_on) {
             shopping_tab_on = false;
-            $("#expand_shopping").html('Shopping <img src="img/Arrowdown.png" alt="collapse_arrow" height="52" width="72">');
+            $("#expand_shopping").html('Shopping <img src="img/arrowDown.png" alt="collapse_arrow" height="52" width="72">');
         } else {
-            $("#expand_shopping").html('Shopping <img src="img/Arrowup.png" alt="collapse_arrow" height="52" width="72">');
+            $("#expand_shopping").html('Shopping <img src="img/arrowUp.png" alt="collapse_arrow" height="52" width="72">');
             shopping_tab_on = true;
         }
     });
