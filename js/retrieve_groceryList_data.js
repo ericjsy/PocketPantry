@@ -1,7 +1,7 @@
 db = firebase.database();
 dbDays = db.ref().child('days');
 dbMeals = db.ref().child('meals');
-dbUser = dbDays.child('ryalia');
+dbUser = dbDays.child(uid);
 
 var planned_days = new Array();
 var meal_collection = new Array();
