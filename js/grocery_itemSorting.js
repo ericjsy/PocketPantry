@@ -6,6 +6,8 @@ var showList = new Array;
 var category_promise = [
     true, true, true, true, true
 ];
+//user-added items
+var user_added_promise = true;
 //all category in one array
 var categories;
 
@@ -235,6 +237,18 @@ function validate_input() {
 		document.getElementById("errorMessage").innerHTML = message;
 		return false;
 	}
+}
+
+// toggle table containing user-added items
+function toggleAdded() {
+	if (user_added_promise) {
+		document.getElementById("user_added_items").style.display = "none";
+		user_added_promise = false;
+	} else {
+		document.getElementById("user_added_items").style.display = "";
+		user_added_promise = true;
+	}
+	
 }
 
 onload = init_groceryListLibrary(), init_listToPrint();
