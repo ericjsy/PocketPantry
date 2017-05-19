@@ -225,5 +225,6 @@ function output() {
 	if(!(startDate.date == "") || (endDate.date == "")) {
 		console.log("Call Grocery List");
 		retrieve_grocerylist(startDate.date, endDate.date);
+		firstLoad();
 	}
 }
