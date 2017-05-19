@@ -107,7 +107,7 @@ body {
 		background-color: #F5C6A9;
 	}
 	
-	#grocery_list td, #user_added_items td {
+	#grocery_list td {
 		padding: 5px 0;
 	}
 	
@@ -119,7 +119,7 @@ body {
 		width: 50%;
 	}
 	
-	#user_added_items td:nth-child(1) {
+	#user_added_items td:first-child {
 		width: 13%;
 	}
 	
@@ -131,12 +131,21 @@ body {
 		width: 25%;
 	}
 	
-	#user_added_items td:nth-child(4) {
-		color: white;
+	#user_added_items td:last-child {
+		color: #FFFFFF;
 		font-weight: bold;
 		font-size: 30px;
 		padding: 0;
 		width: 10%;
+	}
+	
+	#user_added_items tr:nth-of-type(even) td:last-child {
+		color: #000000;
+	}
+	
+	/* Text header for user-added items */
+	#add_list p {
+		text-align: center;
 	}
 	
 	/* adding an item */
