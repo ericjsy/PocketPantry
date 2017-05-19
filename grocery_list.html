@@ -85,7 +85,7 @@
 							</div>
 						</td>
 						<td id="added_items_toggle" class="selected_tab" onClick="category_select(this.id)">
-							<div class="grocery_icon">
+							<div onclick="toggleAdded()" class="grocery_icon">
 								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
 							</div>
 							<div class="grocery_status">
@@ -105,13 +105,13 @@
 			<table id="user_added_items"></table>
 		</div>
 		
+		<div id="errorMessage"></div>
+		
 		<div id="add_item">
 			<input type="text" id="item_name" class="more_items" placeholder="Add item...">
 			<input type="text" id="item_quantity" class="more_items" placeholder="#">
 			<span id="update_list" onClick="addedItem()">&#43;</span>
 		</div>
-		
-		<div id="errorMessage"></div>
 		
 		<div id="food_for_thought">
 			<span class="grocery_list_title">Food For Thought</span>
