@@ -21,3 +21,7 @@
 	z-index:102;
 	-webkit-transition: opacity 0.3s ease-in;
 }
+
+.highlight {
+	background-color: #EEA070;
+}

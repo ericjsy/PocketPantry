@@ -55,6 +55,9 @@ function hidePopUpMessage() {
   	var str1 = startDate.date.split("_");
 	var str2 = endDate.date.split("_");
   
-  document.getElementsByClassName("popUpBtn")[0].innerHTML = "" + months[str1[0] - 1] + " " + str1[1];
-  document.getElementsByClassName("popUpBtn")[1].innerHTML = "" + months[str2[0] - 1] + " " + str2[1];
+    if(!((startDate.date == "") && (endDate.date == ""))) {
+		document.getElementsByClassName("popUpBtn")[0].innerHTML = "" + months[str1[0] - 1] + " " + str1[1];
+		document.getElementsByClassName("popUpBtn")[1].innerHTML = "" + months[str2[0] - 1] + " " + str2[1];
+	}
+	
 }
