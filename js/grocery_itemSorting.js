@@ -242,10 +242,10 @@ function validate_input() {
 // toggle table containing user-added items
 function toggleAdded() {
 	if (user_added_promise) {
-		document.getElementById("user_added_items").style.display = "none";
+		document.getElementById("add_list").style.display = "none";
 		user_added_promise = false;
 	} else {
-		document.getElementById("user_added_items").style.display = "";
+		document.getElementById("add_list").style.display = "";
 		user_added_promise = true;
 	}
 	
