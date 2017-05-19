@@ -4,7 +4,14 @@ window.addEventListener('load', initApp, false);
 
 function initApp() {
   setTimeout(function() { window.scrollTo(0, 1); }, 10);
-  document.getElementById("popUpBtn").addEventListener("click", function() {
+  // document.getElementById("popUpBtn").addEventListener("click", function() {
+    // showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><p id="calendar_instructions">Tap the first and last dates to shop for!</p>');
+  // }, false);
+  
+	document.getElementsByClassName("popUpBtn")[0].addEventListener("click", function() {
+    showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><p id="calendar_instructions">Tap the first and last dates to shop for!</p>');
+  }, false);
+	document.getElementsByClassName("popUpBtn")[1].addEventListener("click", function() {
     showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><p id="calendar_instructions">Tap the first and last dates to shop for!</p>');
   }, false);
 }
