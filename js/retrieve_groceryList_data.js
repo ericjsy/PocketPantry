@@ -12,8 +12,8 @@ var fruit_veg_list = new Array();
 var other_list = new Array();
 var added_list = new Array();
 
-function retrieve_grocerylist(){
-    find_planned_days(dayRange_to_array("5_14", "6_15"));
+function retrieve_grocerylist(startDate, endDate){
+    find_planned_days(dayRange_to_array(startDate, endDate));
     return_categorized_groceryList();
 }
 
@@ -138,4 +138,3 @@ function dayRange_to_array(startDate, endDate){
     return day_array;
 }
 
-onload = retrieve_grocerylist();

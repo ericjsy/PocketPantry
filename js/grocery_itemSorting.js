@@ -179,4 +179,15 @@ function addedItem(){
     }
 }
 
-onload = init_groceryListLibrary(), init_listToPrint();
+function firstLoad(){
+    console.log("firstLoad called");
+    init_groceryListLibrary();
+    setTimeout(
+        function() {
+            init_listToPrint();
+        },
+        3000
+    );
+}
+
+onload = retrieve_grocerylist("5_14", "6_14"), firstLoad();
