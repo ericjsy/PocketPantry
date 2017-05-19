@@ -111,7 +111,7 @@ function gl_userItems() {
 	qty.appendChild(document.createTextNode("" + document.getElementById("item_quantity").value));
 
 	var remove = document.createElement("td");
-	remove.setAttribute("onclick", "this.parentNode.parentNode.removeChild(this.parentNode)");
+	remove.setAttribute("onclick", "remove_items(this)");
 	remove.appendChild(document.createTextNode("\u00D7"));
 	
 	row.appendChild(checkBox);
@@ -120,6 +120,11 @@ function gl_userItems() {
 	row.appendChild(remove);
 
 	document.getElementById("user_added_items").appendChild(row);
+}
+
+// remove items
+function remove_items(td) {
+	td.parentNode.parentNode.removeChild(td.parentNode);
 }
 
 //Chainning
