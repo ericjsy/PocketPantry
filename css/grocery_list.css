@@ -1,10 +1,23 @@
 body { 
-	font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+
 }
 	
 /* mobile */
 @media only screen and (max-width: 600px) {
-	
+	/* font */
+@font-face {
+	font-family: 'Conv_agency-fb';
+	src: url('../assets/agency-fb.eot');
+	src: local('☺'), url('../assets/agency-fb.woff') format('woff'), url('../assets/agency-fb.ttf') format('truetype'), url('../assets/agency-fb.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+  
+@font-face {
+  font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
 	/* highlight current page (grocery list) */
 	#mobile_grocery_list_nav {
         background-color: #719c6e;
@@ -67,11 +80,13 @@ body {
 		margin: 10px;
 		text-align: center;
 		position: relative;
+        font-family: "Conv_agency-fb", helvetica, sans-serif;
 	}
 	
 	#categories td {
 		width: 20%;
 		position: relative;
+
 	}
 	
 	.grocery_icon img {
@@ -97,6 +112,7 @@ body {
 		border-collapse: collapse;
 		margin: auto;
 		width: 100%;
+      
 	}
 	
 	#grocery_list tr:nth-of-type(odd) {
@@ -105,6 +121,7 @@ body {
 	
 	#grocery_list td {
 		padding: 5px 0;
+        font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
 	}
 	
 	#grocery_list td:first-child {
@@ -119,6 +136,7 @@ body {
 	#add_list {
 		margin: auto;
 		width: 90%;
+      font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
 	}
 	
 	/* adding an item */
@@ -130,7 +148,7 @@ body {
 	
 	#item_name::placeholder, #item_quantity::placeholder {
 		color: #FFFFFF;
-		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+
 	}
 	
 	#item_name {
@@ -176,6 +194,7 @@ text-align: center;
 	#food_for_thought {
 		text-align: center;
 		font-size: 30px;
+        font-family: "Conv_agency-fb", helvetica, sans-serif;
 	}
     
     .selected_tab{
