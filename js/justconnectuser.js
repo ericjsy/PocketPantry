@@ -1,0 +1,1 @@
+connectUser(uid);
