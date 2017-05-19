@@ -47,7 +47,7 @@ function gl_clearTable(){
 }
 
 function gl_categoryList_group(){
-    categories = new Array;
+    categories = new Array();
     categories.push(dairy_list);
     categories.push(meat_list);
     categories.push(fruit_veg_list);
@@ -56,7 +56,7 @@ function gl_categoryList_group(){
 }
 
 function gl_addToShowList(){
-    showList = new Array;
+    showList = new Array();
     for(var i = 0; i < category_promise.length; i++){
         if(category_promise[i]){
             showList.push(categories[i]);
@@ -282,4 +282,4 @@ function firstLoad(){
     );
 }
 
-onload = init_groceryListLibrary(), init_listToPrint(), retrieve_grocerylist("5_14", "6_14"), firstLoad();
+onload = init_groceryListLibrary();

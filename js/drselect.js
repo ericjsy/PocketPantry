@@ -222,7 +222,7 @@ function output() {
 	console.log("endDate: " + endDate.date);
 	console.log("-----------------------------------");
 	
-	if(!(startDate.date == "") || (endDate.date == "")) {
+	if(!(startDate.date == "") && !(endDate.date == "")) {
 		console.log("Call Grocery List");
 		retrieve_grocerylist(startDate.date, endDate.date);
 		firstLoad();
