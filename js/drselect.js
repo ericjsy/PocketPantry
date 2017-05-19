@@ -118,7 +118,6 @@ function decider(click) {
 	// storeClick(startDate, click);
 	// storeClick(endDate, click);
 	
-	
 	selector = "";
 	swap();
 	output();
@@ -225,6 +224,6 @@ function output() {
 	
 	if(!(startDate.date == "") || (endDate.date == "")) {
 		console.log("Call Grocery List");
-		// retrieve_grocerylist(startDate.date, endDate.date);
+		retrieve_grocerylist(startDate.date, endDate.date);
 	}
 }
