@@ -3,11 +3,14 @@ var GroceryList;
 //all added category to be printed
 var showList = new Array;
 //promises
+<<<<<<< HEAD
 var category_promise = [
     true, true, true, true, true
+=======
+var catetory_promise = [
+    true, true, true, true, false
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature
 ];
-//user-added items
-var user_added_promise = true;
 //all category in one array
 var categories;
 
@@ -56,8 +59,8 @@ function gl_categoryList_group(){
 
 function gl_addToShowList(){
     showList = new Array;
-    for(var i = 0; i < category_promise.length; i++){
-        if(category_promise[i]){
+    for(var i = 0; i < catetory_promise.length; i++){
+        if(catetory_promise[i]){
             showList.push(categories[i]);
         }
     }
@@ -94,34 +97,6 @@ function gl_listItems(){
     }
 }
 
-// add the item the user typed
-function gl_userItems() {
-	var inputObj = document.createElement("input");
-	inputObj.setAttribute("type", "checkbox");
-
-	var row = document.createElement("tr");
-
-	var checkBox = document.createElement("td");
-	checkBox.appendChild(inputObj);
-
-	var name = document.createElement("td");
-	name.appendChild(document.createTextNode("" + document.getElementById("item_name").value));
-
-	var qty = document.createElement("td");
-	qty.appendChild(document.createTextNode("" + document.getElementById("item_quantity").value));
-
-	var remove = document.createElement("td");
-	remove.setAttribute("onclick", "this.parentNode.parentNode.removeChild(this.parentNode)");
-	remove.appendChild(document.createTextNode("\u00D7"));
-	
-	row.appendChild(checkBox);
-	row.appendChild(name);
-	row.appendChild(qty);
-	row.appendChild(remove);
-
-	document.getElementById("user_added_items").appendChild(row);
-}
-
 //Chainning
 
 function init_listToPrint(){
@@ -132,24 +107,24 @@ function category_select(id){
     var promise;
     switch(id){
         case "dairy_toggle":
-            category_promise[0] = !category_promise[0];
-            promise = category_promise[0];
+            catetory_promise[0] = !catetory_promise[0];
+            promise = catetory_promise[0];
             break;
         case "meat_toggle":
-            category_promise[1] = !category_promise[1];
-            promise = category_promise[1];
+            catetory_promise[1] = !catetory_promise[1];
+            promise = catetory_promise[1];
             break;
         case "fruits_vege_toggle":
-            category_promise[2] = !category_promise[2];
-            promise = category_promise[2];
+            catetory_promise[2] = !catetory_promise[2];
+            promise = catetory_promise[2];
             break;
         case "assorted_items_toggle":
-            category_promise[3] = !category_promise[3];
-            promise = category_promise[3];
+            catetory_promise[3] = !catetory_promise[3];
+            promise = catetory_promise[3];
             break;
         case "added_items_toggle":
-            category_promise[4] = !category_promise[4];
-            promise = category_promise[4];
+            catetory_promise[4] = !catetory_promise[4];
+            promise = catetory_promise[4];
             break;
     }
     if(promise){
@@ -167,7 +142,7 @@ function addedItem(){
     name = item.toLowerCase();
     var message = "";
     var easter;
-    if (/^2910$/.test(quantity)) {
+    if (quantity == 2910) {
         message = "Have you completed this week's sprint?";
         easter = true;
     } else if (name == "carly") {
@@ -189,26 +164,27 @@ function addedItem(){
         message = "What have you thrown away today?";
         easter = true;
     } else {
-        var item_valid = validate_input();
+        if(item != "" && quantity != ""){
+            var foo = {name: null, amount: null, unit: null}; 
+            foo.name = item;
+            foo.amount = quantity;
+            foo.unit = "custome";
+            added_list.push(foo);
+            GroceryList.gl_clearTable();
+            init_listToPrint();
+        }
     }
     document.getElementById("thought").innerHTML = message;
     if (easter) {
         document.getElementById("easter").style.display = "inline-block";
         document.getElementById("item_name").value = "";
         document.getElementById("item_quantity").value = "";
-		document.getElementById("errorMessage").innerHTML = "";
     } else {
         document.getElementById("easter").style.display = "none";
-		
-		if (item_valid) {
-			gl_userItems();
-			
-			document.getElementById("item_name").value = "";
-			document.getElementById("item_quantity").value = "";
-		}
     }
 }
 
+<<<<<<< HEAD
 function validate_input() {
 	var name = document.getElementById("item_name").value;
 	var qty = document.getElementById("item_quantity").value;
@@ -252,3 +228,17 @@ function toggleAdded() {
 }
 
 onload = init_groceryListLibrary(), init_listToPrint();
+=======
+function firstLoad(){
+    console.log("firstLoad called");
+    init_groceryListLibrary();
+    setTimeout(
+        function() {
+            init_listToPrint();
+        },
+        3000
+    );
+}
+
+onload = retrieve_grocerylist("5_14", "6_14"), firstLoad();
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature

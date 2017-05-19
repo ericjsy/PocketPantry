@@ -1,5 +1,6 @@
 body { 
 	font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+<<<<<<< HEAD
 }
 
 /* calendar */
@@ -151,6 +152,8 @@ body {
 }
 .not_clickable{
     pointer-events: none;
+=======
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature
 }
 	
 /* mobile */
@@ -243,8 +246,8 @@ body {
 		filter: drop-shadow(1px 1px 1px #000000);
 	}
 	
-	/* grocery list and user-added items tables */
-	#grocery_list, #user_added_items {
+	/* grocery list table */
+	#grocery_list {
 		border-collapse: collapse;
 		margin: auto;
 		width: 100%;
@@ -254,21 +257,18 @@ body {
 		background-color: #D5E8D4;	
 	}
 	
-	#user_added_items tr:nth-of-type(odd) {
-		background-color: #F5C6A9;
-	}
-	
 	#grocery_list td {
 		padding: 5px 0;
 	}
 	
-	#grocery_list td:first-child, #user_added_items td:first-child {
+	#grocery_list td:first-child {
 		text-align: center;
 	}
 	
 	#grocery_list td:nth-child(2) {
 		width: 50%;
 	}
+<<<<<<< HEAD
 	
 	#user_added_items td:first-child {
 		width: 13%;
@@ -298,6 +298,13 @@ body {
 	/* Text header for user-added items */
 	#add_list p {
 		text-align: center;
+=======
+
+	/* added item list */
+	#add_list {
+		margin: auto;
+		width: 90%;
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature
 	}
 	
 	/* adding an item */
@@ -331,7 +338,7 @@ body {
 		font-weight: bold;
 		padding: 0;
 		width: 10%;
-		text-align: center;
+text-align: center;
 	}
 	
 	.more_items {
@@ -361,15 +368,10 @@ body {
         background-color: darkseagreen;
         border-radius: 10px;
     }
-	
     #easter {
         display: none;
         margin-right: 5px;
     }
-	
-	#thought {
-		font-size: 16px;
-	}
 }
 
 /* desktop */

@@ -1,20 +1,16 @@
-<!DOCTYPE html>	
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Pocket Pantry - Grocery List</title>
-  
-	<link rel="stylesheet" href="./css/main_style_pc.css">
-	<link rel="stylesheet" href="./css/main_style_mobile.css">
-	<link rel="stylesheet" href="./css/grocery_list.css">
-	<link rel="stylesheet" href="./css/modal.css">
 
-	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-	<script src="js/fbconnect.js"></script>
-  
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Pocket Pantry - Grocery List</title>
+	  
+		<link rel="stylesheet" href="./css/main_style_pc.css">
+		<link rel="stylesheet" href="./css/main_style_mobile.css">
+		<link rel="stylesheet" href="./css/grocery_list.css">
 	
+<<<<<<< HEAD
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<!--<script type="text/javascript" src="js/detectUserData.js"></script> -->
 </head>
@@ -35,15 +31,58 @@
 		<button><a href="affiliates.html">Affiliates</a></button>
 		<button onclick="signOut()">Sign-Out</button>
 	</div>
+=======
+		<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
+		<script src="js/fbconnect.js"></script>
+	  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+	<body>
+		<nav id="mobile_header">
+			<div id="mobile_meal_planner_nav">
+				<a href="meal_planner.html"><img src="img/meal_planner.png" alt="meal planner link" height="135" width="135" class="nav_side_icons"></a>
+			</div>
+			<div id="mobile_home_page_nav">
+				<img src="img/Pocket Pantry.png" alt="Pocket Pantry">
+			</div>
+			<div id="mobile_grocery_list_nav">
+				<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
+			</div>
+		</nav>
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature
 	
+		<div id="affiliates">
+            <button><a href="affiliates.html">Affiliates</a></button>
+            <button onclick="signOut()">Sign-Out</button>
+        </div>
 	
-	<main>		
+		<nav id="PC_header">
+			<div id="PC_home_page_nav">
+				<a href="meal_planner.html"><img src="img/Pocket Pantry.png" alt="meal planner link"></a>
+			</div>
+			<div id="PC_page_title">
+				<h1 class="orange">Grocery<span class="green_bold">List</span></h1>
+			</div>
+			<div id="PC_grocery_list_nav">
+				<div>
+				</div>
+			</div>
+		</nav>
+	  
+    <main>
+		
 		<div id="grocery_container">
 			<div id="grocery_dates">
+<<<<<<< HEAD
 				<button class="popUpBtn">From</button>
 				<button class="popUpBtn">To</button>
+=======
+				<button>Start</button>
+				<button>End</button>
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature
 			</div>
-
+			
 			<div id="grocery_sections">
 				<table id="categories">
 					<tr>
@@ -86,8 +125,13 @@
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
 						</td>
+<<<<<<< HEAD
 						<td id="added_items_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div onclick="toggleAdded()" class="grocery_icon">
+=======
+						<td id="added_items_toggle" onClick="category_select(this.id)">
+							<div class="grocery_icon">
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature
 								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
 							</div>
 							<div class="grocery_status">
@@ -103,22 +147,19 @@
 		
 		<div id="add_list">
 			<p>Your items:</p>
-			
-			<table id="user_added_items"></table>
 		</div>
 		
-		<div id="errorMessage"></div>
-		
 		<div id="add_item">
-			<input type="text" id="item_name" class="more_items" placeholder="Add item...">
-			<input type="text" id="item_quantity" class="more_items" placeholder="#">
-			<span id="update_list" onClick="addedItem()">&#43;</span>
+            <input type="text" id="item_name" class="more_items" placeholder="Add item...">
+            <input type="text" id="item_quantity" class="more_items" placeholder="#">
+            <span id="update_list" onClick="addedItem()">&#43;</span>
 		</div>
 		
 		<div id="food_for_thought">
 			<span class="grocery_list_title">Food For Thought</span>
-			<div id="message"><img src="./img/yellowEgg.png" alt="Easter Egg" id="easter" width="15" height="20"><span  id="thought"></span></div>
+            <div id="message"><img src="./img/yellowEgg.png" alt="Easter Egg" id="easter" width="15" height="20"><span  id="thought"></span></div>
 		</div>
+<<<<<<< HEAD
 	</main>
 	
     <script src="js/function_object.js"></script>
@@ -139,4 +180,12 @@
 	
 	
 </body>
+=======
+    </main>
+	    <script src="js/retrieve_groceryList_data.js"></script>
+        <script src="js/meal_planner_toggle.js"></script>
+        <script src="js/grocery_itemSorting.js"></script>
+	</body>
+
+>>>>>>> parent of d900cbe... Merge branch 'develop' into chengs-feature
 </html>
