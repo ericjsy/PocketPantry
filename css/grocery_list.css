@@ -132,15 +132,16 @@ body {
 	}
 	
 	#user_added_items td:last-child {
-		color: #FFFFFF;
+		color: #EC7B7B;
 		font-weight: bold;
 		font-size: 30px;
 		padding: 0;
 		width: 10%;
 	}
 	
-	#user_added_items tr:nth-of-type(even) td:last-child {
-		color: #000000;
+	#errorMessage {
+		color: #EC7B7B;
+		text-align: center;
 	}
 	
 	/* Text header for user-added items */
