@@ -192,20 +192,29 @@ table #calendar_days_headings {
     #next{
         float: right;
     }
-    #affiliates{
-        font-size: 43px;
-        font-weight: normal;
-        display: none;
-        position: relative;
-        margin: 0;
-        text-align: center;
-        width: 100%;
+	#affiliates {
+        background-color: #719c6e ;
         box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
-        background-color: #719c6e;
+        display: none;
+        margin: 0;
+        width: 100%;
     }
-    #affiliates a{
+    #affiliates button {
+        background-color: transparent;
+        border: 0;
         color: white;
+        font-size: 2.5em;
+        width: 100%;
+    }
+    #affiliates button:not(:last-child) {
+        border-bottom: 1px solid rgba(0,0,0,0.3);
+    }
+    #affiliates a {
+        color: white;
+        display: block;
+        height: 100%;
         text-decoration: none;
+        width: 100%;
     }
     #previous, #next {
         background-color: transparent;

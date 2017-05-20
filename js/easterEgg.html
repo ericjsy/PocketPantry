@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		
+		<script>
+			function foodForThought() {
+				var name = document.getElementById("item_name").value;
+				lower = name.toLowerCase();
+				var qty = document.getElementById("item_quantity").value;
+				var message;
+				var easter;
+				
+				if (qty == 2910) {
+					message = "Have you completed this week's sprint?";
+					easter = true;
+				} else if (lower == "carly") {
+					message = "MILLION DOLLAR TIP: Save our planet with Zero Food Waste!";
+					easter = true;
+				} else if (lower == "darcy") {
+					message = "You shouldn't be coding on weekends. -Darcy Smith, May 2017";
+					easter = true;
+				} else if (lower == "qussay") {
+					message = "Full marks for this Easter egg!";
+					easter = true;
+				} else if (lower == "chris") {
+					message = "Java is the best coding language!";
+					easter = true;
+				} else if (lower == "pocket pantry" || lower == "pocketpantry") {
+					message = "Helping you plan meals and reduce waste.";
+					easter = true;
+				} else if (lower == "food waste") {
+					message = "What have you thrown away today?";
+					easter = true;
+				} else {
+					message = "Error"; // this message is for testing only
+					// if none of the above, the item should be added to the grocery list
+				}
+				document.getElementById("thought").innerHTML = message;
+				if (easter) {
+					document.getElementById("easter").style.display = "inline-block";
+					document.getElementById("item_name").value = "";
+					document.getElementById("item_quantity").value = "";
+				} else {
+					document.getElementById("easter").style.display = "none";
+				}
+			}
+		</script>
+		
+		<style>
+			#update_list {
+				font-weight: bold;
+				font-size: 35px;
+			}
+			
+			#easter {
+				display: none;
+				margin-right: 5px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<main>
+		
+			<table id="grocery_list"></table>
+		
+			<div id="add_item">
+				<input type="text" id="item_name" class="more_items" placeholder="Add item...">
+				<input type="text" id="item_quantity" class="more_items" placeholder="Qty.">
+				<span id="update_list" onclick="foodForThought()">&#43;</span>
+			</div>
+			
+			<div id="food_for_thought">
+				<span class="grocery_list_title">Food For Thought</span>
+				<div id="message"><img src="../img/yellowEgg.png" alt="Easter Egg" id="easter" width="15" height="20"><span  id="thought"></span></div>
+			</div>
+		
+		</main>
+	
+	</body>
+</html>
