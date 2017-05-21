@@ -348,6 +348,7 @@ function toggleAdded() {
 
 function loadTable(){
 //    console.log("firstLoad called");
+    checkOut_list = [[], [], [], [], []];
     setTimeout(
         function() {
             init_listToPrint();
