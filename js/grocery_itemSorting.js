@@ -1,14 +1,16 @@
 //Grocery list library obj
 var GroceryList;
-//all added category to be printed
-var showList = new Array;
-//promises
 
+//all category in one array
+var categories = new Array();
+
+//all added category to be printed
+var showList = new Array();
+
+//promises
 var category_promise = [
     true, true, true, true, false
 ];
-//all category in one array
-var categories;
 
 function init_groceryListLibrary(){
     console.log("Init: GroceryList Library");
@@ -32,29 +34,40 @@ var GroceryList_obj = function(){
     }
     this.gl_clearTable = function (){
         gl_clearTable();
+        return this;
+    }
+    this.debug_check_arrayEmpty = function(){
+        debug_check_arrayEmpty();
+        return this;
     }
 }
 
 //Define
 
 function gl_clearTable(){
-    var node = document.getElementById("grocery_list");			
+    var node = document.getElementById("grocery_list");	
     while (node.firstChild) {
-        node.removeChild(node.childNodes[0]); 
+        node.removeChild(node.firstChild);
     }
 }
 
 function gl_categoryList_group(){
     categories = new Array();
     categories.push(dairy_list);
+//    console.log(JSON.stringify(dairy_list));
     categories.push(meat_list);
+//    console.log(JSON.stringify(meat_list));
     categories.push(fruit_veg_list);
+//    console.log(JSON.stringify(fruit_veg_list));
     categories.push(other_list);
+//    console.log(JSON.stringify(other_list));
     categories.push(added_list);
+//    console.log(JSON.stringify(added_list));
 }
 
 function gl_addToShowList(){
     showList = new Array();
+//    console.log(JSON.stringify(showList));
     for(var i = 0; i < category_promise.length; i++){
         if(category_promise[i]){
             showList.push(categories[i]);
@@ -79,6 +92,9 @@ function removeItem(id){
 
 function gl_listItems(){
 //    console.log("listItem called");
+    var node = document.getElementById("grocery_list");
+//    console.log(JSON.stringify(showList));
+    
     for (var i = 0; i < showList.length; i++) {
         for (var j = 0; j < showList[i].length; j++) {
             var id;
@@ -115,31 +131,31 @@ function gl_listItems(){
 //Chainning
 
 function init_listToPrint(){
-    GroceryList.gl_categoryList_group().gl_addToShowList().gl_listItems();
+    GroceryList.gl_categoryList_group().gl_addToShowList().gl_clearTable().gl_listItems();
 }
 
 function category_select(id){
     var promise;
     switch(id){
         case "dairy_toggle":
-            catetory_promise[0] = !catetory_promise[0];
-            promise = catetory_promise[0];
+            category_promise[0] = !category_promise[0];
+            promise = category_promise[0];
             break;
         case "meat_toggle":
-            catetory_promise[1] = !catetory_promise[1];
-            promise = catetory_promise[1];
+            category_promise[1] = !category_promise[1];
+            promise = category_promise[1];
             break;
         case "fruits_vege_toggle":
-            catetory_promise[2] = !catetory_promise[2];
-            promise = catetory_promise[2];
+            category_promise[2] = !category_promise[2];
+            promise = category_promise[2];
             break;
         case "assorted_items_toggle":
-            catetory_promise[3] = !catetory_promise[3];
-            promise = catetory_promise[3];
+            category_promise[3] = !category_promise[3];
+            promise = category_promise[3];
             break;
         case "added_items_toggle":
-            catetory_promise[4] = !catetory_promise[4];
-            promise = catetory_promise[4];
+            category_promise[4] = !category_promise[4];
+            promise = category_promise[4];
             break;
     }
     if(promise){
@@ -241,9 +257,8 @@ function toggleAdded() {
 	
 }
 
-function firstLoad(){
-    console.log("firstLoad called");
-    init_groceryListLibrary();
+function loadTable(){
+//    console.log("firstLoad called");
     setTimeout(
         function() {
             init_listToPrint();
@@ -252,4 +267,4 @@ function firstLoad(){
     );
 }
 
-onload = init_groceryListLibrary(), init_listToPrint();
+onload = init_groceryListLibrary();

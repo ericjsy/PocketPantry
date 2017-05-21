@@ -5,34 +5,34 @@ selector = "";
 
 function decider(click) {
 	
-	console.log("click: " + click);
+//	console.log("click: " + click);
 	decided = false;
 	while(!decided) {
 		if (!isStartEmpty() && !isEndEmpty()) {
 			if((selector == "to") && (greater(click, endDate.date) || equal(click, endDate.date))) {
 				storeClick(endDate, click);
-				console.log("A");
+//				console.log("A");
 				updateS();
 				updateE();
 				break
 			} else if ((selector == "to") && !(greater(click, endDate.date) || equal(click, endDate.date))) {
 				storeClick(startDate, click);
 				startDate.date = "";
-				console.log("B");
+//				console.log("B");
 				updateS();
 				updateE();
 				break
 			}
 			if ((selector == "from") && !(greater(click, endDate.date) || equal(click, endDate.date))) {
 				storeClick(startDate, click);
-				console.log("C");
+//				console.log("C");
 				updateS();
 				updateE();
 				break
 			} else if ((selector == "from") && (greater(click, endDate.date) || equal(click, endDate.date))) {
 				storeClick(startDate, click);
 				endDate.date = "";
-				console.log("D");
+//				console.log("D");
 				updateS();
 				updateE();
 				break
@@ -44,14 +44,14 @@ function decider(click) {
 			
 			if (!(greater(click, endDate.date) || equal(click, endDate.date))) {
 				storeClick(startDate, click);
-				console.log("E");
+//				console.log("E");
 				updateS();
 				updateE();
 				break
 			} else if (greater(click, endDate.date)) {
 				storeClick(startDate, click);
 				endDate.date = "";
-				console.log("F");
+//				console.log("F");
 				updateS();
 				updateE();
 				break
@@ -61,7 +61,7 @@ function decider(click) {
 		
 		if(selector == "from") {
 			storeClick(startDate, click);
-			console.log("G");
+//			console.log("G");
 			updateS();
 			updateE();
 			break
@@ -78,7 +78,7 @@ function decider(click) {
 		
 		if (isStartEmpty() && isEndEmpty()) {
 			storeClick(startDate, click);
-			console.log("I");
+//			console.log("I");
 			updateS();
 			updateE();
 			break
@@ -87,13 +87,13 @@ function decider(click) {
 			
 			if(greater(click, startDate.date) || equal(click, startDate.date)) {
 				storeClick(endDate, click);
-				console.log("J");
+//				console.log("J");
 				updateS();
 				updateE();
 				break
 			} else {
 				storeClick(startDate, click);
-				console.log("K");
+//				console.log("K");
 				endDate.date = "";
 				updateS();
 				updateE();
@@ -103,7 +103,7 @@ function decider(click) {
 		}
 		if (!isStartEmpty() && !isEndEmpty()) {
 			storeClick(startDate, click);
-			console.log("L");
+//			console.log("L");
 			endDate.date = "";
 			updateS();
 			updateE();
@@ -218,13 +218,13 @@ function swap() {
 
 function output() {
 	
-	console.log("startDate: " + startDate.date);
-	console.log("endDate: " + endDate.date);
-	console.log("-----------------------------------");
+//	console.log("startDate: " + startDate.date);
+//	console.log("endDate: " + endDate.date);
+//	console.log("-----------------------------------");
 	
 	if(!(startDate.date == "") && !(endDate.date == "")) {
-		console.log("Call Grocery List");
+//		console.log("Call Grocery List");
 		retrieve_grocerylist(startDate.date, endDate.date);
-		firstLoad();
+		loadTable();
 	}
 }
