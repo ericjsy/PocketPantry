@@ -17,6 +17,24 @@
 	
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 <!--	<script type="text/javascript" src="js/detectUserData.js"></script>-->
+    
+<!-- additional css-->
+    <style>
+        .item_num{
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+            margin: 0;
+        }
+        .selected_tab{
+            background-color: #9DB89D;
+            border-radius: 30px;
+        }
+        tr{
+            height: 50px;
+        }
+    </style>
+    
 </head>
 <body>
 	<nav id="mobile_header">
@@ -58,41 +76,46 @@
 							<div class="grocery_icon">
 								<img src="img/coloredDairy.png" alt="all dairy items" width="86" height="97">
 							</div>
-							<div class="grocery_status">
+							<div id="dairy_checked" class="grocery_status hide">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
+                            <h3 id="dairy_num" class="item_num hide">0</h3>
 						</td>
 						<td id="meat_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredMeat.png" alt="all meat items" width="116" height="116">
 							</div>
-							<div class="grocery_status">
+							<div id="meat_checked" class="grocery_status hide">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
+                            <h3 id="meat_num" class="item_num hide">0</h3>
 						</td>
 						<td id="fruits_vege_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredVeggies.png" alt="all fruit & veggie items" width="131" height="126">
 							</div>
-							<div class="grocery_status">
+							<div id="fruits_vege_checked" class="grocery_status hide">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
+                            <h3 id="fruits_vege_num" class="item_num hide">0</h3>
 						</td>
 						<td id="assorted_items_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredOther.png" alt="all added items" width="131" height="122">
 							</div>
-							<div class="grocery_status">
+							<div id="assorted_checked" class="grocery_status hide">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
+                            <h3 id="assorted_num" class="item_num hide">0</h3>
 						</td>
 						<td id="added_items_toggle" class="selected_tab" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
 							</div>
-							<div class="grocery_status">
-								<img src="img/groceryListCategoryCircle.png" alt="Checkmark" width="71" height="74">
+							<div id="added_checked" class="grocery_status hide">
+								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>		
+                            <h3 id="added_num" class="item_num hide">0</h3>
 						</td>
 					</tr>
 				</table>

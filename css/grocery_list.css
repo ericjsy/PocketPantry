@@ -334,10 +334,6 @@ body {
 		font-size: 30px;
 	}
     
-    .selected_tab{
-        background-color: darkseagreen;
-        border-radius: 10px;
-    }
     #easter {
         display: none;
         margin-right: 5px;

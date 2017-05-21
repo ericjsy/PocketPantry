@@ -7,9 +7,12 @@ var categories = new Array();
 //all added category to be printed
 var showList = new Array();
 
+//item check out
+var checkOut_list = [[], [], [], [], []];
+
 //promises
 var category_promise = [
-    true, true, true, true, false
+    true, true, true, true, true
 ];
 
 function init_groceryListLibrary(){
@@ -53,16 +56,63 @@ function gl_clearTable(){
 
 function gl_categoryList_group(){
     categories = new Array();
+    
     categories.push(dairy_list);
-//    console.log(JSON.stringify(dairy_list));
+    checkMark(dairy_list, "dairy_checked", "dairy_num");
+    
     categories.push(meat_list);
-//    console.log(JSON.stringify(meat_list));
+    checkMark(meat_list, "meat_checked", "meat_num");
+    
     categories.push(fruit_veg_list);
-//    console.log(JSON.stringify(fruit_veg_list));
+    checkMark(fruit_veg_list, "fruits_vege_checked", "fruits_vege_num");
+
     categories.push(other_list);
-//    console.log(JSON.stringify(other_list));
+    checkMark(other_list, "assorted_checked", "assorted_num");
+
     categories.push(added_list);
-//    console.log(JSON.stringify(added_list));
+    checkMark(added_list, "added_checked", "added_num");
+    
+    for(i = 0; i < categories.length; i++){
+        for(j = 0; j < categories[i].length; j++){
+            if(checkOut_list[i][j] != true && checkOut_list[i][j] != false){
+                checkOut_list[i].push(false);
+            }
+        }
+    }
+    
+    document.getElementById("dairy_num").innerHTML = itemCheckOut(0, "dairy");
+    document.getElementById("meat_num").innerHTML = itemCheckOut(1 , "meat");
+    document.getElementById("fruits_vege_num").innerHTML = itemCheckOut(2 , "fruits_vege");
+    document.getElementById("assorted_num").innerHTML = itemCheckOut(3 , "assorted");
+    document.getElementById("added_num").innerHTML = itemCheckOut(4 , "added");
+    
+}
+
+function checkMark(type_list, type_checked, type_num){
+    if(type_list == null || type_list.length == 0){
+        document.getElementById(type_checked).classList.add('show');
+        document.getElementById(type_checked).classList.remove('hide');
+        document.getElementById(type_num).classList.add('hide');
+        document.getElementById(type_num).classList.remove('show');
+    } else{
+        document.getElementById(type_checked).classList.add('hide');
+        document.getElementById(type_checked).classList.remove('show');
+        document.getElementById(type_num).classList.add('show');
+        document.getElementById(type_num).classList.remove('hide');
+    }
+}
+
+function itemCheckOut(type, type_list){
+    var count = 0;
+    for(i = 0; i < checkOut_list[type].length; i++){
+        if(checkOut_list[type][i] == false){
+            count++;
+        }
+    }
+    if(count == 0){
+        checkMark(null, type_list + "_checked", type_list + "_num");
+    }
+    return count;
 }
 
 function gl_addToShowList(){
@@ -71,23 +121,58 @@ function gl_addToShowList(){
     for(var i = 0; i < category_promise.length; i++){
         if(category_promise[i]){
             showList.push(categories[i]);
+        } else {
+            showList.push(new Array());
         }
     }
 }
 
 function removeItem(id){
-    var check = document.getElementById(id).checked;
-    var item = id.split("_")[0];
+    var type_list;
+    var type = id.split("_")[0];
+    var item = id.split("_")[1];
+    var sign = 0;
+    
+    var check = document.getElementById(type + "_" + item + "_check").checked;
+    document.getElementById(type + "_" + item + "_check").checked = !check;
     if(check){
-        for(i = 0; i < showList.length; i++){
-            if(showList[i].name == item){
-                
-            }
-        }
+        sign = 1;
+        checkOut_list[type][item] = false;
+//        console.log(JSON.stringify(checkOut_list));
     } else {
-        
+        sign = -1;
+        checkOut_list[type][item] = true;
+//        console.log(JSON.stringify(checkOut_list));
     }
-
+    switch(type){
+        case "0":
+            var remain_num = document.getElementById("dairy_num");
+            type_list = "dairy"
+            break;
+        case "1":
+            var remain_num = document.getElementById("meat_num");
+            type_list = "meat"
+            break;
+        case "2":
+            var remain_num = document.getElementById("fruits_vege_num");
+            type_list = "fruits_vege"
+            break;
+        case "3":
+            var remain_num = document.getElementById("assorted_num");
+            type_list = "assorted"
+            break;
+        case "4":
+            var remain_num = document.getElementById("added_num");
+            type_list = "added"
+            break;
+    }
+    var item_num = parseInt(remain_num.innerHTML) + sign;
+    remain_num.innerHTML = item_num;
+    if(item_num == 0){
+        checkMark(null, type_list + "_checked", type_list + "_num");
+    } else {
+        checkMark(type_list + "_list", type_list + "_checked", type_list + "_num");
+    }
 }
 
 function gl_listItems(){
@@ -100,11 +185,15 @@ function gl_listItems(){
             var id;
             var inputObj = document.createElement("input");
             inputObj.setAttribute("type", "checkbox");
-            inputObj.setAttribute("id", "" + showList[i][j].name + "_check");
+            if(checkOut_list[i][j]){
+                inputObj.setAttribute("checked", true);
+            }
+            inputObj.setAttribute("id", "" + i + "_" + j + "_check");
             inputObj.addEventListener("click", function(e) {removeItem(this.id);}, false);
 
             var row = document.createElement("tr");
-            row.setAttribute("id", showList[i][j].name);
+            row.setAttribute("id", "" + i + "_" + j);
+            row.addEventListener("click", function(e) {removeItem(this.id);}, false);
 
             var checkBox = document.createElement("td");
             checkBox.appendChild(inputObj);
