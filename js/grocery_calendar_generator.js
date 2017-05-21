@@ -82,7 +82,7 @@ function drawCalendar(date) {
             d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && d.getDate() < today.getDate()){
 					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
 		}
-		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {decider(this.id);}, false);;
+		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {retrieve_mealStatus(this.id);}, false);
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
 		"<div class='dot_container'>" + 
 			"<div id='" + 
@@ -99,6 +99,7 @@ function drawCalendar(date) {
 		init_mealStatus("" + (d.getMonth() + 1) + "_" + d.getDate());
 	} while(d.getDate() > 1);
     
+	retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
 }
 
 // Show current month
