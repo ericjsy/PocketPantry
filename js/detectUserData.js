@@ -1,5 +1,3 @@
-uid = "";
-
 window.onload = firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		if (user != null) {

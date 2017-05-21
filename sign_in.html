@@ -3,20 +3,116 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
+    <meta name="google-signin-client_id" content="861006904812-cjjm3fv9g2un65ed1h0nst0rtb07247m.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+    
 	<title>Pocket Pantry - Sign In</title>
 
 	<link rel="stylesheet" href="./css/main_style_pc.css">
 	<link rel="stylesheet" href="./css/main_style_mobile.css">
 	<link rel="stylesheet" href="./css/sign_in.css">
 
-	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase-database.js"></script>
 	<script src="js/fbconnect.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="691436780664-cqrn0krnafdum5jf74kckgcitmrk9iru.apps.googleusercontent.com">
+<!--    <meta name="google-signin-scope" content="profile email">-->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+<!--    <meta name="google-signin-client_id" content="861006904812-cjjm3fv9g2un65ed1h0nst0rtb07247m.apps.googleusercontent.com">-->
+    
+    <script>
+//        function onSignIn(googleUser) {
+//          var profile = googleUser.getBasicProfile();
+//          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//          console.log('Name: ' + profile.getName());
+//          console.log('Image URL: ' + profile.getImageUrl());
+//          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+//        }
+        var provider = new firebase.auth.GoogleAuthProvider();
+        
+        provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+        
+        function signIn(){
+            firebase.auth().signInWithRedirect(provider);
+        }
+
+        firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            var user = result.user;
+            // ...
+          }
+          // The signed-in user info.
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+          // ...
+        });
+//        
+//        function onSignIn(googleUser) {
+//            console.log("onSignIn");
+//            console.log('Google Auth Response', googleUser);
+//            var profile = googleUser.getBasicProfile();
+//          // We need to register an Observer on Firebase Auth to make sure auth is initialized.
+//            var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
+//                unsubscribe();
+//                // Check if we are already signed-in Firebase with the correct user.
+//                if (!isUserEqual(googleUser, firebaseUser)) {
+//                  // Build Firebase credential with the Google ID token.
+//                  var credential = firebase.auth.GoogleAuthProvider.credential(
+//                      googleUser.getAuthResponse().id_token);
+//                  // Sign in with credential from the Google user.
+//                  firebase.auth().signInWithCredential(credential).catch(function(error) {
+//                    // Handle Errors here.
+//                    var errorCode = error.code;
+//                    var errorMessage = error.message;
+//                    // The email of the user's account used.
+//                    var email = error.email;
+//                    // The firebase.auth.AuthCredential type that was used.
+//                    var credential = error.credential;
+//                    // ...
+//                  });
+//                } else {
+//                  console.log('User already signed-in Firebase.');
+//                  console.log('ID: ' + profile.getName());
+//                }
+//            });
+//        }
+//        
+//        function isUserEqual(googleUser, firebaseUser) {
+//            console.log("isUserEqual");
+//          if (firebaseUser) {
+//            var providerData = firebaseUser.providerData;
+//            for (var i = 0; i < providerData.length; i++) {
+//              if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
+//                  providerData[i].uid === googleUser.getBasicProfile().getId()) {
+//                // We don't need to reauth the Firebase connection.
+//                return true;
+//              }
+//            }
+//          }
+//          return false;
+//        }
+        
+        function sing_out(){
+            firebase.auth().signOut().then(function() {
+                console.log("sign out successful!");
+            }).catch(function(error) {
+                // An error happened.
+            });
+        }
+    </script>
+    
 </head>
 <body>
 	<main>
@@ -29,8 +125,14 @@
 		</div>
 		<div id="sign_in_container">
 			<input type="image" src="img/signInWithGoogle.png" id="sign_in_button" onclick="signIn()" />
+<!--
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <a href="#" onclick="signIn()">Sign out</a>
+-->
+<!--            <div class="g-signin2" data-onsuccess="onSignIn" id="sign_in_button" data-theme="light"></div>-->
+<!--            <button onClick="sing_out()">sign out</button>-->
 		</div>
 	</main>
-	<script type="text/javascript" src="js/sign_in.js"></script>
+<!--	<script type="text/javascript" src="js/sign_in.js"></script>-->
 </body>
 </html>
