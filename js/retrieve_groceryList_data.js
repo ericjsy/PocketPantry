@@ -18,7 +18,11 @@ function retrieve_grocerylist(startDate, endDate){
 }
 
 function return_categorized_groceryList(){
-    var sorted_grocery_list = new Array();
+    dairy_list = new Array();
+    meat_list = new Array();
+    fruit_veg_list = new Array();
+    other_list = new Array();
+    
     setTimeout(
         function() {
             for(i = 0; i < planned_days.length; i++){
@@ -77,10 +81,10 @@ function return_categorized_groceryList(){
     );
 }
 
-function checkIfItem_added(item, qty, category){
-    for(i = 0; i < category.length; i++){
-        if(category[i].name == item){
-            category[i].amount += qty;
+function checkIfItem_added(item, qty, type_array){
+    for(i = 0; i < type_array.length; i++){
+        if(type_array[i].name == item){
+            type_array[i].amount += qty;
             return true;
         }
     }
@@ -88,6 +92,7 @@ function checkIfItem_added(item, qty, category){
 }
 
 function find_planned_days(day_range){
+    planned_days = new Array();
     for(i = 0; i < day_range.length; i++){
         dbUser.child(day_range[i]).once("value").then(snapshot => {
             if(snapshot.exists()){
@@ -102,22 +107,30 @@ function find_planned_days(day_range){
 function dayRange_to_array(startDate, endDate){
     var day_array = new Array();
     
+    var startDate_month = parseInt(startDate.split("_")[0]);
+    var startDate_day   = parseInt(startDate.split("_")[1]);
+    var endDate_month   = parseInt(endDate.split("_")[0]);
+    var endDate_day     = parseInt(endDate.split("_")[1]);
+    
+    var first_month_days = new Date(2017, startDate_month, 0).getDate();
+    
     var dateRange = new Array();
     var str = startDate + "_" + endDate;
-    dateRange = str.split("_");
     
+    if(startDate_month < endDate_month){
     //start 
-    var first_month_days = new Date(2017, dateRange[0], 0).getDate();;
+        for(i = startDate_day; i <= first_month_days; i++){
+            day_array.push(startDate_month + "_" + i);
+        }
 
-    for(i = dateRange[1]; i <= first_month_days; i++){
-        day_array.push(dateRange[0] + "_" + i);
-    }
-    
-    //end
-    var first_month_days = new Date(2017, dateRange[2], 0).getDate();;
-    
-    for(i = 1; i <= dateRange[3]; i++){
-        day_array.push(dateRange[2] + "_" + i);
+        //end      
+        for(i = 1; i <= endDate_day; i++){
+            day_array.push(endDate_month + "_" + i);
+        }
+    } else {
+        for(i = startDate_day; i <= endDate_day; i++){
+            day_array.push(startDate_month + "_" + i);
+        }
     }
     
     return day_array;
