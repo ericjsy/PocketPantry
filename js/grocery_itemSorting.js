@@ -7,8 +7,6 @@ var showList = new Array;
 var category_promise = [
     true, true, true, true, false
 ];
-//user-added items
-var user_added_promise = true;
 //all category in one array
 var categories;
 
@@ -64,33 +62,14 @@ function gl_addToShowList(){
     }
 }
 
-function removeItem(id){
-    var check = document.getElementById(id).checked;
-    var item = id.split("_")[0];
-    if(check){
-        for(i = 0; i < showList.length; i++){
-            if(showList[i].name == item){
-                
-            }
-        }
-    } else {
-        
-    }
-
-}
-
 function gl_listItems(){
 //    console.log("listItem called");
     for (var i = 0; i < showList.length; i++) {
         for (var j = 0; j < showList[i].length; j++) {
-            var id;
             var inputObj = document.createElement("input");
             inputObj.setAttribute("type", "checkbox");
-            inputObj.setAttribute("id", "" + showList[i][j].name + "_check");
-            inputObj.addEventListener("click", function(e) {removeItem(this.id);}, false);
 
             var row = document.createElement("tr");
-            row.setAttribute("id", showList[i][j].name);
 
             var checkBox = document.createElement("td");
             checkBox.appendChild(inputObj);
@@ -131,7 +110,7 @@ function gl_userItems() {
 	qty.appendChild(document.createTextNode("" + document.getElementById("item_quantity").value));
 
 	var remove = document.createElement("td");
-	remove.setAttribute("onclick", "this.parentNode.parentNode.removeChild(this.parentNode)");
+	remove.setAttribute("onclick", "remove_items(this)");
 	remove.appendChild(document.createTextNode("\u00D7"));
 	
 	row.appendChild(checkBox);
@@ -140,12 +119,40 @@ function gl_userItems() {
 	row.appendChild(remove);
 
 	document.getElementById("user_added_items").appendChild(row);
+	
+	
+	// if the user-added items section is hidden, show it
+	if (!category_promise[4]) {
+		category_promise[4] = !category_promise[4];
+		print_user_added_table();
+	}
 }
 
-//Chainning
+// remove items
+function remove_items(td) {
+	// remove the clicked item
+	td.parentNode.parentNode.removeChild(td.parentNode);
+	
+	// clear any error messages, if shown
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	// clear easter egg, if shown
+	document.getElementById("easter").style.display = "none";
+	document.getElementById("thought").innerHTML = "";
+	
+	// hide "Your items" text if no added items left
+	if (!document.getElementById("user_added_items").firstChild) {
+		category_promise[4] = false;
+		print_user_added_table();
+	}
+}
+
+//Chaining
 
 function init_listToPrint(){
     GroceryList.gl_categoryList_group().gl_addToShowList().gl_listItems();
+	
+	print_user_added_table();
 }
 
 function category_select(id){
@@ -259,16 +266,13 @@ function validate_input() {
 	}
 }
 
-// toggle table containing user-added items
-function toggleAdded() {
-	if (user_added_promise) {
-		document.getElementById("user_added_items").style.display = "none";
-		user_added_promise = false;
+// toggle visibility of added items section
+function print_user_added_table() {
+	if (category_promise[4]) {
+		document.getElementById("add_list").style.display = "";
 	} else {
-		document.getElementById("user_added_items").style.display = "";
-		user_added_promise = true;
+		document.getElementById("add_list").style.display = "none";
 	}
-	
 }
 
 function firstLoad(){
@@ -282,4 +286,4 @@ function firstLoad(){
     );
 }
 
-onload = init_groceryListLibrary();
+onload = init_groceryListLibrary(), init_listToPrint();
