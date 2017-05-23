@@ -31,6 +31,22 @@
 	vertical-align: middle;
 }
 
+.item_num{
+	position: absolute;
+	bottom: 0;
+	right: 5px;
+	margin: 0;
+}
+
+.selected_tab{
+	background-color: #9DB89D;
+	border-radius: 30px;
+}
+
+tr{
+	height: 50px;
+}
+
 /* start and end buttons */
 #start_selector, #end_selector {
 	background-color: #719c6e;
@@ -379,11 +395,16 @@
 		font-size: 30px;
 		font-family: "Conv_agency-fb", helvetica, sans-serif;
 	}
-    
+    /*
     .selected_tab{
         background-color: darkseagreen;
         border-radius: 10px;
     }
+	*/
+	.selected_tab{
+		background-color: #9DB89D;
+		border-radius: 30px;
+	}
     #easter {
         display: none;
         margin-right: 5px;

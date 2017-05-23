@@ -17,21 +17,6 @@ function retrieve_grocerylist(startDate, endDate){
     return_categorized_groceryList();
 }
 
-function print(){
-    for (i = 0; i < dairy_list.length; i++) {
-        console.log("name: " + dairy_list[i].name + ", amount: " + dairy_list[i].amount + ", unit: " + dairy_list[i].unit)
-    }
-    for (i = 0; i < meat_list.length; i++) {
-        console.log("name: " + meat_list[i].name + ", amount: " + meat_list[i].amount + ", unit: " + meat_list[i].unit)
-    }
-    for (i = 0; i < fruit_veg_list.length; i++) {
-        console.log("name: " + fruit_veg_list[i].name + ", amount: " + fruit_veg_list[i].amount + ", unit: " + fruit_veg_list[i].unit)
-    }
-    for (i = 0; i < other_list.length; i++) {
-        console.log("name: " + other_list[i].name + ", amount: " + other_list[i].amount + ", unit: " + other_list[i].unit)
-    }
-}
-
 function return_categorized_groceryList(){
     var sorted_grocery_list = new Array();
     setTimeout(
