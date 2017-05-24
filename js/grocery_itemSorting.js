@@ -10,8 +10,8 @@ var checkOut_list = [[], [], [], []];
 var addedItem_list = [];
 
 var showList = new Array();
-//promises
 
+//promises
 var category_promise = [
     true, true, true, true
 ];
