@@ -10,8 +10,8 @@ var checkOut_list = [[], [], [], []];
 var addedItem_list = [];
 
 var showList = new Array();
-//promises
 
+//promises
 var category_promise = [
     true, true, true, true
 ];
@@ -20,6 +20,9 @@ var addedItem_promise = true;
 function init_groceryListLibrary(){
     console.log("Init: GroceryList Library");
     GroceryList = new GroceryList_obj();
+	
+	// hide Food for Thought section upon first loading the page
+    document.getElementById("food_for_thought").style.display = "none";
 }
 
 //Object
@@ -92,13 +95,11 @@ function add_checkMark(){
         document.getElementById("added_num").classList.add('hide');
         document.getElementById("added_checked").classList.add('show');
         document.getElementById("added_checked").classList.remove('hide');
-        document.getElementById("add_list").style.display = "none";
     } else {
         document.getElementById("added_num").classList.add('show');
         document.getElementById("added_num").classList.remove('hide');
         document.getElementById("added_checked").classList.remove('show');
         document.getElementById("added_checked").classList.add('hide');
-        document.getElementById("add_list").style.display = "inline";
     }
 }
 
@@ -292,7 +293,9 @@ function gl_userItems() {
 //    
 //    addedItem_list.push(foo);
 	
-    print_user_added_table();
+	if (!addedItem_promise) {
+		addedItem_toggle();
+	}
 }
 
 // remove items
@@ -304,12 +307,13 @@ function remove_items(td) {
 	document.getElementById("errorMessage").innerHTML = "";
 	
 	// clear easter egg, if shown
+	document.getElementById("food_for_thought").style.display = "none";
 	document.getElementById("easter").style.display = "none";
 	document.getElementById("thought").innerHTML = "";
 	
 	// hide "Your items" text if no added items left
 	if (!document.getElementById("user_added_items").firstChild) {
-		print_user_added_table();
+		addedItem_toggle();
 	}
     
     add_checkMark();
@@ -396,12 +400,14 @@ function addedItem(){
     }
     document.getElementById("thought").innerHTML = message;
     if (easter) {
-        document.getElementById("easter").style.display = "inline-block";
+        document.getElementById("food_for_thought").style.display = "";
+		document.getElementById("easter").style.display = "inline-block";
         document.getElementById("item_name").value = "";
         document.getElementById("item_quantity").value = "";
 		document.getElementById("errorMessage").innerHTML = "";
     } else {
-        document.getElementById("easter").style.display = "none";
+        document.getElementById("food_for_thought").style.display = "none";
+		document.getElementById("easter").style.display = "none";
 		
 		if (item_valid) {
 			gl_userItems();
