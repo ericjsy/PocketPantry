@@ -7,7 +7,6 @@ var categories = new Array();
 
 //item check out
 var checkOut_list = [[], [], [], []];
-
 var addedItem_list = [];
 
 var showList = new Array();
@@ -16,7 +15,6 @@ var showList = new Array();
 var category_promise = [
     true, true, true, true
 ];
-
 var addedItem_promise = true;
 
 function init_groceryListLibrary(){
@@ -84,8 +82,7 @@ function gl_categoryList_group(){
 	document.getElementById("dairy_num").innerHTML = itemCheckOut(0, "dairy");
     document.getElementById("meat_num").innerHTML = itemCheckOut(1 , "meat");
     document.getElementById("fruits_vege_num").innerHTML = itemCheckOut(2 , "fruits_vege");
-    document.getElementById("assorted_num").innerHTML = itemCheckOut(3 , "assorted");
-    
+    document.getElementById("assorted_num").innerHTML = itemCheckOut(3 , "assorted");    
 }
 
 function add_checkMark(){

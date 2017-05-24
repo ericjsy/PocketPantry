@@ -14,7 +14,6 @@ function initApp() {
 	document.getElementsByClassName("popUpBtn")[1].addEventListener("click", function() {
     showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><div id="done_btn">DONE</div>');
   }, false);
-
 }
 //show the modal overlay and popup window
 function showPopUpMessage(msg) {

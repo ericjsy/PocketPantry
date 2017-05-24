@@ -356,7 +356,7 @@ tr{
 	/* added item list */
 	#add_list {
 		margin: auto;
-		width: 100%;	      
+		width: 100%;
 		font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
 	}
   
@@ -420,6 +420,7 @@ tr{
 		font-size: 30px;
 		font-family: "Conv_agency-fb", helvetica, sans-serif;
 	}
+
     #easter {
         display: none;
         margin-right: 5px;

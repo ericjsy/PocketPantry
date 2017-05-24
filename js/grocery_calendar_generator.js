@@ -83,6 +83,7 @@ function drawCalendar(date) {
 					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
 		}
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {decider(this.id);}, false);
+
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
 		"<div class='dot_container'>" + 
 			"<div id='" + 
