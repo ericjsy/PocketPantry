@@ -141,6 +141,7 @@ function gl_addToShowList(){
 }
 
 function checkOffItem(id){
+    console.log(id);
     var type_list;
     var type = id.split("_")[0];
     var item = id.split("_")[1];
@@ -220,7 +221,7 @@ function gl_listItems(){
                 inputObj.setAttribute("checked", true);
             }
             inputObj.setAttribute("id", "" + i + "_" + j + "_check");
-            inputObj.addEventListener("click", function(e) {checkOffItem(this.id);}, false);
+            inputObj.style.pointerEvents = "none";
 			
             var row = document.createElement("tr");
 			row.setAttribute("id", "" + i + "_" + j);
@@ -255,7 +256,7 @@ function gl_userItems() {
 	var inputObj = document.createElement("input");
 	inputObj.setAttribute("type", "checkbox");
     inputObj.setAttribute("id", "" + document.getElementById("item_name").value + "_check");
-    inputObj.addEventListener("click", function(e) {added_checkOffItem(this.id);}, false);
+    inputObj.style.pointerEvents = "none";
 
 	var row = document.createElement("tr");
     row.setAttribute("id", "" + document.getElementById("item_name").value);

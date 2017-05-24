@@ -192,6 +192,9 @@ tr{
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+.date_range_color{
+    background: linear-gradient(180deg, #CCCCCC 50%, orange 50%);
+}
 /* mobile */
 @media only screen and (max-width: 600px) {
 	/* font */
