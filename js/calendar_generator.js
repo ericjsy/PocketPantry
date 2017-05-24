@@ -1,6 +1,6 @@
 //Draw calendar
 function drawCalendar(date) {
-    connectUser("ryalia");
+    connectUser(uid);
     
 	//Enumeration sets
 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
@@ -123,4 +123,4 @@ function nextMonth() {
 }
 
 //On Window load, call currentMonth
-onload = currentMonth, 	init_dbLibrary();
+onload = currentMonth, init_dbLibrary();
