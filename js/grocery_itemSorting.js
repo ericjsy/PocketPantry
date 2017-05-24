@@ -20,6 +20,9 @@ var addedItem_promise = true;
 function init_groceryListLibrary(){
     console.log("Init: GroceryList Library");
     GroceryList = new GroceryList_obj();
+	
+	// hide Food for Thought section upon first loading the page
+    document.getElementById("food_for_thought").style.display = "none";
 }
 
 //Object
@@ -304,6 +307,7 @@ function remove_items(td) {
 	document.getElementById("errorMessage").innerHTML = "";
 	
 	// clear easter egg, if shown
+	document.getElementById("food_for_thought").style.display = "none";
 	document.getElementById("easter").style.display = "none";
 	document.getElementById("thought").innerHTML = "";
 	
@@ -396,12 +400,14 @@ function addedItem(){
     }
     document.getElementById("thought").innerHTML = message;
     if (easter) {
-        document.getElementById("easter").style.display = "inline-block";
+        document.getElementById("food_for_thought").style.display = "";
+		document.getElementById("easter").style.display = "inline-block";
         document.getElementById("item_name").value = "";
         document.getElementById("item_quantity").value = "";
 		document.getElementById("errorMessage").innerHTML = "";
     } else {
-        document.getElementById("easter").style.display = "none";
+        document.getElementById("food_for_thought").style.display = "none";
+		document.getElementById("easter").style.display = "none";
 		
 		if (item_valid) {
 			gl_userItems();
