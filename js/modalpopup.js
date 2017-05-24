@@ -24,6 +24,7 @@ function showPopUpMessage(msg) {
   modalWindowElement.innerHTML = msg;
   document.body.appendChild(overlayElement);
   document.body.appendChild(modalWindowElement);
+  document.body.className = 'modal-open';
   doneBtn = document.getElementById("done_btn");
   setTimeout(function() {
     modalWindowElement.style.opacity = 1;
@@ -42,6 +43,7 @@ function hidePopUpMessage() {
     document.body.removeChild(overlayElement);
     document.body.removeChild(modalWindowElement);
   }, 400);
+	document.body.className = '';
   
   if(endDate.date == "") {
 	  endDate.date = startDate.date;
