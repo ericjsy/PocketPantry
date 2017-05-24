@@ -9,10 +9,10 @@ function initApp() {
   // }, false);
   
 	document.getElementsByClassName("popUpBtn")[0].addEventListener("click", function() {
-    showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><p id="calendar_instructions">Tap the first and last dates to shop for!</p>');
+    showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><div id="done_btn">DONE</div>');
   }, false);
 	document.getElementsByClassName("popUpBtn")[1].addEventListener("click", function() {
-    showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><p id="calendar_instructions">Tap the first and last dates to shop for!</p>');
+    showPopUpMessage('<div id="calendar_container"><table id="calendar"></table></div><div id="done_btn">DONE</div>');
   }, false);
 
 }
@@ -25,10 +25,12 @@ function showPopUpMessage(msg) {
   modalWindowElement.innerHTML = msg;
   document.body.appendChild(overlayElement);
   document.body.appendChild(modalWindowElement);
+  doneBtn = document.getElementById("done_btn");
   setTimeout(function() {
     modalWindowElement.style.opacity = 1;
     overlayElement.style.opacity = 0.8;
     overlayElement.addEventListener("click", hidePopUpMessage, false);
+    doneBtn.addEventListener("click", hidePopUpMessage, false);
   }, 300);
   currentMonth();
 }
