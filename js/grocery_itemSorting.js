@@ -17,12 +17,29 @@ var category_promise = [
 ];
 var addedItem_promise = true;
 
+// tip of the day
+// tips taken from https://greatist.com/health/how-to-ways-reduce-food-waste
+var tips = [
+	"Avoid impulse purchases by planning meals in advance.", 
+	"Don't buy foods just because they're on sale; buy only what you will actually eat.",
+	"Follow the First-In-First-Out philosophy: use older groceries before newer ones.",
+	"Keep track of your food expiration dates so you can use your groceries before they expire.",
+	"If your fridge is operating at maximum efficiency, it can extend the shelf life of the foods in it."
+	];
+
 function init_groceryListLibrary(){
     console.log("Init: GroceryList Library");
     GroceryList = new GroceryList_obj();
 	
-	// hide Food for Thought section upon first loading the page
-    document.getElementById("food_for_thought").style.display = "none";
+	// print tip of the day
+	var tip = daily_tip();
+    document.getElementById("thought").innerHTML = "Tip: " + tip;
+}
+
+// choose tip of the day
+function daily_tip() {
+	var choice = Math.floor(Math.random() * tips.length);
+	return tips[choice];
 }
 
 //Object
