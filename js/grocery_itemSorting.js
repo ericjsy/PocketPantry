@@ -92,13 +92,11 @@ function add_checkMark(){
         document.getElementById("added_num").classList.add('hide');
         document.getElementById("added_checked").classList.add('show');
         document.getElementById("added_checked").classList.remove('hide');
-        document.getElementById("add_list").style.display = "none";
     } else {
         document.getElementById("added_num").classList.add('show');
         document.getElementById("added_num").classList.remove('hide');
         document.getElementById("added_checked").classList.remove('show');
         document.getElementById("added_checked").classList.add('hide');
-        document.getElementById("add_list").style.display = "inline";
     }
 }
 
