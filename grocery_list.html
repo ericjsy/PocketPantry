@@ -17,24 +17,6 @@
 	
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 <!--	<script type="text/javascript" src="js/detectUserData.js"></script>-->
-    
-<!-- additional css-->
-    <style>
-        .item_num{
-            position: absolute;
-            bottom: 0;
-            right: 5px;
-            margin: 0;
-        }
-        .selected_tab{
-            background-color: #9DB89D;
-            border-radius: 30px;
-        }
-        tr{
-            height: 50px;
-        }
-    </style>
-    
 </head>
 <body>
 	<nav id="mobile_header">
@@ -58,8 +40,8 @@
 	<main>		
 		<div id="grocery_container">
 			<div id="grocery_dates">
-				<button id="popUpBtn">Start</button>
-				<button>End</button>
+				<button class="popUpBtn">From</button>
+				<button class="popUpBtn">To</button>
 			</div>
 
 			<div id="grocery_sections">
@@ -72,50 +54,50 @@
 						<th>Added Items</th>
 					</tr>
 					<tr>
-						<td id="dairy_toggle" class="selected_tab" onClick="category_select(this.id)">
+						<td id="dairy_toggle" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredDairy.png" alt="all dairy items" width="86" height="97">
 							</div>
-							<div id="dairy_checked" class="grocery_status hide">
+							<div id="dairy_checked" class="grocery_status">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
-                            <h3 id="dairy_num" class="item_num hide">0</h3>
+							<h3 id="dairy_num" class="item_num hide">0</h3>
 						</td>
-						<td id="meat_toggle" class="selected_tab" onClick="category_select(this.id)">
+						<td id="meat_toggle" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredMeat.png" alt="all meat items" width="116" height="116">
 							</div>
-							<div id="meat_checked" class="grocery_status hide">
+							<div id="meat_checked" class="grocery_status">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
-                            <h3 id="meat_num" class="item_num hide">0</h3>
+							<h3 id="meat_num" class="item_num hide">0</h3>
 						</td>
-						<td id="fruits_vege_toggle" class="selected_tab" onClick="category_select(this.id)">
+						<td id="fruits_vege_toggle" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredVeggies.png" alt="all fruit & veggie items" width="131" height="126">
 							</div>
-							<div id="fruits_vege_checked" class="grocery_status hide">
+							<div id="fruits_vege_checked" class="grocery_status">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
-                            <h3 id="fruits_vege_num" class="item_num hide">0</h3>
+							<h3 id="fruits_vege_num" class="item_num hide">0</h3>
 						</td>
-						<td id="assorted_items_toggle" class="selected_tab" onClick="category_select(this.id)">
+						<td id="assorted_items_toggle" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredOther.png" alt="all added items" width="131" height="122">
 							</div>
-							<div id="assorted_checked" class="grocery_status hide">
+							<div id="assorted_checked" class="grocery_status">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>
-                            <h3 id="assorted_num" class="item_num hide">0</h3>
+							<h3 id="assorted_num" class="item_num hide">0</h3>
 						</td>
-						<td id="added_items_toggle" class="selected_tab" onClick="category_select(this.id)">
+						<td id="added_items_toggle" onClick="category_select(this.id)">
 							<div class="grocery_icon">
 								<img src="img/coloredListAll.png" alt="all items" width="136" height="135">
 							</div>
-							<div id="added_checked" class="grocery_status hide">
+							<div id="added_checked" class="grocery_status">
 								<img src="img/groceryListCategoryCheckmark.png" alt="Checkmark" width="71" height="74">
 							</div>		
-                            <h3 id="added_num" class="item_num hide">0</h3>
+							<h3 id="added_num" class="item_num hide">0</h3>
 						</td>
 					</tr>
 				</table>
@@ -126,7 +108,11 @@
 		
 		<div id="add_list">
 			<p>Your items:</p>
+			
+			<table id="user_added_items"></table>
 		</div>
+		
+		<div id="errorMessage"></div>
 		
 		<div id="add_item">
 			<input type="text" id="item_name" class="more_items" placeholder="Add item...">
@@ -144,7 +130,7 @@
 	<script src="js/function_define.js"></script>
     <script src="js/function_chaining.js"></script>
 	
-    <script type="text/javascript" src="js/drselect.js"></script>
+	
 	<script type="text/javascript" src="js/retrieve_groceryList_data.js"></script>
 	<script type="text/javascript" src="js/grocery_itemSorting.js"></script>
 	<script type="text/javascript" src="js/grocery_calendar_generator.js"></script>
@@ -152,7 +138,10 @@
 
 	<script type="text/javascript" src="js/logodropdown.js"></script>
 	<script type="text/javascript" src="js/sign_out.js"></script>
+	
+	<script type="text/javascript" src="js/drselect.js"></script>
 	<script type="text/javascript" src="js/modalpopup.js"></script>
+	
 	
 </body>
 </html>

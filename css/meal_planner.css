@@ -28,7 +28,7 @@ table #calendar_days_headings {
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
     border-radius: 100%;
-	font-size: 25px;
+	font-size: 1em;
     pointer-events: none;
 }
 .day{

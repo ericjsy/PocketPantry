@@ -1,16 +1,16 @@
 //Grocery list library obj
 var GroceryList;
+//all added category to be printed
 
 //all category in one array
 var categories = new Array();
 
-//all added category to be printed
-var showList = new Array();
-
 //item check out
 var checkOut_list = [[], [], [], [], []];
 
+var showList = new Array();
 //promises
+
 var category_promise = [
     true, true, true, true, true
 ];
@@ -37,9 +37,9 @@ var GroceryList_obj = function(){
     }
     this.gl_clearTable = function (){
         gl_clearTable();
-        return this;
+		return this;
     }
-    this.debug_check_arrayEmpty = function(){
+	this.debug_check_arrayEmpty = function(){
         debug_check_arrayEmpty();
         return this;
     }
@@ -48,7 +48,7 @@ var GroceryList_obj = function(){
 //Define
 
 function gl_clearTable(){
-    var node = document.getElementById("grocery_list");	
+    var node = document.getElementById("grocery_list");			
     while (node.firstChild) {
         node.removeChild(node.firstChild);
     }
@@ -56,21 +56,21 @@ function gl_clearTable(){
 
 function gl_categoryList_group(){
     categories = new Array();
-    
+	
     categories.push(dairy_list);
-    checkMark(dairy_list, "dairy_checked", "dairy_num");
-    
+	checkMark(dairy_list, "dairy_checked", "dairy_num");
+	
     categories.push(meat_list);
-    checkMark(meat_list, "meat_checked", "meat_num");
-    
+	checkMark(meat_list, "meat_checked", "meat_num");
+	
     categories.push(fruit_veg_list);
-    checkMark(fruit_veg_list, "fruits_vege_checked", "fruits_vege_num");
+	checkMark(fruit_veg_list, "fruits_vege_checked", "fruits_vege_num");
 
     categories.push(other_list);
-    checkMark(other_list, "assorted_checked", "assorted_num");
-
+	checkMark(other_list, "assorted_checked", "assorted_num");
+	
     categories.push(added_list);
-    checkMark(added_list, "added_checked", "added_num");
+	checkMark(added_list, "added_checked", "added_num");
     
     for(i = 0; i < categories.length; i++){
         for(j = 0; j < categories[i].length; j++){
@@ -79,8 +79,8 @@ function gl_categoryList_group(){
             }
         }
     }
-    
-    document.getElementById("dairy_num").innerHTML = itemCheckOut(0, "dairy");
+	
+	document.getElementById("dairy_num").innerHTML = itemCheckOut(0, "dairy");
     document.getElementById("meat_num").innerHTML = itemCheckOut(1 , "meat");
     document.getElementById("fruits_vege_num").innerHTML = itemCheckOut(2 , "fruits_vege");
     document.getElementById("assorted_num").innerHTML = itemCheckOut(3 , "assorted");
@@ -101,7 +101,6 @@ function checkMark(type_list, type_checked, type_num){
         document.getElementById(type_num).classList.remove('hide');
     }
 }
-
 function itemCheckOut(type, type_list){
     var count = 0;
     for(i = 0; i < checkOut_list[type].length; i++){
@@ -117,7 +116,6 @@ function itemCheckOut(type, type_list){
 
 function gl_addToShowList(){
     showList = new Array();
-//    console.log(JSON.stringify(showList));
     for(var i = 0; i < category_promise.length; i++){
         if(category_promise[i]){
             showList.push(categories[i]);
@@ -175,24 +173,73 @@ function removeItem(id){
     }
 }
 
+function removeItem(id){
+    var type_list;
+    var type = id.split("_")[0];
+    var item = id.split("_")[1];
+    var sign = 0;
+    
+    var check = document.getElementById(type + "_" + item + "_check").checked;
+    document.getElementById(type + "_" + item + "_check").checked = !check;
+    if(check){
+        sign = 1;
+        checkOut_list[type][item] = false;
+//        console.log(JSON.stringify(checkOut_list));
+    } else {
+        sign = -1;
+        checkOut_list[type][item] = true;
+//        console.log(JSON.stringify(checkOut_list));
+    }
+    switch(type){
+        case "0":
+            var remain_num = document.getElementById("dairy_num");
+            type_list = "dairy"
+            break;
+        case "1":
+            var remain_num = document.getElementById("meat_num");
+            type_list = "meat"
+            break;
+        case "2":
+            var remain_num = document.getElementById("fruits_vege_num");
+            type_list = "fruits_vege"
+            break;
+        case "3":
+            var remain_num = document.getElementById("assorted_num");
+            type_list = "assorted"
+            break;
+        case "4":
+            var remain_num = document.getElementById("added_num");
+            type_list = "added"
+            break;
+    }
+    var item_num = parseInt(remain_num.innerHTML) + sign;
+    remain_num.innerHTML = item_num;
+    if(item_num == 0){
+        checkMark(null, type_list + "_checked", type_list + "_num");
+    } else {
+        checkMark(type_list + "_list", type_list + "_checked", type_list + "_num");
+    }
+}
+
 function gl_listItems(){
 //    console.log("listItem called");
-    var node = document.getElementById("grocery_list");
+	
+	var node = document.getElementById("grocery_list");
 //    console.log(JSON.stringify(showList));
-    
+
     for (var i = 0; i < showList.length; i++) {
         for (var j = 0; j < showList[i].length; j++) {
-            var id;
+			var id;
             var inputObj = document.createElement("input");
             inputObj.setAttribute("type", "checkbox");
-            if(checkOut_list[i][j]){
+			if(checkOut_list[i][j]){
                 inputObj.setAttribute("checked", true);
             }
             inputObj.setAttribute("id", "" + i + "_" + j + "_check");
             inputObj.addEventListener("click", function(e) {removeItem(this.id);}, false);
-
+			
             var row = document.createElement("tr");
-            row.setAttribute("id", "" + i + "_" + j);
+			row.setAttribute("id", "" + i + "_" + j);
             row.addEventListener("click", function(e) {removeItem(this.id);}, false);
 
             var checkBox = document.createElement("td");
@@ -217,10 +264,66 @@ function gl_listItems(){
     }
 }
 
-//Chainning
+// add the item the user typed
+function gl_userItems() {
+	var inputObj = document.createElement("input");
+	inputObj.setAttribute("type", "checkbox");
+
+	var row = document.createElement("tr");
+
+	var checkBox = document.createElement("td");
+	checkBox.appendChild(inputObj);
+
+	var name = document.createElement("td");
+	name.appendChild(document.createTextNode("" + document.getElementById("item_name").value));
+
+	var qty = document.createElement("td");
+	qty.appendChild(document.createTextNode("" + document.getElementById("item_quantity").value));
+
+	var remove = document.createElement("td");
+	remove.setAttribute("onclick", "remove_items(this)");
+	remove.appendChild(document.createTextNode("\u00D7"));
+	
+	row.appendChild(checkBox);
+	row.appendChild(name);
+	row.appendChild(qty);
+	row.appendChild(remove);
+
+	document.getElementById("user_added_items").appendChild(row);
+	
+	
+	// if the user-added items section is hidden, show it
+	if (!category_promise[4]) {
+		category_promise[4] = !category_promise[4];
+		print_user_added_table();
+	}
+}
+
+// remove items
+function remove_items(td) {
+	// remove the clicked item
+	td.parentNode.parentNode.removeChild(td.parentNode);
+	
+	// clear any error messages, if shown
+	document.getElementById("errorMessage").innerHTML = "";
+	
+	// clear easter egg, if shown
+	document.getElementById("easter").style.display = "none";
+	document.getElementById("thought").innerHTML = "";
+	
+	// hide "Your items" text if no added items left
+	if (!document.getElementById("user_added_items").firstChild) {
+		category_promise[4] = false;
+		print_user_added_table();
+	}
+}
+
+//Chaining
 
 function init_listToPrint(){
     GroceryList.gl_categoryList_group().gl_addToShowList().gl_clearTable().gl_listItems();
+	
+	print_user_added_table();
 }
 
 function category_select(id){
@@ -248,9 +351,9 @@ function category_select(id){
             break;
     }
     if(promise){
-        document.getElementById(id).classList.add("selected_tab");
-    } else {
         document.getElementById(id).classList.remove("selected_tab");
+    } else {
+        document.getElementById(id).classList.add("selected_tab");
     }
     GroceryList.gl_clearTable();
     init_listToPrint();
@@ -262,7 +365,7 @@ function addedItem(){
     name = item.toLowerCase();
     var message = "";
     var easter;
-    if (quantity == 2910) {
+    if (/^2910$/.test(quantity)) {
         message = "Have you completed this week's sprint?";
         easter = true;
     } else if (name == "carly") {
@@ -284,23 +387,23 @@ function addedItem(){
         message = "What have you thrown away today?";
         easter = true;
     } else {
-        if(item != "" && quantity != ""){
-            var foo = {name: null, amount: null, unit: null}; 
-            foo.name = item;
-            foo.amount = quantity;
-            foo.unit = "custome";
-            added_list.push(foo);
-            GroceryList.gl_clearTable();
-            init_listToPrint();
-        }
+        var item_valid = validate_input();
     }
     document.getElementById("thought").innerHTML = message;
     if (easter) {
         document.getElementById("easter").style.display = "inline-block";
         document.getElementById("item_name").value = "";
         document.getElementById("item_quantity").value = "";
+		document.getElementById("errorMessage").innerHTML = "";
     } else {
         document.getElementById("easter").style.display = "none";
+		
+		if (item_valid) {
+			gl_userItems();
+			
+			document.getElementById("item_name").value = "";
+			document.getElementById("item_quantity").value = "";
+		}
     }
 }
 
@@ -334,21 +437,19 @@ function validate_input() {
 	}
 }
 
-// toggle table containing user-added items
-function toggleAdded() {
-	if (user_added_promise) {
-		document.getElementById("user_added_items").style.display = "none";
-		user_added_promise = false;
+// toggle visibility of added items section
+function print_user_added_table() {
+	if (category_promise[4]) {
+		document.getElementById("add_list").style.display = "";
 	} else {
-		document.getElementById("user_added_items").style.display = "";
-		user_added_promise = true;
+		document.getElementById("add_list").style.display = "none";
 	}
-	
 }
 
 function loadTable(){
 //    console.log("firstLoad called");
-    checkOut_list = [[], [], [], [], []];
+	checkOut_list = [[], [], [], [], []];
+    init_groceryListLibrary();
     setTimeout(
         function() {
             init_listToPrint();

@@ -12,7 +12,10 @@ window.onload = firebase.auth().onAuthStateChanged(function(user) {
 		}
 	}
 	else {
-		window.location.replace("sign_in.html");
+		var url = window.location.href;
+		if (String(url).includes("PocketPantry")) {
+			window.location.replace("sign_in.html");
+		}
 	}
 });
 

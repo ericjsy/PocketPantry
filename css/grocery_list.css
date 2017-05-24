@@ -1,7 +1,3 @@
-body { 
-	font-family: Helvetica, "Trebuchet MS" ,sans-serif;
-}
-
 /* calendar */
 #calendar {
     color: orange;
@@ -33,6 +29,28 @@ body {
 	font-size: 30px;
 	font-weight: 100;
 	vertical-align: middle;
+}
+
+.item_num{
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+    background-color: darkorange;
+    right: 0;
+    padding-top: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    color: white;
+    box-shadow: 2px 2px 5px #000000;
+}
+
+.selected_tab{
+	filter: grayscale(100%);
+}
+
+tr{
+	height: 50px;
 }
 
 /* start and end buttons */
@@ -157,10 +175,28 @@ body {
 .not_clickable{
     pointer-events: none;
 }
-	
+.startDate_selected{
+    background-color: greenyellow;
+}
+.endDate_selected{
+    background-color: coral;
+}	
 /* mobile */
 @media only screen and (max-width: 600px) {
-	
+	/* font */
+	@font-face {
+		font-family: 'Conv_agency-fb';
+		src: url('../assets/agency-fb.eot');
+		src: local('☺'), url('../assets/agency-fb.woff') format('woff'), url('../assets/agency-fb.ttf') format('truetype'), url('../assets/agency-fb.svg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+	  
+	@font-face {
+	  font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
+	  font-weight: 400;
+	  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+	}
 	/* highlight current page (grocery list) */
 	#mobile_grocery_list_nav {
         background-color: #719c6e;
@@ -223,6 +259,7 @@ body {
 		margin: 10px;
 		text-align: center;
 		position: relative;
+		font-family: "Conv_agency-fb", helvetica, sans-serif;
 	}
 	
 	#categories td {
@@ -248,8 +285,8 @@ body {
 		filter: drop-shadow(1px 1px 1px #000000);
 	}
 	
-	/* grocery list table */
-	#grocery_list {
+	/* grocery list and user-added items tables */
+	#grocery_list, #user_added_items {
 		border-collapse: collapse;
 		margin: auto;
 		width: 100%;
@@ -259,24 +296,60 @@ body {
 		background-color: #D5E8D4;	
 	}
 	
-	#grocery_list td {
-		padding: 5px 0;
+	#user_added_items tr:nth-of-type(odd) {
+		background-color: #F5C6A9;
 	}
 	
-	#grocery_list td:first-child {
+	#grocery_list td {
+		padding: 5px 0;
+		font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
+	}
+	
+	#grocery_list td:first-child, #user_added_items td:first-child {
 		text-align: center;
 	}
 	
 	#grocery_list td:nth-child(2) {
 		width: 50%;
 	}
+	
+	#user_added_items td:first-child {
+		width: 13%;
+	}
+	
+	#user_added_items td:nth-child(2) {
+		width: 52%;
+	}
+	
+	#user_added_items td:nth-child(3) {
+		width: 25%;
+	}
+	
+	#user_added_items td:last-child {
+		color: #EC7B7B;
+		font-weight: bold;
+		font-size: 30px;
+		padding: 0;
+		width: 10%;
+	}
+	
+	#errorMessage {
+		color: #EC7B7B;
+		text-align: center;
+	}
+	
 
 	/* added item list */
 	#add_list {
 		margin: auto;
-		width: 90%;
+		width: 90%;	      
+		font-family: "San Francisco", helvetica, "Trebuchet MS", sans-serif;
 	}
-	
+  
+	/* Text header for user-added items */
+	#add_list p {
+		text-align: center;
+	}
 	/* adding an item */
 	#add_item {
 		display: flex;
@@ -286,7 +359,6 @@ body {
 	
 	#item_name::placeholder, #item_quantity::placeholder {
 		color: #FFFFFF;
-		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
 	}
 	
 	#item_name {
@@ -332,12 +404,16 @@ body {
 	#food_for_thought {
 		text-align: center;
 		font-size: 30px;
+		font-family: "Conv_agency-fb", helvetica, sans-serif;
 	}
-    
     #easter {
         display: none;
         margin-right: 5px;
     }
+	
+	#thought {
+		font-size: 16px;
+	}
 }
 
 /* desktop */
