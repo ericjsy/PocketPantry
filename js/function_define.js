@@ -49,14 +49,22 @@ function db_mealPlanned_imageUpdate(){
     var mealtime = ["breakfast", "lunch", "dinner"];
     for(i = 0 ; i < 3; i++){
         dbDate.child(mealtime[i]).once("value").then(function(snapshot) {
+			var a = document.getElementById(snapshot.key + "_remove");
             if(snapshot.val() != null){
-                document.getElementById(snapshot.key + "_remove").classList.add('show'); 
-                document.getElementById(snapshot.key + "_remove").classList.remove('hide'); 
+				if(a != null) {
+					document.getElementById(snapshot.key + "_remove").classList.add('show'); 
+					document.getElementById(snapshot.key + "_remove").classList.remove('hide'); 
+				}
             } else {
-                document.getElementById(snapshot.key + "_remove").classList.add('hide'); 
-                document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
+				if(a != null) {
+					document.getElementById(snapshot.key + "_remove").classList.add('hide'); 
+					document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
+				}
             }
-            document.getElementById(snapshot.key).src = "img/" + snapshot.val() + ".jpg";
+			var b = document.getElementById(snapshot.key);
+			if(b != null) {
+				document.getElementById(snapshot.key).src = "img/" + snapshot.val() + ".jpg";
+			}
         });
     }
 }

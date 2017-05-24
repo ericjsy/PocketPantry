@@ -1,13 +1,7 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 
 function signIn() {
-	
 	firebase.auth().signInWithRedirect(provider);
-	/*
-	firebase.auth().signInWithPopup(provider).then(function() {
-		window.location.replace("meal_planner.html")
-	});
-	*/
 }
 
 firebase.auth().getRedirectResult().then(function(result) {

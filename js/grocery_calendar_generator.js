@@ -1,6 +1,6 @@
 //Draw calendar
 function drawCalendar(date) {
-    connectUser("ryalia");
+    connectUser(uid);
     
 	//Enumeration sets
 	months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
