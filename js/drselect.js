@@ -4,9 +4,13 @@ endDate = {'date': ""};
 selector = "";
 
 function decider(click) {
+	console.log("Start of decider()");
+	removeColorDate();
 	document.getElementById(click).classList.add("date_range_color");
 	console.log("click: " + click);
 	decided = false;
+	console.log("startDate: " + startDate.date);
+	console.log("endDate: " + endDate.date);
 	while(!decided) {
 		if (!isStartEmpty() && !isEndEmpty()) {
 			if((selector == "to") && (greater(click, endDate.date) || equal(click, endDate.date))) {
@@ -66,15 +70,6 @@ function decider(click) {
 			updateE();
 			break
 		}
-		/*
-		if(selector == "to")
-			storeClick(endDate, click);
-			console.log("H");
-			updateS();
-			updateE();
-			break
-		}
-		*/
 		
 		if (isStartEmpty() && isEndEmpty()) {
 			storeClick(startDate, click);
@@ -84,13 +79,12 @@ function decider(click) {
 			break
 		}
 		if (!isStartEmpty() && isEndEmpty()) {
-            
 			removeColorDate();
-            
+			document.getElementById(click).classList.add("date_range_color");
 			if(greater(click, startDate.date) || equal(click, startDate.date)) {
 				storeClick(endDate, click);
+				colorDateRange(startDate.date, endDate.date);
 				console.log("J");
-                colorDateRange(startDate.date, endDate.date);
 				updateS();
 				updateE();
 				break
@@ -108,6 +102,9 @@ function decider(click) {
 			storeClick(startDate, click);
 			console.log("L");
             removeColorDate();
+			
+            // colorDateRange(startDate.date, endDate.date);
+			
             document.getElementById(click).classList.add("date_range_color");
 			endDate.date = "";
 			updateS();
@@ -129,6 +126,7 @@ function decider(click) {
 }
 
 function removeColorDate(){
+	console.log("Start of removeColorDate");
     var elements = document.getElementById("calendar").getElementsByClassName("date_range_color");  
 
     while (elements.length > 0) {
@@ -137,40 +135,51 @@ function removeColorDate(){
 }
 
 function colorDateRange(startDate, endDate){
-    var day_array = new Array();
-    
-    var startDate_month = parseInt(startDate.split("_")[0]);
-    var startDate_day   = parseInt(startDate.split("_")[1]);
-    var endDate_month   = parseInt(endDate.split("_")[0]);
-    var endDate_day     = parseInt(endDate.split("_")[1]);
-    
-    var first_month_days = new Date(2017, startDate_month, 0).getDate();
-    
-    var dateRange = new Array();
-    var str = startDate + "_" + endDate;
-    
-    if(startDate_month < endDate_month){
-    //start 
-        for(i = startDate_day; i <= first_month_days; i++){
-            day_array.push(startDate_month + "_" + i);
-        }
+	console.log("Start of colorDateRange");
+	if(!isStartEmpty() && !isEndEmpty()) {
+		var day_array = new Array();
+		console.log("----------------------------------------------------------------------")
+		console.log(startDate.date);
+		console.log(endDate.date);
+		console.log('The startDate.date is: ' + String(startDate.date));
+		console.log('The endDate.date is: ' + String(endDate.date));
+		var startDate_month = parseInt((String(startDate).split("_"))[0]);
+		var startDate_day   = parseInt((String(startDate).split("_"))[1]);
+		var endDate_month   = parseInt((String(endDate).split("_"))[0]);
+		var endDate_day     = parseInt((String(endDate).split("_"))[1]);
+		
+		var first_month_days = new Date(2017, startDate_month, 0).getDate();
+		
+		var dateRange = new Array();
+		var str = startDate + "_" + endDate;
+		
+		if(startDate_month < endDate_month){
+		//start 
+			for(i = startDate_day; i <= first_month_days; i++){
+				day_array.push(startDate_month + "_" + i);
+			}
 
-        //end      
-        for(i = 1; i <= endDate_day; i++){
-            day_array.push(endDate_month + "_" + i);
-        }
-    } else {
-        for(i = startDate_day; i <= endDate_day; i++){
-            day_array.push(startDate_month + "_" + i);
-        }
-    }
-    
-    for(i = 0; i < day_array.length; i++){
-        console.log(day_array[i]);
-        document.getElementById(day_array[i]).classList.add("date_range_color");
-    }
+			//end      
+			for(i = 1; i <= endDate_day; i++){
+				day_array.push(endDate_month + "_" + i);
+			}
+		} else {
+			for(i = startDate_day; i <= endDate_day; i++){
+				day_array.push(startDate_month + "_" + i);
+			}
+		}
+		console.log("START OF FOR LOOP");
+		console.log("day_array.length: " + day_array.length);
+		for(i = 0; i < day_array.length; i++){
+			console.log(day_array[i]);
+			console.log(i);
+			var a = document.getElementById(day_array[i]);
+			if(a != null) {
+				document.getElementById(day_array[i]).classList.add("date_range_color");
+			}
+		}
+	}
 }
-
 
 function storeClick(startEnd, click) {
 	
@@ -266,6 +275,7 @@ function swap() {
 }
 
 function output() {
+	console.log("Start of output()");
 	
 	console.log("startDate: " + startDate.date);
 	console.log("endDate: " + endDate.date);
