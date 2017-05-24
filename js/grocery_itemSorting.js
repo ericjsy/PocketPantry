@@ -290,7 +290,9 @@ function gl_userItems() {
 //    
 //    addedItem_list.push(foo);
 	
-    print_user_added_table();
+	if (!addedItem_promise) {
+		addedItem_toggle();
+	}
 }
 
 // remove items
@@ -307,7 +309,7 @@ function remove_items(td) {
 	
 	// hide "Your items" text if no added items left
 	if (!document.getElementById("user_added_items").firstChild) {
-		print_user_added_table();
+		addedItem_toggle();
 	}
     
     add_checkMark();
