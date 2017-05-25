@@ -10,28 +10,13 @@ function drawCalendar(date) {
 	var d = new Date(date);
 	d.setDate(1);
 	var today = new Date();
-	
-    //Table start, Month navigation,
-	var calendar = 
-	"<tr>" +
-		"<th colspan = '7'>" +
-			"<button id='next' onclick='previousMonth()' >" +
-				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
-			"</button>" + 
-			"<span id='month'>" + 
-				months[d.getMonth()] + " " + d.getFullYear() + 
-			"</span>" +
-			"<button id='previous' onclick='nextMonth()'>" +
-				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
-			"</button>" + 
-		"</th>" +
-	"</tr>";
-	
-	//Table header
-	calendar += 
+    
+    //Table header
+    var calendar = 
 	"<tr id='calendar_days_headings'>" +
 		"<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>" +
 	"</tr>";
+	
 	
 	// Calendar start
 	calendar += "<tr>"; 
@@ -60,6 +45,23 @@ function drawCalendar(date) {
 	if (d.getDay() > 0 && d.getDay() <= 6) {
 		calendar += "<td class='not_clickable' colspan = " + (7 - d.getDay()) + "></td>";
 	}
+    
+    //Table start, Month navigation,
+    calendar += 
+	"<tr>" +
+		"<th colspan = '7'>" +
+			"<button id='next' onclick='previousMonth()' >" +
+				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
+			"</button>" + 
+			"<span id='month'>" + 
+				months[d.getMonth()] + 
+			"</span>" +
+			"<button id='previous' onclick='nextMonth()'>" +
+				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
+			"</button>" + 
+		"</th>" +
+	"</tr>";
+    
 	// Calendar end
 	calendar += "</tr>";
 
@@ -97,7 +99,24 @@ function drawCalendar(date) {
 		init_mealStatus("" + (d.getMonth() + 1) + "_" + d.getDate());
 	} while(d.getDate() > 1);
     
+    document.getElementById("getToday").addEventListener("click", function(e) {retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate()); change_today("" + (today.getMonth()+1) + "_" + today.getDate());}, false);
 	retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
+    document.getElementById('selected_date_header').innerHTML = "" + dayofweek[today.getDay()] + ", " + months[today.getMonth()+1] + " " + today.getDate();
+}
+
+//todayTab click fucntion
+function change_today(today_date){
+    var today = new Date();
+    var dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    var elements = document.getElementById("calendar").getElementsByClassName("selected_date");  
+
+    while (elements.length > 0) {
+        elements[0].classList.remove("selected_date");
+    }
+    
+    document.getElementById(today_date).classList.add("selected_date");
+    document.getElementById('selected_date_header').innerHTML = "" + dayofweek[today.getDay()] + ", " + months[today.getMonth()+1] + " " + today.getDate();
 }
 
 // Show current month

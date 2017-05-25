@@ -1,1 +1,0 @@
-connectUser(uid);
