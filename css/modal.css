@@ -20,7 +20,7 @@
 .modalWindow {
 	position: absolute;
 	width: 99.9%;
-	top: 85px;
+	top: 50px;
 	left: 0;
 	opacity:0;
 	z-index:102;
