@@ -54,8 +54,17 @@
     display: inline;
 }
 .planned {
-    color: #8dc289;
+    color: #30B936;
 }
 .un_planned {
-    color: #737373;
+	color: white;
+	text-shadow: 
+	1px 1px 0 black, 
+	-1px -1px 0 black,
+	1px -1px 0 black,
+	-1px 1px 0 black,
+	0 1px 0 black,
+	0 -1px 0 black,
+	1px 0 0 black,
+	-1px 0 0 black;
 }
