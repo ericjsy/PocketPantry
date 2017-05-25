@@ -99,7 +99,7 @@ function drawCalendar(date) {
 		init_mealStatus("" + (d.getMonth() + 1) + "_" + d.getDate());
 	} while(d.getDate() > 1);
     
-    document.getElementById("getToday").addEventListener("click", function(e) {currentMonth();retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate()); change_today("" + (today.getMonth()) + "_" + today.getDate());}, false);
+    document.getElementById("getToday").addEventListener("click", function(e) {currentMonth();retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());}, false);
 	retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
     document.getElementById('selected_date_header').innerHTML = "" + dayofweek[today.getDay()] + ", " + months[today.getMonth()] + " " + today.getDate();
 }
