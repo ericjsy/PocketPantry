@@ -33,7 +33,7 @@ function init_groceryListLibrary(){
 	
 	// print tip of the day
 	var tip = daily_tip();
-    document.getElementById("thought").innerHTML = "Tip: " + tip;
+    document.getElementById("thought").innerHTML = tip;
 }
 
 // choose tip of the day
@@ -449,12 +449,16 @@ function validate_input() {
 	
 	if (name == "" || patt1.test(name)) {
 		message = "Please enter an item name with only letters and spaces.<br>";
+	} else if (name.length >= 24) {
+		message = "Please limit the item name to less than 24 characters.<br>";
 	}
 	
 	if (parseInt(qty) <= 0) {
 		message += "Please use a positive, non-zero quantity.";
 	} else if (patt2.test(qty)) {
 		message += "Please enter an item quantity with only numbers, letters, and spaces.";
+	} else if (qty.length >= 10 ) {
+		message += "Please limit the item quantity to less than 10 characters.";
 	}
 	
 	if (message == "") {
