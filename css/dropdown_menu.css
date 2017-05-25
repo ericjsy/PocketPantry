@@ -1,0 +1,70 @@
+#dropdown_toggle{
+    flex: 1;
+}
+#dropdown_toggle img{
+    display: block;
+    margin: auto;
+    width: 80%;
+    margin-top: 10px;
+}
+#page_icon{
+    flex: 1;
+}
+#page_icon img{
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+#page_name{
+    flex: 5;
+    text-align: right;
+    position: relative;
+    font-family: "Agency FB", Helvetica, sans-serif;
+    color: white;
+}
+#page_name h1{
+    font-weight: 100;
+    font-size: 30px;  
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    margin: 0;
+}
+#dropdown_content{
+    background-color: #81AF7E;
+    width: 55vw;
+    overflow: auto;
+    position: absolute;
+    display: none;
+    z-index: 2;
+}
+#dropdown_content img{
+    width: 25px;
+    vertical-align: middle;
+}
+#dropdown_content a{
+    float: left;
+    clear: both;
+    text-align: left;
+    width: 94%;
+    margin: 0 3% 0 3%;
+    font-family: "Agency FB", Helvetica, sans-serif;
+    font-size: 7vw;
+    vertical-align: middle;
+    color: white;
+    text-decoration: none;
+    border-bottom: solid;
+    border-color: #73A172;
+    border-width: 2px;
+}    
+#transparent_img{
+    opacity: 0;
+}
+img#dropdown_logo{
+    float: left;
+    clear: both;
+    width: 60%;
+    margin: 0 20% 0 20%;
+    padding-bottom: 10px;
+}
