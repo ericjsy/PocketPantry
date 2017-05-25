@@ -120,7 +120,7 @@ function previousMonth() {
 	console.log("BACK");
 	console.log(startDate);
 	console.log(endDate);
-	colorDateRange(startDate, endDate);
+	colorDateRange(startDate.date, endDate.date);
 }
 
 // Show next month
@@ -131,7 +131,7 @@ function nextMonth() {
 	console.log("NEXT");
 	console.log(startDate);
 	console.log(endDate);
-	colorDateRange(startDate, endDate);
+	colorDateRange(startDate.date, endDate.date);
 }
 
 //On Window load, call currentMonth
