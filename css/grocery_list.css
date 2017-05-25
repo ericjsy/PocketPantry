@@ -238,6 +238,28 @@ td:not(.greyout_date) {
 		position: relative;
 	}
 	
+	.item_num{
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		background-color: darkorange;
+		right: 0;
+		padding-top: 2px;
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		color: white;
+		box-shadow: 2px 2px 5px #000000;
+	}
+
+	.selected_tab{
+		filter: grayscale(100%);
+	}
+
+	#grocery_list tr, #user_added_items tr{
+		height: 50px;
+	}
+	
 	.grocery_icon img {
 		height: 45px;
 		width: 45px;
