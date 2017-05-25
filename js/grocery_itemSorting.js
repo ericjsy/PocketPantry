@@ -33,7 +33,7 @@ function init_groceryListLibrary(){
 	
 	// print tip of the day
 	var tip = daily_tip();
-    document.getElementById("thought").innerHTML = "Tip: " + tip;
+    document.getElementById("thought").innerHTML = tip;
 }
 
 // choose tip of the day
