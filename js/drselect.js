@@ -4,7 +4,6 @@ endDate = {'date': ""};
 selector = "";
 
 function decider(click) {
-	console.log("Start of decider()");
 	removeColorDate();
 	document.getElementById(click).classList.add("date_range_color");
 	console.log("click: " + click);
@@ -71,31 +70,32 @@ function decider(click) {
 		
 		if (isStartEmpty() && isEndEmpty()) {
 			storeClick(startDate, click);
-			console.log("I");
+			console.log("H");
 			updateS();
 			updateE();
 			break
 		}
+		
 		if (!isStartEmpty() && isEndEmpty()) {
 			if(greater(click, startDate.date) || equal(click, startDate.date)) {
 				storeClick(endDate, click);
-				console.log("J");
+				console.log("I");
 				updateS();
 				updateE();
 				break
 			} else {
 				storeClick(startDate, click);
-				console.log("K");
+				console.log("J");
 				endDate.date = "";
 				updateS();
 				updateE();
 				break
 			}
-			
 		}
+		
 		if (!isStartEmpty() && !isEndEmpty()) {
 			storeClick(startDate, click);
-			console.log("L");
+			console.log("K");
 			endDate.date = "";
 			updateS();
 			updateE();
@@ -105,7 +105,6 @@ function decider(click) {
 		console.log("ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR");
 	}
 		
-	
 	// swap();
 	// storeClick(startDate, click);
 	// storeClick(endDate, click);
@@ -116,7 +115,6 @@ function decider(click) {
 }
 
 function removeColorDate(){
-	console.log("Start of removeColorDate");
     var elements = document.getElementById("calendar").getElementsByClassName("date_range_color");  
 
     while (elements.length > 0) {
@@ -125,7 +123,6 @@ function removeColorDate(){
 }
 
 function colorDateRange(a, b){
-	console.log("Start of colorDateRange");
 	if(!isStartEmpty() && !isEndEmpty()) {
 		var day_array = new Array();
 
@@ -154,10 +151,8 @@ function colorDateRange(a, b){
 				day_array.push(startDate_month + "_" + i);
 			}
 		}
-		console.log("START OF FOR LOOP");
-		console.log("day_array.length: " + day_array.length);
+		
 		for(i = 0; i < day_array.length; i++){
-			console.log(i + ": " + day_array[i]);
 			var a = document.getElementById(day_array[i]);
 			if(a != null) {
 				document.getElementById(day_array[i]).classList.add("date_range_color");
@@ -167,7 +162,6 @@ function colorDateRange(a, b){
 }
 
 function storeClick(startEnd, click) {
-	
 	startEnd.date = click;
 }
 
@@ -251,16 +245,9 @@ function swap() {
 			
 		}
 	}
-	/*
-	console.log('--Swapping--');
-	console.log("startDate: " + startDate.date);
-	console.log("endDate: " + endDate.date);
-	console.log('--Swapped--');
-	*/
 }
 
 function output() {
-	console.log("Start of output()");
 	
 	console.log("startDate: " + startDate.date);
 	console.log("endDate: " + endDate.date);
