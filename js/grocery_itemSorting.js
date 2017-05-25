@@ -10,16 +10,36 @@ var checkOut_list = [[], [], [], []];
 var addedItem_list = [];
 
 var showList = new Array();
-//promises
 
+//promises
 var category_promise = [
     true, true, true, true
 ];
 var addedItem_promise = true;
 
+// tip of the day
+// tips taken from https://greatist.com/health/how-to-ways-reduce-food-waste
+var tips = [
+	"Avoid impulse purchases by planning meals in advance.", 
+	"Don't buy foods just because they're on sale; buy only what you will actually eat.",
+	"Follow the First-In-First-Out philosophy: use older groceries before newer ones.",
+	"Keep track of your food expiration dates so you can use your groceries before they expire.",
+	"If your fridge is operating at maximum efficiency, it can extend the shelf life of the foods in it."
+	];
+
 function init_groceryListLibrary(){
     console.log("Init: GroceryList Library");
     GroceryList = new GroceryList_obj();
+	
+	// print tip of the day
+	var tip = daily_tip();
+    document.getElementById("thought").innerHTML = tip;
+}
+
+// choose tip of the day
+function daily_tip() {
+	var choice = Math.floor(Math.random() * tips.length);
+	return tips[choice];
 }
 
 //Object
@@ -92,13 +112,11 @@ function add_checkMark(){
         document.getElementById("added_num").classList.add('hide');
         document.getElementById("added_checked").classList.add('show');
         document.getElementById("added_checked").classList.remove('hide');
-        document.getElementById("add_list").style.display = "none";
     } else {
         document.getElementById("added_num").classList.add('show');
         document.getElementById("added_num").classList.remove('hide');
         document.getElementById("added_checked").classList.remove('show');
         document.getElementById("added_checked").classList.add('hide');
-        document.getElementById("add_list").style.display = "inline";
     }
 }
 
@@ -292,7 +310,9 @@ function gl_userItems() {
 //    
 //    addedItem_list.push(foo);
 	
-    print_user_added_table();
+	if (!addedItem_promise) {
+		addedItem_toggle();
+	}
 }
 
 // remove items
@@ -304,12 +324,13 @@ function remove_items(td) {
 	document.getElementById("errorMessage").innerHTML = "";
 	
 	// clear easter egg, if shown
+	document.getElementById("food_for_thought").style.display = "none";
 	document.getElementById("easter").style.display = "none";
 	document.getElementById("thought").innerHTML = "";
 	
 	// hide "Your items" text if no added items left
 	if (!document.getElementById("user_added_items").firstChild) {
-		print_user_added_table();
+		addedItem_toggle();
 	}
     
     add_checkMark();
@@ -396,12 +417,14 @@ function addedItem(){
     }
     document.getElementById("thought").innerHTML = message;
     if (easter) {
-        document.getElementById("easter").style.display = "inline-block";
+        document.getElementById("food_for_thought").style.display = "";
+		document.getElementById("easter").style.display = "inline-block";
         document.getElementById("item_name").value = "";
         document.getElementById("item_quantity").value = "";
 		document.getElementById("errorMessage").innerHTML = "";
     } else {
-        document.getElementById("easter").style.display = "none";
+        document.getElementById("food_for_thought").style.display = "none";
+		document.getElementById("easter").style.display = "none";
 		
 		if (item_valid) {
 			gl_userItems();
@@ -426,12 +449,16 @@ function validate_input() {
 	
 	if (name == "" || patt1.test(name)) {
 		message = "Please enter an item name with only letters and spaces.<br>";
+	} else if (name.length >= 24) {
+		message = "Please limit the item name to less than 24 characters.<br>";
 	}
 	
 	if (parseInt(qty) <= 0) {
 		message += "Please use a positive, non-zero quantity.";
 	} else if (patt2.test(qty)) {
 		message += "Please enter an item quantity with only numbers, letters, and spaces.";
+	} else if (qty.length >= 10 ) {
+		message += "Please limit the item quantity to less than 10 characters.";
 	}
 	
 	if (message == "") {

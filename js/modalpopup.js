@@ -61,6 +61,8 @@ function hidePopUpMessage() {
     if(!((startDate.date == "") && (endDate.date == ""))) {
 		document.getElementsByClassName("popUpBtn")[0].innerHTML = "" + months[str1[0] - 1] + " " + str1[1];
 		document.getElementsByClassName("popUpBtn")[1].innerHTML = "" + months[str2[0] - 1] + " " + str2[1];
+		retrieve_grocerylist(startDate.date, endDate.date);
+		loadTable();
 	}
 	
 }

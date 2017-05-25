@@ -54,11 +54,15 @@ function db_mealPlanned_imageUpdate(){
 				if(a != null) {
 					document.getElementById(snapshot.key + "_remove").classList.add('show'); 
 					document.getElementById(snapshot.key + "_remove").classList.remove('hide'); 
+                    document.getElementById(snapshot.key + "_info").classList.add('show'); 
+                    document.getElementById(snapshot.key + "_info").classList.remove('hide');
 				}
             } else {
 				if(a != null) {
 					document.getElementById(snapshot.key + "_remove").classList.add('hide'); 
 					document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
+                    document.getElementById(snapshot.key + "_info").classList.add('hide'); 
+                    document.getElementById(snapshot.key + "_info").classList.remove('show');
 				}
             }
 			var b = document.getElementById(snapshot.key);
@@ -90,9 +94,9 @@ function db_mealPlanned_optionUpdate(mealtime){
 //    console.log("db_mealPlanned_optionUpdate called");
     meal_option = document.getElementById("meal_option");
     meal_option.innerHTML = "";
-    dbMealOption.child(mealtime).once("value").then(function(snapshot) {
+    dbMealOption.child(mealtime).once("value").then(function(snapshot) { 
         snapshot.forEach(function(childSnapshot) {
-            meal_option.innerHTML += "<div><img id='" + childSnapshot.key + "' src='img/" + childSnapshot.key + ".jpg" +"'><h1>" + childSnapshot.key +"</h1></div>";
+            meal_option.innerHTML += "<div><img id='" + childSnapshot.key + "' src='img/" + childSnapshot.key + ".jpg" +"'><h1>" + childSnapshot.key.charAt(0).toUpperCase() + childSnapshot.key.replace(/([A-Z])/g, ' $1').slice(1) +"</h1><h2 class='info' onclick='popup(\"" + snapshot.key + "\", \"" + childSnapshot.key + "\")'><span style='text-transform:lowercase;'>i</span></h2></div>";
             $('#meal_option').css('text-transform', 'capitalize');
         });
     }); 

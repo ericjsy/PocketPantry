@@ -200,6 +200,7 @@ td:not(.greyout_date) {
 		display: flex;
 		justify-content: space-around;
 		width: 100%;
+        margin-top: 60px;
 	}
 
 	#grocery_dates button {
@@ -220,6 +221,9 @@ td:not(.greyout_date) {
 		justify-content: space-around;
 		width: 100%;
 	}
+    #grocery_sections th{
+        font-size: 4.5vw;
+    }
 	
 	#categories {
 		font-size: 0.9em;
@@ -380,8 +384,11 @@ td:not(.greyout_date) {
     }
 	
 	#thought {
-		font-size: 16px;
+		font-size: 20px;
 	}
+    #grocery_container{
+        margin-top: 50px;
+    }
 }
 
 /* desktop */

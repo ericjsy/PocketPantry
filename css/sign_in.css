@@ -3,48 +3,47 @@
 @media only screen and (max-width: 600px) {
 
 	body {
-		background-image: url("../img/homePageGreenBackground.jpg");
+		background-color: #F9F3EF;
 		background-size: cover;
 	}
+	main {
+		max-height: 100vh;
+	}
+
 	/* Logo */
 	#title_container {
 		margin: auto;
-		padding-top: 20px;
-		width: 140px;
+		width: 20vh;
 	}
 	#landing_logo {
-		height: 166px;
-		width: 140px;
+		height: 100%;
+		width: 100%;
 	}
 	/* Title Backdrop */
 	#content_container {
-		background-image: url("../img/homePageGlassBg.png");
-		background-size: cover;
+		background-image: url("../img/homePageGlassBg.jpg");
+		background-size: 100% 100%;
 		border-radius: 8px;
-		box-shadow: 1px 2px 3px gray;
 		margin: auto;
-		margin-top: -90px;
-		min-height: 50vh;
+		margin-top: -20%;
+		min-height: 60vh;
 		padding: 10px 0;
-		width: 70%;
+		width: 80vw;
 	}
 	/* Title */
 	#content_container {
 		color: white;
 		font-family: "Agency FB", Helvetica, sans-serif;
-		font-size: 3em;
+		font-size: 15vw;
 		font-weight: normal;
 		text-align: center;
 		text-shadow: 1px 1px 1px #000000;
 	}
-	#content_container p{
-		font-size: 1em;
-	}
 	.first_letter {
-		font-size: 2em;
+		font-size: 1.8em;
 	}
 	#content_container p:first-child {
-		margin: 60px 0 0 0;
+		margin: 20% 0 -3% 0;
 	}
 	#content_container p {
 		margin: 0;
@@ -52,9 +51,11 @@
 	/* Google Sign In Button */
 	#sign_in_container {
 		border-radius: 4px;
-		margin: auto;
-		margin-top: 50px;
 		width: 250px;
+		position: absolute;
+		bottom: 3%;
+		left: 50%;
+		margin-left: -125px;
 	}
 	#sign_in_container input {
 		border-radius: 4px;

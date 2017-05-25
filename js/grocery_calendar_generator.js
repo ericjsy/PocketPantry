@@ -119,6 +119,10 @@ function previousMonth() {
 	d.setMonth(d.getMonth()-1);
 	// mealPlan("" + (d.getMonth() + 1) + "_" + 1);
 	drawCalendar(d);
+	console.log("BACK");
+	console.log(startDate);
+	console.log(endDate);
+	colorDateRange(startDate.date, endDate.date);
 }
 
 // Show next month
@@ -126,6 +130,10 @@ function nextMonth() {
 	d.setMonth(d.getMonth()+1);
 	// mealPlan("" + (d.getMonth() + 1) + "_" + 1);
 	drawCalendar(d);
+	console.log("NEXT");
+	console.log(startDate);
+	console.log(endDate);
+	colorDateRange(startDate.date, endDate.date);
 }
 
 //On Window load, call currentMonth
