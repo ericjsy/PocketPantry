@@ -99,7 +99,24 @@ function drawCalendar(date) {
 		init_mealStatus("" + (d.getMonth() + 1) + "_" + d.getDate());
 	} while(d.getDate() > 1);
     
+    document.getElementById("getToday").addEventListener("click", function(e) {retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate()); change_today("" + (today.getMonth()+1) + "_" + today.getDate());}, false);
 	retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
+    document.getElementById('selected_date_header').innerHTML = "" + dayofweek[today.getDay()] + ", " + months[today.getMonth()+1] + " " + today.getDate();
+}
+
+//todayTab click fucntion
+function change_today(today_date){
+    var today = new Date();
+    var dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    var elements = document.getElementById("calendar").getElementsByClassName("selected_date");  
+
+    while (elements.length > 0) {
+        elements[0].classList.remove("selected_date");
+    }
+    
+    document.getElementById(today_date).classList.add("selected_date");
+    document.getElementById('selected_date_header').innerHTML = "" + dayofweek[today.getDay()] + ", " + months[today.getMonth()+1] + " " + today.getDate();
 }
 
 // Show current month
