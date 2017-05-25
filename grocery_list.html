@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="./css/main_style_mobile.css">
 	<link rel="stylesheet" href="./css/grocery_list.css">
 	<link rel="stylesheet" href="./css/modal.css">
+
+  <link rel="manifest" href="http://students.bcitdev.com/A01005523/comp2910/chengPocketPantry/manifest.json">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
@@ -17,25 +19,47 @@
   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
-	
+  <!-- Drop down meanu file v -->
+	<link rel="stylesheet" href="./css/dropdown_menu.css">
+  <script src="js/dropdown_menu.js"></script>
+  <!-- Drop down meanu file ^ -->
+
 </head>
 <body>
-	<nav id="mobile_header">
-		<div id="mobile_meal_planner_nav">
-			<a href="meal_planner.html"><img src="img/meal_planner.png" alt="meal planner link" height="135" width="135" class="nav_side_icons"></a>
-		</div>
-		<div id="mobile_home_page_nav">
-			<img src="img/pocketPantry.png" alt="Pocket Pantry">
-		</div>
-		<div id="mobile_grocery_list_nav">
-			<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
-		</div>
-	</nav>
-
-	<div id="affiliates">
-		<button><a href="affiliates.html">Affiliates</a></button>
-		<button onclick="signOut()">Sign-Out</button>
-	</div>
+    <nav id="mobile_header">
+        <div id="dropdown_toggle">
+            <img src="./img/hamburger-icon.png">
+        </div>
+        <div id="page_name">
+            <h1>Grocery List</h1>
+        </div>
+        <div id="page_icon">
+            <img src="./img/navbarGL.png">
+        </div>
+	  </nav>
+    <nav id="dropdown_content">
+        <a href="./meal_planner.html">
+            <img src="./img/navbarMP.png"> 
+            Meal Planner
+        </a>
+        <a href="./grocery_list.html">
+            <img src="./img/navbarGL.png"> 
+            Grocery List
+        </a>
+        <a href="./affiliates.html">
+            <img src="./img/navbarAff.png"> 
+            Affiliates
+        </a>
+        <a href="./about_us.html" onclick="signOut()">
+            <img src="./img/navbarAU.png"> 
+            About Us
+        </a>
+        <a href="#" onclick="signOut()">
+            <img id="transparent_img" src="https://dummyimage.com/50x50/000/fff"> 
+            Sign Out
+        </a>
+        <img id="dropdown_logo" src="./img/navbarPP.png">
+    </nav>
 	
 	<main>		
 		<div id="grocery_container">

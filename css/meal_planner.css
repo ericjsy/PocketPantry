@@ -69,18 +69,6 @@ table #calendar_days_headings {
         background-color: #719c6e;
         box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
     }
-    #expand_tab {
-        width: 100%;
-        text-align: center;
-        font-size: 30px;
-		color: #B5B5B5;
-    }
-    
-	#expand_tab img {
-		height: 24px;
-		width: 33px;
-		padding-top: 10px;
-	}
 	
     /* meal builder */
     #meal_title{

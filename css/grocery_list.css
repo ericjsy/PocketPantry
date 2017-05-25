@@ -429,6 +429,9 @@ tr{
 	#thought {
 		font-size: 20px;
 	}
+    #grocery_container{
+        margin-top: 50px;
+    }
 }
 
 /* desktop */

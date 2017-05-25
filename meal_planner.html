@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="./css/main_style_pc.css">
 	<link rel="stylesheet" href="./css/main_style_mobile.css">
 	<link rel="stylesheet" href="./css/meal_planner.css">
+  <link rel="manifest" href="http://students.bcitdev.com/A01005523/comp2910/chengPocketPantry/manifest.json">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	
@@ -21,35 +22,83 @@
 	<meta property="og:url"                content="http://students.bcitdev.com/A01005523/comp2910/PocketPantry/meal_planner.html" />
 	<meta property="og:type"               content="website" />
 	<meta property="og:title"              content="Plan great meals, reduce food waste!" />
-	<meta property="og:description"        content="Pocket Pantry is an easy to use, all in one meal planner and grocery list." />
-	<meta property="og:image"              content="http://students.bcitdev.com/A01005523/comp2910/PocketPantry/img/fbbreakfast.jpg" />
+	<meta property="og:description"        content="Pocket Pantry is an easy to use, all in one meal planner and grocery list." /> 
+  <meta property="og:image"              content="http://students.bcitdev.com/A01005523/comp2910/PocketPantry/img/fbbreakfast.jpg" />
 	<meta property="fb:app_id"			   content="362272470853897" />
+    
+  <!-- popup files -->
+  <link rel="stylesheet" href="./css/popup.css">
+  <script src="js/popup_ingredients.js"></script>
+  <!-- popup files -->
+    
+  <!-- Drop down meanu file v -->
+	<link rel="stylesheet" href="./css/dropdown_menu.css">
+  <script src="js/dropdown_menu.js"></script>
+  <!-- Drop down meanu file ^ -->
+    
+  <!-- Calendar nav -->
+  <link rel="stylesheet" href="./css/calendar_nav.css">
+  <!-- Calendar nav -->
 </head>
 <body>
 	<div class="fb-share-button" data-href="http://students.bcitdev.com/A01005523/comp2910/PocketPantry/meal_planner.html" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fstudents.bcitdev.com%2FA01005523%2Fcomp2910%2FPocketPantry%2Fmeal_planner.html&amp;src=sdkpreparse">Share</a></div>
 	<script type="text/javascript" src="js/fbshare.js"></script>
-	<nav id="mobile_header">	
-		<div id="mobile_meal_planner_nav">
-			<a href="meal_planner.html"><img src="img/meal_planner.png" alt="meal planner link" height="135" width="135" class="nav_side_icons"></a>
-		</div>
-		<div id="mobile_home_page_nav">
-			<img src="img/pocketPantry.png" alt="Pocket Pantry">
-		</div>
-		<div id="mobile_grocery_list_nav">
-			<a href="grocery_list.html"><img src="img/grocery_list_icon.png" alt="grocery list link" height="135" width="135" class="nav_side_icons"></a>
-		</div>
+    <nav id="mobile_header">
+        <div id="dropdown_toggle">
+            <img src="./img/hamburger-icon.png">
+        </div>
+        <div id="page_name">
+            <h1>Meal Planner</h1>
+        </div>
+        <div id="page_icon">
+            <img src="./img/navbarMP.png">
+        </div>
 	</nav>
+    <nav id="dropdown_content">
+        <a href="./meal_planner.html">
+            <img src="./img/navbarMP.png"> 
+            Meal Planner
+        </a>
+        <a href="./grocery_list.html">
+            <img src="./img/navbarGL.png"> 
+            Grocery List
+        </a>
+        <a href="./affiliates.html">
+            <img src="./img/navbarAff.png"> 
+            Affiliates
+        </a>
+        <a href="./about_us.html" onclick="signOut()">
+            <img src="./img/navbarAU.png"> 
+            About Us
+        </a>
+        <a href="#" onclick="signOut()">
+            <img id="transparent_img" src="https://dummyimage.com/50x50/000/fff"> 
+            Sign Out
+        </a>
+        <img id="dropdown_logo" src="./img/navbarPP.png">
+    </nav>
 	
     <div id="affiliates">
 		<button><a href="affiliates.html">Affiliates</a></button>
 		<button onclick="signOut()">Sign-Out</button>
 	</div>
 	
+    
 	<main>
+        <div id="calendar_nav">
+            <div id="today_tab">
+                <h1 id="getToday">Today</h1>
+            </div>
+            <div id="diplay_date">
+                <h1 id="selected_date_header">Loading ...</h1>
+            </div>
+            <div id="expand_tab">
+                <img src="./img/calendar_icon.png">
+            </div>
+        </div>
 		<div id="calendar_container">
 			<table id="calendar"></table>
 		</div>
-		<div id="expand_tab"><img src="img/arrowUp.png" alt="collapse_arrow" height="52" width="72"></div>
 		<div id="meal_title">
 			<div id="default_title">Planned Meals</div>
 			<div id="meal_time_title">Breakfast</div>
@@ -61,20 +110,24 @@
 					<img id="breakfast" src="img/null.jpg">
 					<h2 id="breakfast_title" class="title_overlay">Breakfast</h2>
 					<h2 id="breakfast_remove" class="remove_sign hide">&#215;</h2>
+                    <h2 id="breakfast_info" class="info hide" onclick="popup('breakfast', dishNameFromSrc('breakfast'))">i</h2>
 				</div>
 				<div id="lunch_block">
 					<img id="lunch" src="img/null.jpg">
 					<h2 id="lunch_title" class="title_overlay">Lunch</h2>
 					<h2 id="lunch_remove" class="remove_sign hide">&#215;</h2>
+                    <h2 id="lunch_info" class="info hide" onclick="popup('lunch', dishNameFromSrc('lunch'))">i</h2>
 				</div>
 				<div id="dinner_block">
 					<img id="dinner" src="img/null.jpg">
 					<h2 id="dinner_title" class="title_overlay">Dinner</h2>
 					<h2 id="dinner_remove" class="remove_sign hide">&#215;</h2>
+                    <h2 id="dinner_info" class="info hide" onclick="popup('dinner', dishNameFromSrc('dinner'))">i</h2>
 				</div>
 			</div>
 			<div id="meal_option"></div>
 		</div>
+        <div id="info_popup" class="popup"></div>
 	</main>
     
 	<script src="js/function_object.js"></script>
