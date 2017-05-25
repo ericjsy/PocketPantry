@@ -54,12 +54,12 @@
         function appendIngredients(mealtime, dish_name){
             var table = document.getElementById("info_table");
             dbDish = db.ref().child('meals').child(mealtime).child(dish_name);
-            dbDish.once("value").then(function(dish_snapshot) {
-                document.getElementById("popup_title").innerHTML = dish_snapshot.key;
+            dbDish.once("value").then(function(dish_snapshot) {  
+                document.getElementById("popup_title").innerHTML = dish_snapshot.key.charAt(0).toUpperCase() + dish_snapshot.key.replace(/([A-Z])/g, ' $1').slice(1);
                 dish_snapshot.forEach(function(ingredient_snapshot) {
                     var row = document.createElement("tr");
                     var ingredient = document.createElement("td");
-                    ingredient.appendChild(document.createTextNode(ingredient_snapshot.key));                   
+                    ingredient.appendChild(document.createTextNode(ingredient_snapshot.key.charAt(0).toUpperCase() + ingredient_snapshot.key.replace(/([A-Z])/g, ' $1').slice(1)));                   
                     ingredient_snapshot.ref.child("qty").once("value").then(function(qty_snapshot) {
                         var amount = document.createElement("td");
                         amount.appendChild(document.createTextNode(qty_snapshot.val()));       

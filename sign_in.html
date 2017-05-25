@@ -17,6 +17,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    
 </head>
 <body>
 	<main>
@@ -28,9 +29,10 @@
 			<p><span class="first_letter">P</span>ANTRY</p>
 		</div>
 		<div id="sign_in_container">
-			<input type="image" src="img/signInWithGoogle.png" id="sign_in_button" onclick="signIn()"/>
+			<input id="sign_in_button" type="image" src="img/signInWithGoogle.png" onclick="signIn()"/>
 		</div>
 	</main>
-	<script type="text/javascript" src="js/sign_in.js"></script>
+    <script src="js/detectUserData.js"></script>
+    <script type="text/javascript" src="js/sign_in.js"></script>
 </body>
 </html>
