@@ -35,7 +35,9 @@
     background-color: #81AF7E;
     width: 55vw;
     overflow: auto;
-    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 50px;
     display: none;
     z-index: 2;
 }
