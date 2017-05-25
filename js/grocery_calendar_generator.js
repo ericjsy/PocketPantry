@@ -70,7 +70,7 @@ function drawCalendar(date) {
 
 	//Highlight today
 	if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
-        document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
+        document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#DFEBFA";
         document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).classList.add('selected_date'); 
 	}
 
@@ -81,9 +81,7 @@ function drawCalendar(date) {
             d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
             d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && d.getDate() < today.getDate()){
 					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
-		}
-		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {decider(this.id);}, false);
-
+		} else {
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
 		"<div class='dot_container'>" + 
 			"<div id='" + 
@@ -96,6 +94,10 @@ function drawCalendar(date) {
 				"dinner_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
 					"' class='dot un_planned'>&#9679;</div>" +
 		"</div>";
+		}
+		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {decider(this.id);}, false);
+
+
 		
 		init_mealStatus("" + (d.getMonth() + 1) + "_" + d.getDate());
 	} while(d.getDate() > 1);
