@@ -10,28 +10,13 @@ function drawCalendar(date) {
 	var d = new Date(date);
 	d.setDate(1);
 	var today = new Date();
-	
-    //Table start, Month navigation,
-	var calendar = 
-	"<tr>" +
-		"<th colspan = '7'>" +
-			"<button id='next' onclick='previousMonth()' >" +
-				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
-			"</button>" + 
-			"<span id='month'>" + 
-				months[d.getMonth()] + " " + d.getFullYear() + 
-			"</span>" +
-			"<button id='previous' onclick='nextMonth()'>" +
-				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
-			"</button>" + 
-		"</th>" +
-	"</tr>";
-	
-	//Table header
-	calendar += 
+    
+    //Table header
+    var calendar = 
 	"<tr id='calendar_days_headings'>" +
 		"<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>" +
 	"</tr>";
+	
 	
 	// Calendar start
 	calendar += "<tr>"; 
@@ -60,6 +45,23 @@ function drawCalendar(date) {
 	if (d.getDay() > 0 && d.getDay() <= 6) {
 		calendar += "<td class='not_clickable' colspan = " + (7 - d.getDay()) + "></td>";
 	}
+    
+    //Table start, Month navigation,
+    calendar += 
+	"<tr>" +
+		"<th colspan = '7'>" +
+			"<button id='next' onclick='previousMonth()' >" +
+				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
+			"</button>" + 
+			"<span id='month'>" + 
+				months[d.getMonth()] + 
+			"</span>" +
+			"<button id='previous' onclick='nextMonth()'>" +
+				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
+			"</button>" + 
+		"</th>" +
+	"</tr>";
+    
 	// Calendar end
 	calendar += "</tr>";
 

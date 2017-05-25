@@ -16,7 +16,8 @@
             var dishName = document.createElement("div");
             dishName.setAttribute("id", "dish_name");
             var dishName_h1 = document.createElement("h1");
-            dishName_h1.innerHTML = "Strawberry Belgian Waffles";
+            dishName_h1.innerHTML = "Loading ...";
+            dishName_h1.setAttribute("id", "popup_title");
             dishName.appendChild(dishName_h1);
 
             var infoTable = document.createElement("table");
@@ -54,6 +55,7 @@
             var table = document.getElementById("info_table");
             dbDish = db.ref().child('meals').child(mealtime).child(dish_name);
             dbDish.once("value").then(function(dish_snapshot) {
+                document.getElementById("popup_title").innerHTML = dish_snapshot.key;
                 dish_snapshot.forEach(function(ingredient_snapshot) {
                     var row = document.createElement("tr");
                     var ingredient = document.createElement("td");
