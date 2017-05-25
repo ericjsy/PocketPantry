@@ -1,14 +1,22 @@
-        window.onclick = function(event) {
+//        window.onclick = function(event) {
+//            var popup = document.getElementById("info_popup");
+//            var okBtn = document.getElementById("okBtn");
+//            if (event.target == popup || event.target == okBtn) {
+//                popup.innerHTML = "";
+//                popup.style.display = "none";
+//            }
+//        }
+        function closePopUp(){
             var popup = document.getElementById("info_popup");
-            var okBtn = document.getElementById("okBtn");
-            if (event.target == popup || event.target == okBtn) {
-                popup.innerHTML = "";
-                popup.style.display = "none";
-            }
+            popup.innerHTML = "";
+            popup.style.display = "none";
         }
         
         function popup(mealtime, dish_name){
+            var clickEventType=((document.onclick !== null) ? 'touchstart' : 'click');
+            
             var popup = document.getElementById("info_popup");
+            popup.addEventListener(clickEventType, function(e) {closePopUp();}, false);
 
             var content = document.createElement("div");
             content.className = "info_content";
@@ -30,6 +38,7 @@
             var okBtn = document.createElement("div");
             okBtn.setAttribute("id", "okBtn");
             okBtn.appendChild(document.createTextNode("OK"));
+            okBtn.addEventListener(clickEventType, function(e) {closePopUp();}, false);
 
             content.appendChild(dishName);
             content.appendChild(infoTable);
