@@ -65,6 +65,9 @@
 		margin: 0;
 		font-size: 30px;
 	}
+	.developer_info {
+		margin-bottom: 30px;
+	}
 	.portrait_icon {
 		height: 213px;
 		width: 200px;
