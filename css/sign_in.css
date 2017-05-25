@@ -28,19 +28,16 @@
 		margin-top: -20%;
 		min-height: 60vh;
 		padding: 10px 0;
-		width: 80%;
+		width: 80vw;
 	}
 	/* Title */
 	#content_container {
 		color: white;
 		font-family: "Agency FB", Helvetica, sans-serif;
-		font-size: 3em;
+		font-size: 15vw;
 		font-weight: normal;
 		text-align: center;
 		text-shadow: 1px 1px 1px #000000;
-	}
-	#content_container p{
-		font-size: 1em;
 	}
 	.first_letter {
 		font-size: 1.8em;

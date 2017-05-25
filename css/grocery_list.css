@@ -247,6 +247,7 @@ tr{
 		display: flex;
 		justify-content: space-around;
 		width: 100%;
+        margin-top: 60px;
 	}
 
 	#grocery_dates button {
@@ -267,6 +268,9 @@ tr{
 		justify-content: space-around;
 		width: 100%;
 	}
+    #grocery_sections th{
+        font-size: 4.5vw;
+    }
 	
 	#categories {
 		font-size: 0.9em;
