@@ -83,7 +83,7 @@
 	font-size: 0.75em;
 	text-align: center;
 }
-td:not(.greyout_date) {
+#calendar td:not(.greyout_date) {
 	font-size: 1.125em;
 	text-align: center;
 }
