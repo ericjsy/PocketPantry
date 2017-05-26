@@ -77,12 +77,12 @@ function drawCalendar(date) {
 	// Color previous days, addEventListener to every say & draw in dots
 	do {	
 		d.setDate(d.getDate() - 1);
-		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {retrieve_mealStatus(this.id);}, false);
 		if (d.getFullYear() < today.getFullYear() ||
             d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
             d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && d.getDate() < today.getDate()){
             document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
 		} else {
+            document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {retrieve_mealStatus(this.id);change_today(this.id);}, false);
             document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('not_past');
             document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
                 "<div class='dot_container'>" + 
@@ -108,18 +108,15 @@ function drawCalendar(date) {
 }
 
 //todayTab click fucntion
-function change_today(today_date){
-    var today = new Date();
+function change_today(selected_day){
+    var d = new Date();
+    var selected_month = parseInt(selected_day.split("_")[0]);
+    var selected_date = parseInt(selected_day.split("_")[1]);
+    d.setDate(selected_date);
+    d.setMonth(selected_month - 1);
     var dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
     var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-    var elements = document.getElementById("calendar").getElementsByClassName("selected_date");  
-
-    while (elements.length > 0) {
-        elements[0].classList.remove("selected_date");
-    }
-    
-    document.getElementById(today_date).classList.add("selected_date");
-    document.getElementById('selected_date_header').innerHTML = "" + dayofweek[today.getDay()] + ", " + months[today.getMonth()+1] + " " + today.getDate();
+    document.getElementById('selected_date_header').innerHTML = "" + dayofweek[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate();
 }
 
 // Show current month
