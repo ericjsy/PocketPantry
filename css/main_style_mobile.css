@@ -60,14 +60,14 @@
     color: #95D15B;
 }
 .un_planned {
-	color: #464646;
+	color: white;
 	text-shadow: 
-	1px 1px 0 black, 
-	-1px -1px 0 black,
-	1px -1px 0 black,
-	-1px 1px 0 black,
-	0 1px 0 black,
-	0 -1px 0 black,
-	1px 0 0 black,
-	-1px 0 0 black;
+	-1px 0 #464646, 
+	0 1px #464646, 
+	1px 0 #464646, 
+	0 -1px #464646,
+	-0.8px -0.8px #464646,
+	0.8px 0.8px #464646,
+	0.8px -0.8px #464646,
+	-0.8px 0.8px #464646;
 }
