@@ -59,6 +59,7 @@
     border-bottom: solid;
     border-color: #73A172;
     border-width: 2px;
+	padding: 5px 0;
 }    
 #transparent_img{
     opacity: 0;
@@ -68,5 +69,5 @@ img#dropdown_logo{
     clear: both;
     width: 60%;
     margin: 0 20% 0 20%;
-    padding-bottom: 10px;
+    padding: 10px 0;
 }
