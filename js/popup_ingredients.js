@@ -7,14 +7,14 @@
 //            }
 //        }
         function closePopUp(){
-			document.body.className = "";
+			document.getElementsByTagName( 'html' )[0].className = "";
             var popup = document.getElementById("info_popup");
             popup.innerHTML = "";
             popup.style.display = "none";
         }
         
         function popup(mealtime, dish_name){
-			document.body.className = "popup-open";
+			document.getElementsByTagName( 'html' )[0].className = "popup-open";
             var clickEventType=((document.onclick !== null) ? 'touchstart' : 'click');
             
             var popup = document.getElementById("info_popup");

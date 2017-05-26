@@ -81,20 +81,21 @@ function drawCalendar(date) {
 		if (d.getFullYear() < today.getFullYear() ||
             d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
             d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && d.getDate() < today.getDate()){
-					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
+            document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
 		} else {
-		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
-			"<div class='dot_container'>" + 
-				"<div id='" + 
-					"breakfast_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
-						"' class='dot un_planned'>&#9679;</div>" +
-				"<div id='" + 
-					"lunch_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
-						"' class='dot un_planned'>&#9679;</div>" +
-				"<div id='" + 
-					"dinner_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
-						"' class='dot un_planned'>&#9679;</div>" +
-			"</div>";
+            document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('not_past');
+            document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
+                "<div class='dot_container'>" + 
+                    "<div id='" + 
+                        "breakfast_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
+                            "' class='dot un_planned'>&#9679;</div>" +
+                    "<div id='" + 
+                        "lunch_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
+                            "' class='dot un_planned'>&#9679;</div>" +
+                    "<div id='" + 
+                        "dinner_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
+                            "' class='dot un_planned'>&#9679;</div>" +
+                "</div>";
 		}
 		
 		
