@@ -11,6 +11,13 @@
 		font-weight: normal;
 		font-style: normal;
 	}
+	@font-face {
+		font-family: 'Conv_SanFranciscoText-Regular';
+		src: url('../assets/SanFranciscoText-Regular.eot');
+		src: local('☺'), url('../assets/SanFranciscoText-Regular.woff') format('woff'), url('../assets/SanFranciscoText-Regular.ttf') format('truetype'), url('../assets/SanFranciscoText-Regular.svg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
 
 	/* header */
     #mobile_home_page_nav {
@@ -22,7 +29,7 @@
 		font-family: "Conv_agency-fb", Helvetica, sans-serif;
 	}
 	#affiliates_info, #expand_educational, #expand_behavioral, #expand_shopping, p {
-		font-family: Helvetica, "Trebuchet MS", sans-serif;
+		font-family: "Conv_SanFranciscoText-Regular", helvetica, "Trebuchet MS", sans-serif;
 	}
 	
 	/* intro content */
