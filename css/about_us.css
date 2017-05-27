@@ -1,7 +1,5 @@
 /* mobile */
 
-
-
 @media only screen and (max-width: 600px) {
 	/* font */
 	@font-face {
@@ -10,7 +8,8 @@
 		src: local('☺'), url('../assets/agency-fb.woff') format('woff'), url('../assets/agency-fb.ttf') format('truetype'), url('../assets/agency-fb.svg') format('svg');
 		font-weight: normal;
 		font-style: normal;
-	}
+	}	
+
 	@font-face {
 		font-family: 'Conv_SanFranciscoText-Regular';
 		src: url('../assets/SanFranciscoText-Regular.eot');
@@ -19,88 +18,85 @@
 		font-style: normal;
 	}
 
-	/* header */
-    #mobile_home_page_nav {
-        background-color: #8dc289;
-    }
-    
-    /* content section */
-	#affiliates_title, #default_message, h2 {
+    /* General Styling */
+	#about_us_title, .content_header, .developer_title, .developer_name {
 		font-family: "Conv_agency-fb", Helvetica, sans-serif;
 	}
-	#affiliates_info, #expand_educational, #expand_behavioral, #expand_shopping, p {
-		font-family: "Conv_SanFranciscoText-Regular", helvetica, "Trebuchet MS", sans-serif;
+	#about_us_info {
+		 font-family: "Conv_SanFranciscoText-Regular", helvetica, "Trebuchet MS", sans-serif;
 	}
 	
-	/* intro content */
-    #affiliates_title{
+	/* Title Header */
+	#about_us_title{
 		color: #8DC289;
         font-size: 50px;
         height: 50px;
-        margin: 0 auto 0 auto;
+        margin: 5px auto 10px auto;
         overflow: hidden;
         position: relative;
 		text-align: center;
         width: 94%;
         margin-top: 55px;
     }
-    #affiliates_title div{
-        width: 100%;
-        position: absolute;
-    }
-	#affiliates_info {
+	
+	/* Content blocks */
+	#about_us_info {
+		margin-top: 50px;
 		padding: 3%;
 	}
-	#default_message {
-		text-align: center;
+	
+	.content_header {
+		clear: left;
 		color: rgb(238, 124, 72);
-		font-size: 30px;
+		font-size: 40px;
 	}
 	
-	/* acordian content */
-	#affiliates_list{
-        width: 100%;
-        margin: 0 auto 0 auto;
-    }
-	#educational_block div > img, #behavioral_block div > img, #shopping_block div > img {
-		width: 100px;
-        height: 100px;
+	/* Features list */
+	.content_list {
+		clear: left;
+	}
+	.content_list img {
 		float: left;
+        height: 70px;
+		margin: 0 20px 20px 20px;
+		width: 70px;
     }
-	#expand_educational, #expand_behavioral, #expand_shopping{
-		background-color: #8dc289;
-		color: white;
-		font-size: 40px;
-		padding: 5px;
+	.content_list p {
+		margin: 20px;
 	}
-	#expand_educational img, #expand_behavioral img, #expand_shopping img {
-        height: 24px;
-		width: 33px;
-		float: right;
-		padding: 10px;
-    }
-	#educational_block, #behavioral_block, #shopping_block {
-		padding: 10px;
-	}
-
-	/* affiliate content */
-	h2 {
+	
+	/* Developers list */
+	#developer_block {
 		text-align: center;
-		color: #8DC289;
+	}
+	.developer_list {
+		margin-top: 10px;
+	}
+	.developer_title {
+		margin: 0;
+		color: rgb(238, 124, 72);
 		font-weight: normal;
 		font-size: 30px;
 	}
-	p {
-		min-height: 120px;
-	} 
-	.affiliate_banner {
-		margin: 0 10px 10px 10px;
-		width: 50px;
-		height: 50px;
+	.developer_name {
+		color: #8DC289;
+		margin: 0;
+		font-size: 30px;
 	}
-	.more_info {
-		color: rgb(238, 124, 72);
+	.developer_info {
+		margin-bottom: 30px;
 	}
+	.portrait_icon {
+		height: 213px;
+		width: 200px;
+	}
+
+	/* Special Thanks */
+	#thanks_block {
+		text-align: center;
+	}
+	
+	/* Drop Down */
     #affiliates {
         background-color: #719c6e ;
         box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);

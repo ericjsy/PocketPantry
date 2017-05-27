@@ -1,65 +1,164 @@
-/* calender */
+/* Calendar */
 
-table {
-    width: 99.9%;
-    color: orange;
+#calendar {
     border-collapse: collapse;
 	background-color: white;
-	font-family: "Agency FB", Helvetica, sans-serif;
-    padding-top: 100px;
+	font-family: "Conv_SanFranciscoText-Regular", helvetica, "Trebuchet MS", sans-serif;
+	margin-top: 15px;
+	margin-bottom: 20px;
+    width: 99.9%;
 }
-#month {
-  font-size: 50px;
-  font-weight: 100;
-  color: grey;
+#calendar table, th, td {
+	border: 1px solid #878787;
+}
+#calendar th:first-child {
+	position: relative;
+}
+#calendar th:not(:only-child) {
+	background-color: #757575;
+	color: white;
+	font-family: "Conv_agency-fb", Helvetica, sans-serif;
+	font-size: 1.3em;
+	font-weight: normal;
+	height: 100%;
+	text-shadow: 1px 1px 0px #000000;
+	padding: 5px 0;
+}
+#calendar td {
+	height: calc(100vw / 7 * 1.06);
+	margin: 0;
+	width: calc(100%/7);
 }
 
-table #calendar_days_headings {
-  color: grey;
-  font-size: 25px;
-  font-weight: normal;
+/* Calendar Nav */
+#calendar_nav{
+    display: flex;
+    overflow: auto;
+    font-family: "Conv_agency-fb", Helvetica, sans-serif;
+    margin-top: 65px;
 }
-.dot {
+#calendar_nav h1{
+    font-weight: 100;
+    margin: 0;
+    color: grey;
+}
+#today_tab{
     flex: 1;
+    font-size: 4vw;
+    margin: auto;
     text-align: center;
+}
+#diplay_date{
+    margin: auto;
+    flex: 2;
+    text-align: center;
+    font-size: 3vw;
+}
+#expand_tab{
+    flex: 1;
+}
+#expand_tab img, #today_tab img {
+    width: 43px;
+	height: 48px;
+    display: block;
+    margin: auto;
+    bottom: 0;
+}
+
+/* Day of the Week Heading */
+#calendar_days_headings {
+	background-color: #8E8E8E;
+	color: #E1E1E1;
+	font-size: 1em;
+	font-weight: normal;
+}
+
+/* Month Selector */
+#calendar th:only-child {
+	border: 1px solid white;
+	font-family: "Conv_SanFranciscoText-Regular", helvetica, "Trebuchet MS", sans-serif;
+	padding: 13px 0;
+}
+#month {
+	color: grey;
+	font-size: 30px;
+	font-weight: 100;
+	vertical-align: middle;
+}
+
+/* Single Day Visuals */
+.dot {
     -webkit-border-radius: 100%;
     -khtml-border-radius: 100%;
     -moz-border-radius: 100%;
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
     border-radius: 100%;
-	font-size: 25px;
+    flex: 1;
+	font-size: 3vw;
     pointer-events: none;
+    text-align: center;
 }
 .day{
-    margin-right: 5px;
     pointer-events: none;
 }
 .dot_container {
-    width: 100%;
     display: flex;
     pointer-events: none;
+    width: 100%;
 }
 .selected_date{
-    background-color: skyblue !important;
-    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5);
+    /*background-color: #B0E77A !important;*/
+    /*box-shadow: 2px 2px 0px white inset, -2px -2px 0px white inset;*/
+	/*background: linear-gradient(180deg, #B0E77A 50%, white 50%);*/
+	background-image: url("../img/greenBgCal.png");
+	background-size: 100% 100%;
 }
+.not_past{}
 .greyout_date{
-    background-color: #CCCCCC;
+    background-color: #E7E7E7;
+	box-shadow: 1px 1px 1px #FFFFFF inset, -1px -1px 1px #FFFFFF inset;
+	color: #747474;
+	font-size: 0.75em;
+	text-align: center;
 }
-.today_date{
-    background-color: #BFD8CA;
+td:not(.greyout_date) {
+	font-size: 1.125em;
+	text-align: center;
 }
 .not_clickable{
     pointer-events: none;
 }
+.startDate_selected{
+    background-color: greenyellow;
+}
+.endDate_selected{
+    background-color: coral;
+}
+
 /* mobile */
 
 @media only screen and (max-width: 600px) {
     /* header */
-	
+	@font-face {
+		font-family: 'Conv_agency-fb';
+		src: url('../assets/agency-fb.eot');
+		src: local('☺'), url('../assets/agency-fb.woff') format('woff'), url('../assets/agency-fb.ttf') format('truetype'), url('../assets/agency-fb.svg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}	
+
+	@font-face {
+		font-family: 'Conv_SanFranciscoText-Regular';
+		src: url('../assets/SanFranciscoText-Regular.eot');
+		src: local('☺'), url('../assets/SanFranciscoText-Regular.woff') format('woff'), url('../assets/SanFranciscoText-Regular.ttf') format('truetype'), url('../assets/SanFranciscoText-Regular.svg') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+
 	body { /* Changed */
-		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+		font-family: "Conv_SanFranciscoText-Regular", helvetica, "Trebuchet MS", sans-serif;
 	}
 	
     #calander_container{
@@ -69,18 +168,6 @@ table #calendar_days_headings {
         background-color: #719c6e;
         box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
     }
-    #expand_tab {
-        width: 100%;
-        text-align: center;
-        font-size: 30px;
-		color: #B5B5B5;
-    }
-    
-	#expand_tab img {
-		height: 24px;
-		width: 33px;
-		padding-top: 10px;
-	}
 	
     /* meal builder */
     #meal_title{
@@ -242,23 +329,13 @@ table #calendar_days_headings {
         height: 30px;
         width: 23px;
     }
-    th:first-child {
-        position: relative;
-    }
-    td {
-        height: 45px;
-        width: 45px;
-        border: solid 1px #787878;
-        margin: 0;
-        vertical-align: top;
-        text-align: right;
-    }
+
 }
 /* PC */
 
 @media only screen and (min-width: 600px) {
     body { /* Changed */
-		font-family: Helvetica, "Trebuchet MS" ,sans-serif;
+		font-family: "Conv_SanFranciscoText-Regular", helvetica, "Trebuchet MS", sans-serif;
 	}
     /* hide mobile */
     

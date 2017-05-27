@@ -31,12 +31,15 @@ function db_calender_statusUpdate(){
         var mealtime = ["breakfast", "lunch", "dinner"];
         for(i = 0 ; i < 3; i++){
             snapshot.ref.child(mealtime[i]).once("value").then(function(childSnapshot) {
-                if(childSnapshot.val() != null){
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');   
-                } else {
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('un_planned');
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('planned');   
+                var ifElementExist = document.getElementById(childSnapshot.key + "_" + snapshot.key);
+                if(ifElementExist != null){
+                    if(childSnapshot.val() != null){
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');   
+                    } else {
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('un_planned');
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('planned');   
+                    }
                 }
             });
         }
@@ -49,14 +52,26 @@ function db_mealPlanned_imageUpdate(){
     var mealtime = ["breakfast", "lunch", "dinner"];
     for(i = 0 ; i < 3; i++){
         dbDate.child(mealtime[i]).once("value").then(function(snapshot) {
+			var a = document.getElementById(snapshot.key + "_remove");
             if(snapshot.val() != null){
-                document.getElementById(snapshot.key + "_remove").classList.add('show'); 
-                document.getElementById(snapshot.key + "_remove").classList.remove('hide'); 
+				if(a != null) {
+					document.getElementById(snapshot.key + "_remove").classList.add('show'); 
+					document.getElementById(snapshot.key + "_remove").classList.remove('hide'); 
+                    document.getElementById(snapshot.key + "_info").classList.add('show'); 
+                    document.getElementById(snapshot.key + "_info").classList.remove('hide');
+				}
             } else {
-                document.getElementById(snapshot.key + "_remove").classList.add('hide'); 
-                document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
+				if(a != null) {
+					document.getElementById(snapshot.key + "_remove").classList.add('hide'); 
+					document.getElementById(snapshot.key + "_remove").classList.remove('show'); 
+                    document.getElementById(snapshot.key + "_info").classList.add('hide'); 
+                    document.getElementById(snapshot.key + "_info").classList.remove('show');
+				}
             }
-            document.getElementById(snapshot.key).src = "img/" + snapshot.val() + ".jpg";
+			var b = document.getElementById(snapshot.key);
+			if(b != null) {
+				document.getElementById(snapshot.key).src = "img/" + snapshot.val() + ".jpg";
+			}
         });
     }
 }
@@ -82,9 +97,9 @@ function db_mealPlanned_optionUpdate(mealtime){
 //    console.log("db_mealPlanned_optionUpdate called");
     meal_option = document.getElementById("meal_option");
     meal_option.innerHTML = "";
-    dbMealOption.child(mealtime).once("value").then(function(snapshot) {
+    dbMealOption.child(mealtime).once("value").then(function(snapshot) { 
         snapshot.forEach(function(childSnapshot) {
-            meal_option.innerHTML += "<div><img id='" + childSnapshot.key + "' src='img/" + childSnapshot.key + ".jpg" +"'><h1>" + childSnapshot.key +"</h1></div>";
+            meal_option.innerHTML += "<div><img id='" + childSnapshot.key + "' src='img/" + childSnapshot.key + ".jpg" +"'><h1>" + childSnapshot.key.charAt(0).toUpperCase() + childSnapshot.key.replace(/([A-Z])/g, ' $1').slice(1) +"</h1><h2 class='info' onclick='popup(\"" + snapshot.key + "\", \"" + childSnapshot.key + "\")'><span style='text-transform:lowercase;'>i</span></h2></div>";
             $('#meal_option').css('text-transform', 'capitalize');
         });
     }); 

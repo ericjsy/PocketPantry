@@ -5,18 +5,18 @@
 	<meta name="viewport" content="width=device-width">
 	<title>Pocket Pantry - Sign In</title>
 
-	<link rel="stylesheet" href="./css/main_style_pc.css">
 	<link rel="stylesheet" href="./css/main_style_mobile.css">
 	<link rel="stylesheet" href="./css/sign_in.css">
-
+    <link rel="manifest" href="http://students.bcitdev.com/A01005523/comp2910/PocketPantry/manifest.json">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	
 	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 	<script src="js/fbconnect.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="691436780664-cqrn0krnafdum5jf74kckgcitmrk9iru.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/detectUserData.js"></script>
+    
 </head>
 <body>
 	<main>
@@ -28,9 +28,10 @@
 			<p><span class="first_letter">P</span>ANTRY</p>
 		</div>
 		<div id="sign_in_container">
-			<input type="image" src="img/signInWithGoogle.png" id="sign_in_button" onclick="signIn()" />
+			<input id="sign_in_button" type="image" src="img/signInWithGoogle.png" onclick="signIn()"/>
 		</div>
 	</main>
-	<script type="text/javascript" src="js/sign_in.js"></script>
+    
+    <script type="text/javascript" src="js/sign_in.js"></script>
 </body>
 </html>

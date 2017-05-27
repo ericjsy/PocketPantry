@@ -9,10 +9,9 @@ $(document).ready(function() {
         $("#meal_builder").css("display", "none");
     });
     // Calendar td onclick show indication of date selected
-    $("#calendar").on("click", "td", function(event) {
+    $("#calendar").on("click", "td.not_past", function(event) {
         $("#calendar td.selected_date").removeClass('selected_date');
         $(event.target).addClass('selected_date');
-        selectedDate = event.target;
         //Mobile - while in pre-set meal adding mode, if select other date (td), reset meal_time_block and meal_option to original //toggle state when meal selection mode is present
         if ($(window).width() < 600) {
           $("#meal_time_block").css("display", "inline");

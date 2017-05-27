@@ -1,10 +1,10 @@
 //Draw calendar
 function drawCalendar(date) {
-    connectUser("ryalia");
+    connectUser(uid);
     
 	//Enumeration sets
-	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-	var dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+	months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+	dayofweek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 	//Create dates
 	var d = new Date(date);
@@ -18,11 +18,11 @@ function drawCalendar(date) {
 			"<button id='next' onclick='previousMonth()' >" +
 				"<img src='img/mealPlannerArrowLeft.png' alt='left arrow' height='59' width='46'>" +
 			"</button>" +
-			"<button id='start_selector'>Start</button>" +
+			"<button id='start_selector' onclick='slcFrom()'>From</button>" +
 			"<span id='month'>" + 
 				months[d.getMonth()] + 
 			"</span>" +
-			"<button id='end_selector'>End</button>" +
+			"<button id='end_selector' onclick='slcTo()'>To</button>" +
 			"<button id='previous' onclick='nextMonth()'>" +
 				"<img src='img/mealPlannerArrowRight.png' alt='right arrow' height='59' width='46'>"
 			"</button>" + 
@@ -70,7 +70,7 @@ function drawCalendar(date) {
 
 	//Highlight today
 	if (d.getMonth() - 1 == today.getMonth() && d.getFullYear() == today.getFullYear()) {
-        document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#BFD8CA";
+        document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).style.backgroundColor = "#DFEBFA";
         document.getElementById("" + (today.getMonth() + 1) + "_" + today.getDate()).classList.add('selected_date'); 
 	}
 
@@ -81,8 +81,7 @@ function drawCalendar(date) {
             d.getFullYear() == today.getFullYear() && d.getMonth() < today.getMonth() ||
             d.getFullYear() == today.getFullYear() && d.getMonth() == today.getMonth() && d.getDate() < today.getDate()){
 					document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).classList.add('greyout_date');
-		}
-		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {retrieve_mealStatus(this.id);}, false);
+		} else {
 		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).innerHTML += 
 		"<div class='dot_container'>" + 
 			"<div id='" + 
@@ -95,11 +94,16 @@ function drawCalendar(date) {
 				"dinner_" + "" + (d.getMonth() + 1) + "_" + d.getDate() + 
 					"' class='dot un_planned'>&#9679;</div>" +
 		"</div>";
+		}
+		document.getElementById("" + (d.getMonth() + 1) + "_" + d.getDate()).addEventListener("click", function(e) {decider(this.id);}, false);
+
+
 		
 		init_mealStatus("" + (d.getMonth() + 1) + "_" + d.getDate());
 	} while(d.getDate() > 1);
     
 	retrieve_mealStatus("" + (today.getMonth()+1) + "_" + today.getDate());
+
 }
 
 // Show current month
@@ -115,6 +119,10 @@ function previousMonth() {
 	d.setMonth(d.getMonth()-1);
 	// mealPlan("" + (d.getMonth() + 1) + "_" + 1);
 	drawCalendar(d);
+	console.log("BACK");
+	console.log(startDate);
+	console.log(endDate);
+	colorDateRange(startDate.date, endDate.date);
 }
 
 // Show next month
@@ -122,6 +130,10 @@ function nextMonth() {
 	d.setMonth(d.getMonth()+1);
 	// mealPlan("" + (d.getMonth() + 1) + "_" + 1);
 	drawCalendar(d);
+	console.log("NEXT");
+	console.log(startDate);
+	console.log(endDate);
+	colorDateRange(startDate.date, endDate.date);
 }
 
 //On Window load, call currentMonth
