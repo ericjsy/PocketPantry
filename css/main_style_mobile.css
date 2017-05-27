@@ -58,6 +58,15 @@
 }
 .planned {
     color: #95D15B;
+    text-shadow: 
+	-1px 0 #464646, 
+	0 1px #464646, 
+	1px 0 #464646, 
+	0 -1px #464646,
+	-0.8px -0.8px #464646,
+	0.8px 0.8px #464646,
+	0.8px -0.8px #464646,
+	-0.8px 0.8px #464646;
 }
 .un_planned {
 	color: white;

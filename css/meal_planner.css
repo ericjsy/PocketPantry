@@ -114,6 +114,7 @@
 	background-image: url("../img/greenBgCal.png");
 	background-size: 100% 100%;
 }
+.not_past{}
 .greyout_date{
     background-color: #E7E7E7;
 	box-shadow: 1px 1px 1px #FFFFFF inset, -1px -1px 1px #FFFFFF inset;

@@ -31,12 +31,15 @@ function db_calender_statusUpdate(){
         var mealtime = ["breakfast", "lunch", "dinner"];
         for(i = 0 ; i < 3; i++){
             snapshot.ref.child(mealtime[i]).once("value").then(function(childSnapshot) {
-                if(childSnapshot.val() != null){
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');   
-                } else {
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('un_planned');
-                    document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('planned');   
+                var ifElementExist = document.getElementById(childSnapshot.key + "_" + snapshot.key);
+                if(ifElementExist != null){
+                    if(childSnapshot.val() != null){
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('un_planned');
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('planned');   
+                    } else {
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.add('un_planned');
+                        document.getElementById(childSnapshot.key + "_" + snapshot.key).classList.remove('planned');   
+                    }
                 }
             });
         }

@@ -2,7 +2,7 @@
     display: flex;
     overflow: auto;
     font-family: "Agency FB", Helvetica, sans-serif;
-    margin-top: 40px;
+    margin-top: 55px;
 }
 #calendar_nav h1{
     font-weight: 100;
@@ -15,18 +15,24 @@
     margin: auto;
     text-align: center;
 }
+#getToday{
+    width: 15vw;
+    height: 15vw;
+    margin-top: 10px;
+}
 #diplay_date{
     margin: auto;
     flex: 2;
     text-align: center;
-    font-size: 3vw;
+    font-size: 3.5vw;
 }
 #expand_tab{
     flex: 1;
 }
 #expand_tab img {
-    width: 60px;
+    width: 40px;
     display: block;
     margin: auto;
+    margin-top: 10px;
     bottom: 0;
 }
